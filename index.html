@@ -13,12 +13,12 @@
 
   <script src="india.js" charset="utf-8"></script>
   <script src="viz.js" charset="utf-8"></script>
-<script src="https://kit.fontawesome.com/5b941bf5b1.js" crossorigin="anonymous"></script>
-<link href="https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/5b941bf5b1.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="favicon.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
   <style media="screen">
     g.deselected,
@@ -75,6 +75,50 @@
     </div>
     <br>
 
+    <div class="map">
+      <div class="map-description">
+
+        <div class="cells"></div>
+        <section class="hero is-black is-fullheight has-text-centered">
+          <div class="hero-head">
+            <div class="container1">
+              <div class="ima">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg" alt="Flag of India">
+              </div>
+              <h4 class="descheading main title is-size-4">SARS-CoV-2 COVID-19 Live Case Count</h4><br>
+              <span class="tag is-black is-light">● LIVE</span>
+            </div><br>
+          </div>
+          <div class="hero-body">
+            <div class="container">
+              <div class="columns is-uppercase">
+                <div class="column confirm"><br>
+                  <h2 class="subtitle has-text-warning is-size-4-mobile is-size-3-tablet">Confirmed</h2>
+                  <h1 class="title confirmed has-text-warning is-size-3-mobile is-size-1-tablet">Refreshing...</h1>
+                  <span class="tag is-warning"></span><br><br><br>
+                </div>
+                <div class="column recover"><br><br>
+                  <h2 class="subtitle has-text-link is-size-4-mobile is-size-3-tablet">Recovered</h2>
+                  <h1 class="title recovered has-text-link is-size-3 -mobile is-size-1-tablet">Refreshing...</h1>
+                  <span class="tag is-link"></span><br><br>
+                </div>
+                <div class="column decease"><br>
+                  <h2 class="subtitle has-text-grey-dark is-size-4-mobile is-size-3-tablet">Deceased</h2>
+                  <h1 class="title deceased has-text-grey-dark is-size-3 -mobile is-size-1-tablet">Refreshing...</h1>
+                  <span class="tag is-dark"></span><br><br><br>
+                </div>
+              </div>
+            </div>
+          </div><br>
+          <div class="hero-foot">
+            <p class="has-text-success">
+              Do Not Panic. Take Necessary Precautions. Stay Indoors. Wash Your Hands Regularly. Stay Safe. Jai Hind.
+            </p>
+          </div><br>
+        </section><br>
+      </div>
+    </div>
+    <br>
     <div class="map">
       <div class="map-description">
         <div class="space">
@@ -141,157 +185,176 @@
 
     <br>
 
-  <div class="age">
-    <div class="age-description">
-      <h6 class="descheading">Effect of Covid-19 between different age groups</h6><br>
-      <p>This Pie-Chart denotes percentage wise distribution of the total Active, Recovered and deceased cases between Males and Females.
-        <br>1. Click on any one of the portion to change and view analytics of Covid19 in India in Males or females.
-        <br>2. Hovering on a segment shows the Exact figure of that case.
-        <br>3. All the graphs and Map data change and reflect the statistics corresponding to that section.</p>
+    <div class="age">
+      <div class="age-description">
+        <h6 class="descheading">Effect of Covid-19 between different age groups</h6><br>
+        <p>This Pie-Chart denotes percentage wise distribution of the total Active, Recovered and deceased cases between Males and Females.
+          <br>1. Click on any one of the portion to change and view analytics of Covid19 in India in Males or females.
+          <br>2. Hovering on a segment shows the Exact figure of that case.
+          <br>3. All the graphs and Map data change and reflect the statistics corresponding to that section.</p>
+      </div>
+      <div class="age-actual">
+        <h6 class="descheading">Age group</h6>
+        <div id="age-row"></div>
+      </div>
     </div>
-    <div class="age-actual">
-      <h6 class="descheading">Age group</h6>
-      <div id="age-row"></div>
+    <br>
+    <div id="covid" class="corona">
+      <img src="corona1.png" alt="">
+    </div>
+    <div id="covid1" class="covid">
+      <h5 class="descheading">CORONAVIRUS (COVID-19)</h5>
+      <p>Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.</p>
+      <p>Most people infected with the COVID-19 virus will experience mild to moderate respiratory illness and recover without requiring special treatment. Older people, and those with underlying medical problems like cardiovascular disease,
+        diabetes, chronic respiratory disease, and cancer are more likely to develop serious illness.</p>
+      <p>The best way to prevent and slow down transmission is be well informed about the COVID-19 virus, the disease it causes and how it spreads. Protect yourself and others from infection by washing your hands or using an alcohol based rub
+        frequently and not touching your face. </p>
+      <p>The COVID-19 virus spreads primarily through droplets of saliva or discharge from the nose when an infected person coughs or sneezes, so it’s important that you also practice respiratory etiquette (for example, by coughing into a flexed
+        elbow).</p>
+      <p>At this time, there are no specific vaccines or treatments for COVID-19. However, there are many ongoing clinical trials evaluating potential treatments. WHO will continue to provide updated information as soon as clinical findings become
+        available.</p>
+    </div><br>
+    <div class="covid">
+      <h5 class="descheading">PREVENTION</h5>
+      <p>To prevent infection and to slow transmission of COVID-19, do the following:</p>
+      1. Wash your hands regularly with soap and water, or clean them with alcohol-based hand rub.
+      <br /> 2. Maintain at least 1 metre distance between you and people coughing or sneezing.
+      <br /> 3. Avoid touching your face.
+      <br /> 4. Cover your mouth and nose when coughing or sneezing.
+      <br /> 5. Stay home if you feel unwell.
+      <br /> 6. Refrain from smoking and other activities that weaken the lungs.<br />
+      7. Practice physical distancing by avoiding unnecessary travel and staying away from large groups of people.<br />
+
+    </div><br>
+    <div class="covid">
+      <h5 class="descheading">SYMPTOMS</h5>
+      <p>The COVID-19 virus affects different people in different ways. COVID-19 is a respiratory disease and most infected people will develop mild to moderate symptoms and recover without requiring special treatment. People who have underlying
+        medical conditions and those over 60 years old have a higher risk of developing severe disease and death.</p>
+      <p>Common symptoms include: <br />
+
+        fever<br />
+
+        tiredness
+        <br />
+
+        dry-cough
+        <br />
+      </p>
+      <p>Other symptoms include: <br />
+        shortness of breath
+        <br />
+        aches and pains
+        <br />
+        sore throat
+        <br />
+        and very few people will report diarrhoea, nausea or a runny nose.
+        <br /></p>
+      <p>People with mild symptoms who are otherwise healthy should self-isolate and contact their medical provider or a COVID-19 information line for advice on testing and referral.</p>
+      <p>People with fever, cough or difficulty breathing should call their doctor and seek medical attention.</p>
+    </div><br>
+    <div class="download">
+      <h5 class="descheading2"><strong>CORONA SAFETY</strong></h5>
+      <a href="corona.pdf" download><button class="btn"><i class="fa fa-download"></i> Download</button></a>
+    </div>
+    <br>
+    <div class='scrolltop'>
+      <div class='scroll icon'><i class="fa fa-4x fa-angle-up"></i></div>
     </div>
   </div>
-  <br>
-  <div id="covid" class="corona">
-    <img src="corona1.png" alt="">
+  <div id="footer">
+    <div class="copy">
+      © AjmerSuman 2020
+    </div><br>
+    <div class="mygov">
+      <ul>
+        <li class="a1 descheading" id="help"><br /><strong>GOVERNMENT HELPLINE</strong></li><br><br>
+        <li class="a1"><a href="https://wa.me/+919013151515"><i class="fab fa-whatsapp"></i></a></li>
+        <li class="a1" id="myInput"><a href="tel:+911123978046 "><i class="fas fa-phone"></i></a></li>
+        <li class="a1"><a href="mailto:ncov2019@gov.in"><i class="far fa-envelope"></i></a></li>
+      </ul>
+    </div>
+    <div class="me">
+      <ul>
+        <br /><strong class="descheading">&nbsp;&nbsp;FOLLOW ME</strong><br><br>
+        <li class="a1"><a href="https://www.instagram.com/who.is.ashish"><i class="fab fa-instagram"></i></a></li>
+        <li class="a1"><a href="https://www.linkedin.com/in/ashish-yadav-5558a4179"><i class="fab fa-linkedin-in"></i></a></li>
+        <li class="a1"><a href="mailto:nowwhoisashish@gmail.com"><i class="far fa-envelope"></i></a></li>
+      </ul>
+    </div>
+    <div class="sources">Data sources
+      <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports">WHO</a>,
+      <a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html">CDC</a>,
+      <a href="https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases">ECDC</a>,
+      <a href="http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml">NHC</a> and
+      <a href="https://3g.dxy.cn/newh5/view/pneumonia?scene=2&amp;clicktime=1579582238&amp;enterid=1579582238&amp;from=singlemessage&amp;isappinstalled=0">DXY</a>
+      provided by <a href="https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6">Johns Hopkins CSSE</a>.<br />Indian <a
+        href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSc_2y5N0I67wDU38DjDh35IZSIS30rQf7_NYZhtYYGU1jJYT6_kDx4YpF-qw0LSlGsBYP8pqM_a1Pd/pubhtml">DataBase</a> on Covid-19 spread.
+    </div>
   </div>
-  <div id="covid1" class="covid">
-    <h5 class="descheading">CORONAVIRUS (COVID-19)</h5>
-<p>Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.</p>
-<p>Most people infected with the COVID-19 virus will experience mild to moderate respiratory illness and recover without requiring special treatment.  Older people, and those with underlying medical problems like cardiovascular disease, diabetes, chronic respiratory disease, and cancer are more likely to develop serious illness.</p>
-<p>The best way to prevent and slow down transmission is be well informed about the COVID-19 virus, the disease it causes and how it spreads. Protect yourself and others from infection by washing your hands or using an alcohol based rub frequently and not touching your face. </p>
-<p>The COVID-19 virus spreads primarily through droplets of saliva or discharge from the nose when an infected person coughs or sneezes, so it’s important that you also practice respiratory etiquette (for example, by coughing into a flexed elbow).</p>
-<p>At this time, there are no specific vaccines or treatments for COVID-19. However, there are many ongoing clinical trials evaluating potential treatments. WHO will continue to provide updated information as soon as clinical findings become available.</p>
-</div><br>
-<div class="covid">
-<h5 class="descheading">PREVENTION</h5>
-<p>To prevent infection and to slow transmission of COVID-19, do the following:</p>
-1. Wash your hands regularly with soap and water, or clean them with alcohol-based hand rub.
-<br />  2. Maintain at least 1 metre distance between you and people coughing or sneezing.
-<br />  3. Avoid touching your face.
-<br />  4. Cover your mouth and nose when coughing or sneezing.
-<br />  5. Stay home if you feel unwell.
-<br />  6. Refrain from smoking and other activities that weaken the lungs.<br />
-  7. Practice physical distancing by avoiding unnecessary travel and staying away from large groups of people.<br />
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js'></script>
+  <script src='https://www.vantajs.com/dist/vanta.cells.min.js'></script>
+  <script src="./script.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43322397-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-</div><br>
-<div class="covid">
-<h5 class="descheading">SYMPTOMS</h5>
-<p>The COVID-19 virus affects different people in different ways.  COVID-19 is a respiratory disease and most infected people will develop mild to moderate symptoms and recover without requiring special treatment.  People who have underlying medical conditions and those over 60 years old have a higher risk of developing severe disease and death.</p>
-<p>Common symptoms include: <br />
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
 
-fever<br />
+    gtag('config', 'UA-43322397-2');
+  </script>
+  <script type="text/javascript">
+    /*for smooth achor bookmark link sailing*/
+    let anchorlinks = document.querySelectorAll('a[href^="#"]')
 
-tiredness
-  <br />
-
-dry-cough
-<br />
-</p>
-<p>Other symptoms include: <br />
-shortness of breath
-    <br />
-aches and pains
-  <br />
-sore throat
-    <br />
-and very few people will report diarrhoea, nausea or a runny nose.
-    <br /></p>
-  <p>People with mild symptoms who are otherwise healthy should self-isolate and contact their medical provider or a COVID-19 information line for advice on testing and referral.</p>
-  <p>People with fever, cough or difficulty breathing should call their doctor and seek medical attention.</p>
-</div><br>
-<div class="download"><h5 class="descheading2"><strong>CORONA SAFETY</strong></h5>
-<a href="corona.pdf" download><button class="btn"><i class="fa fa-download"></i> Download</button></a>
-</div>
-<br>
-<div class='scrolltop'>
-    <div class='scroll icon'><i class="fa fa-4x fa-angle-up"></i></div>
-</div>
-  </div>
-<div id="footer"><div class="copy">
-  © AjmerSuman 2020
-</div><br>
-<div class="mygov">
-<ul>
-  <li class="a1 descheading" id="help"><br /><strong>GOVERNMENT HELPLINE</strong></li><br><br>
-  <li class="a1"><a href="https://wa.me/+919013151515"><i class="fab fa-whatsapp"></i></a></li>
-  <li class="a1" id="myInput"><a href="tel:+911123978046 "><i class="fas fa-phone"></i></a></li>
-  <li class="a1"><a href="mailto:ncov2019@gov.in"><i class="far fa-envelope"></i></a></li>
-</ul>
-</div>
-<div class="me">
-<ul>
-  <br /><strong class="descheading">&nbsp;&nbsp;FOLLOW ME</strong><br><br>
-  <li class="a1"><a href="https://www.instagram.com/who.is.ashish"><i class="fab fa-instagram"></i></a></li>
-  <li class="a1"><a href="https://www.linkedin.com/in/ashish-yadav-5558a4179"><i class="fab fa-linkedin-in"></i></a></li>
-  <li class="a1"><a href="mailto:nowwhoisashish@gmail.com"><i class="far fa-envelope"></i></a></li>
-</ul>
-</div>
-<div class="sources">Data sources
-    <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports">WHO</a>,
-    <a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html">CDC</a>,
-    <a href="https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases">ECDC</a>,
-    <a href="http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml">NHC</a> and
-    <a href="https://3g.dxy.cn/newh5/view/pneumonia?scene=2&amp;clicktime=1579582238&amp;enterid=1579582238&amp;from=singlemessage&amp;isappinstalled=0">DXY</a>
-    provided by <a href="https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6">Johns Hopkins CSSE</a>.<br />Indian <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSc_2y5N0I67wDU38DjDh35IZSIS30rQf7_NYZhtYYGU1jJYT6_kDx4YpF-qw0LSlGsBYP8pqM_a1Pd/pubhtml">DataBase</a> on Covid-19 spread.
-</div>
-</div>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43322397-2"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-
-      gtag('config', 'UA-43322397-2');
-    </script>
-    <script type="text/javascript">
-      /*for smooth achor bookmark link sailing*/
-      let anchorlinks = document.querySelectorAll('a[href^="#"]')
-
-      for (let item of anchorlinks) { // relitere
-        item.addEventListener('click', (e) => {
-          let hashval = item.getAttribute('href')
-          let target = document.querySelector(hashval)
-          target.scrollIntoView({
-            behavior: 'smooth'
-          })
-          history.pushState(null, null, hashval)
-          e.preventDefault()
+    for (let item of anchorlinks) { // relitere
+      item.addEventListener('click', (e) => {
+        let hashval = item.getAttribute('href')
+        let target = document.querySelector(hashval)
+        target.scrollIntoView({
+          behavior: 'smooth'
         })
-      }
-    </script>
-    <script type="text/javascript">
+        history.pushState(null, null, hashval)
+        e.preventDefault()
+      })
+    }
+  </script>
+  <script type="text/javascript">
     /*for scrolling to top*/
     $(window).scroll(function() {
-  if ($(this).scrollTop() > 50 ) {
-      $('.scrolltop:hidden').stop(true, true).fadeIn();
-  } else {
-      $('.scrolltop').stop(true, true).fadeOut();
-  }
-});
-$(function(){$(".scroll").click(function(){$("html,body").animate({scrollTop:$(".all").offset().top},"1000");return false})})
-    </script>
-    <script>
-        /*for header hiding*/
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("header").style.top = "0";
-  } else {
-    document.getElementById("header").style.top = "-256px";
-  }
-  prevScrollpos = currentScrollPos;
-}
-</script>
+      if ($(this).scrollTop() > 50) {
+        $('.scrolltop:hidden').stop(true, true).fadeIn();
+      } else {
+        $('.scrolltop').stop(true, true).fadeOut();
+      }
+    });
+    $(function() {
+      $(".scroll").click(function() {
+        $("html,body").animate({
+          scrollTop: $(".all").offset().top
+        }, "1000");
+        return false
+      })
+    })
+  </script>
+  <script>
+    /*for header hiding*/
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("header").style.top = "0";
+      } else {
+        document.getElementById("header").style.top = "-256px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+  </script>
 
 </body>
 
