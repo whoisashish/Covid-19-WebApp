@@ -2,9 +2,17 @@ body{
   background: #444;
   color: white;
   font-family: 'Baloo Da 2', cursive;
+  -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale;
 }
 *{
   user-select: none;
+}
+
+.vanta-canvas{
+  max-width: 100%;
+  max-height: 100%;
+  display: none;
 }
 
 ul{
@@ -13,6 +21,43 @@ ul{
 
 .by{
   font-size: 10px;
+}
+
+.columns{
+  display: table;
+  width: 100%;
+}
+
+.hero-head img{
+  overflow:hidden;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  max-width: 100%;
+  max-height: 100%;
+  z-index: 0;
+}
+
+.confirm{
+  background-color: #A6AB00;
+  padding: 15px;
+  border-radius: 7px;
+}
+
+.recover{
+  background-color: #55FF28;
+  padding: 15px;
+  border-radius: 7px;
+}
+
+.decease{
+  background-color: black;
+  padding: 15px;
+  border-radius: 7px;
+}
+
+.column{
+  display: table-cell;
+  width: auto;
 }
 
 .by a{
@@ -29,6 +74,7 @@ ul{
   top: 0;
   transition: top 0.5s;
   width: 100%;
+  z-index: 10000000;
 }
 
 h6{
@@ -305,11 +351,30 @@ text-align: center;
   cursor: none;
 }
 
+.hero-head {
+  padding: 1vh;
+  position: relative;
+}
+
+.hero-body .tag {
+  font-weight: bold;
+  padding: 1% 2%;
+  display: none;
+}
+
 #covid1{
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
+}
+
+.tag{
+  background: #e62429;
+  border-radius: 7px;
+  border: 1px solid #e62429;
+  padding: 5px;
+  padding-right: 10px;
 }
 
 @media screen and (max-width:1024px) {
@@ -335,4 +400,8 @@ text-align: center;
 .a2{display: block;}
 
   .a3{display: none;}
+
+  .column{
+    display: table-row;
+  }
 }
