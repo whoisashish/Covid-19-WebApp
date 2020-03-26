@@ -1,0 +1,338 @@
+body{
+  background: #444;
+  color: white;
+  font-family: 'Baloo Da 2', cursive;
+}
+*{
+  user-select: none;
+}
+
+ul{
+  list-style-type: none;
+}
+
+.by{
+  font-size: 10px;
+}
+
+.by a{
+    color: #14E6ED;
+    text-decoration: none;
+}
+
+.a1{
+  display: inline;
+}
+
+#header{
+  position: fixed;
+  top: 0;
+  transition: top 0.5s;
+  width: 100%;
+}
+
+h6{
+  text-align: center;
+}
+#reported-bar, #status-pie, #gender-pie, #age-row{
+  text-align: center;
+}
+
+.all{
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-top: 48px;
+}
+
+.all1{
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 82px;
+}
+
+.corona img{
+  width: 150px;
+  height: 150px;
+}
+
+.descheading, .descheading1{
+  color: #e62429;
+}
+
+.exp{
+  font-size: 12px;
+  padding-top: 5px;
+  padding-bottom: 8px;
+}
+
+.fab, .fas, .far{
+  font-size: 30px;
+  margin: 20px 30px 20px 0px;
+  color: #fff;
+}
+
+.fab:hover, .fas:hover, .far:hover{
+  color: #14E6ED;
+}
+
+#footer{
+  bottom: 0px;
+  width: 100%;
+  background: #000;
+  display: table;
+}
+
+#footer div{
+  display: inline-block;
+}
+
+.heading{
+    color: #e62429;
+}
+
+.lead{
+  text-align: center;
+  font-size: 1rem;
+}
+
+#loading{
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.map, .report, .status, .gender, .age{
+  display: table;
+}
+
+.me{
+  display: table-cell;
+  float: right;
+}
+
+.age-description, .age-actual, .map-actual, .map-description, .report-actual, .report-description, .status-actual, .status-description, .gender-actual, .gender-description{
+display: table-cell;
+}
+
+.age-description, .map-description,.map-description1 .report-description, .status-description, .gender-description{
+  text-align: center;
+    padding: 15px;
+}
+
+.form-group{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.mybut{
+  margin-bottom: 20px;
+}
+
+.mast{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.info{
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center;
+}
+
+.disp{
+  background: #151515;
+  text-align: center;
+  border-radius: 7px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.map-description img{
+  height: 350px;
+  width: 350px;
+}
+
+#navbarSupportedContent{
+text-align: center;
+}
+
+#total, .report, .gender, .map, .status, .age, .corona, .covid{
+  border-radius: 7px;
+  padding-top: 10px;
+  text-align: center;
+  background: #151515;
+}
+
+.btn {
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.btn:hover {
+  background-color: #e62429;
+}
+
+.download{
+  border-radius: 7px;
+  padding-top: 10px;
+  text-align: center;
+  background: transparent;
+}
+
+.descheading2{
+  color: #ff0000;
+}
+
+.covid{
+  padding-top: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+}
+
+.covid ul{
+  text-align: center;
+}
+
+#total, .map, .report, .gender, .status, .age, .corona, .covid{
+  width: 100%;
+}
+
+.once{
+  padding-top: 60px;
+  border-radius: 7px;
+  text-align: center;
+  background: #151515;
+}
+
+::-webkit-scrollbar{
+  width: 0px;
+}
+
+::-webkit-scrollbar-track{
+  width: 0px;
+}
+
+.sources{
+  font-size: 13px;
+  text-align: center;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+.sources a{
+  text-decoration: none;
+  color: grey;
+}
+
+.scrolltop {
+  opacity: 0.7;
+	display:none;
+	width:100%;
+	margin:0 auto;
+	position:fixed;
+	bottom:8px;
+	right:15px;
+}
+.scroll {
+  border-radius: 50%;
+  height: 70px;
+   width: 70px;
+	position:absolute;
+	right:20px;
+	bottom:20px;
+	background:#ff0000;
+	padding:20px;
+	text-align: center;
+	margin: 0 0 0 0;
+	cursor:pointer;
+	transition: 0.5s;
+	-moz-transition: 0.5s;
+	-webkit-transition: 0.5s;
+	-o-transition: 0.5s;
+}
+.scroll:hover {
+	background:red;
+	transition: 0.5s;
+	-moz-transition: 0.5s;
+	-webkit-transition: 0.5s;
+	-o-transition: 0.5s;
+}
+.scroll:hover .fa {
+	padding-top:-15px;
+}
+.scroll .fa {
+	font-size:30px;
+	margin-top:-5px;
+	margin-left:1px;
+	transition: 0.5s;
+	-moz-transition: 0.5s;
+	-webkit-transition: 0.5s;
+	-o-transition: 0.5s;
+}
+
+.sources a:hover{
+    color: #14E6ED;
+}
+
+.a2{display: none;}
+
+.corona{
+  display: none;
+  padding-top: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+.copy{
+  display: block;
+  font-size: 15px;
+  color: #14E6ED;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+.copy:hover{
+  cursor: none;
+}
+
+#covid1{
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+@media screen and (max-width:1024px) {
+  .a1{
+    text-align: left;
+  }
+
+  .me{
+    display: block;
+  }
+
+  .map, .report, .status, .gender, .age, .corona{
+    display: block;
+  }
+
+  .age-actual, .age-description, .map-actual, .gender-description, .map-description, .report-actual, .report-description, .status-actual, .status-description{
+  display: block;
+  }
+
+  .space, .descheading1{
+    display: none;
+  }
+.a2{display: block;}
+
+  .a3{display: none;}
+}

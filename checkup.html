@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>COVID19 Tracker (India) | Ashish Yadav</title>
+
+  <script src="d3.min.js" charset="utf-8"></script>
+  <script src="crossfilter.min.js" charset="utf-8"></script>
+  <script src="dc.min.js" charset="utf-8"></script>
+  <script src="jquery.min.js" charset="utf-8"></script>
+  <script src="bootstrap.min.js" charset="utf-8"></script>
+
+  <script src="india.js" charset="utf-8"></script>
+  <script src="viz.js" charset="utf-8"></script>
+<script src="https://kit.fontawesome.com/5b941bf5b1.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <style media="screen">
+    g.deselected,
+    rect.deselected {
+      opacity: 0.3;
+    }
+
+    g.state.selected path {
+      fill: #A1DA9B;
+    }
+  </style>
+</head>
+
+<body>
+  <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <span class="navbar-brand">COVID-19 Dashboard <span class="by">by <a href="https://www.instagram.com/who.is.ashish">ASHISH</a></span></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Indian statistics</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="globe/index1.html">3D globe statistics</a>
+        </li>
+        <li class="nav-item">
+          <a class="a2 nav-link" href="index.html#covid">All about Corona</a>
+          <a class="a3 nav-link" href="index.html#covid1">All about Corona</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#help">Helpline</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+<div class="all1">
+  <form class="map"><h4 class="descheading2">Self Check-up Prototype</h4>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">What is your age?</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter your age: eg. 26">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Do you have fever?</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="eg. 100.2">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect2">Do you have Body Pain?</label>
+      <select custom-select class="form-control custom-select" id="exampleFormControlSelect2">
+        <option>No, I dont have pain</option>
+        <option>Yes, mild Pain.</option>
+        <option>Yes, I have severe Pain.</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect2">Do you have Runny Nose?</label>
+      <select custom-select class="form-control custom-select" id="exampleFormControlSelect2">
+        <option>Yes, a lot. 😢</option>
+        <option>No</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect2">Are you having difficulty in breathing?</label>
+      <select custom-select class="form-control custom-select" id="exampleFormControlSelect2">
+        <option>No</option>
+        <option>Yes, but it maybe due to asthma.</option>
+        <option>Yes, I am facing lot of difficulty in breathing.</option>
+      </select>
+    </div>
+    <button id="tobe" type="button" name="button" onclick="myFunction1()" onclick="disableMe()" class="btn btn-primary mybut">CHECK</button>
+  </form><br>
+  <div class="disp">
+Chances of you being Infected is: &nbsp;&nbsp;&nbsp;<span id="demo"></span>%
+  </div>
+</div>
+<br>
+<div class="alert alert-info info" role="alert">
+  DISCLAIMER:<br />
+  This is just a prototype, and the data used for training is just Random, this model can be used for better detection when datasets will be provided Indian Government, and hence, there is no worry if it shows that you might have high probablity of Covid-19 virus in your body!
+</div><br>
+
+  <div id="footer"><div class="copy">
+    © AjmerSuman 2020
+  </div><br>
+  <div class="mygov">
+  <ul>
+    <li class="a1 descheading" id="help"><br /><strong>GOVERNMENT HELPLINE</strong></li><br><br>
+    <li class="a1"><a href="https://wa.me/+919013151515"><i class="fab fa-whatsapp"></i></a></li>
+    <li class="a1" id="myInput"><a href="tel:+911123978046 "><i class="fas fa-phone"></i></a></li>
+    <li class="a1"><a href="mailto:ncov2019@gov.in"><i class="far fa-envelope"></i></a></li>
+  </ul>
+  </div>
+  <div class="me">
+  <ul>
+    <br /><strong class="descheading">&nbsp;&nbsp;FOLLOW ME</strong><br><br>
+    <li class="a1"><a href="https://www.instagram.com/who.is.ashish"><i class="fab fa-instagram"></i></a></li>
+    <li class="a1"><a href="https://www.linkedin.com/in/ashish-yadav-5558a4179"><i class="fab fa-linkedin-in"></i></a></li>
+    <li class="a1"><a href="mailto:nowwhoisashish@gmail.com"><i class="far fa-envelope"></i></a></li>
+  </ul>
+  </div>
+  <div class="sources">Data sources
+      <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports">WHO</a>,
+      <a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html">CDC</a>,
+      <a href="https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases">ECDC</a>,
+      <a href="http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml">NHC</a> and
+      <a href="https://3g.dxy.cn/newh5/view/pneumonia?scene=2&amp;clicktime=1579582238&amp;enterid=1579582238&amp;from=singlemessage&amp;isappinstalled=0">DXY</a>
+      provided by <a href="https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6">Johns Hopkins CSSE</a>.<br />Indian <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSc_2y5N0I67wDU38DjDh35IZSIS30rQf7_NYZhtYYGU1jJYT6_kDx4YpF-qw0LSlGsBYP8pqM_a1Pd/pubhtml">DataBase</a> on Covid-19 spread.
+  </div>
+  </div>
+
+  <script>
+  function myFunction1() {
+    var x = document.getElementById("demo")
+    x.innerHTML = Math.floor((Math.random() * 100) + 1);
+    document.getElementById("tobe").style.display = "none";
+  }
+  </script>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43322397-2"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-43322397-2');
+      </script>
+      <script type="text/javascript">
+        /*for smooth achor bookmark link sailing*/
+        let anchorlinks = document.querySelectorAll('a[href^="#"]')
+
+        for (let item of anchorlinks) { // relitere
+          item.addEventListener('click', (e) => {
+            let hashval = item.getAttribute('href')
+            let target = document.querySelector(hashval)
+            target.scrollIntoView({
+              behavior: 'smooth'
+            })
+            history.pushState(null, null, hashval)
+            e.preventDefault()
+          })
+        }
+      </script>
+      <script type="text/javascript">
+      /*for scrolling to top*/
+      $(window).scroll(function() {
+    if ($(this).scrollTop() > 50 ) {
+        $('.scrolltop:hidden').stop(true, true).fadeIn();
+    } else {
+        $('.scrolltop').stop(true, true).fadeOut();
+    }
+  });
+  $(function(){$(".scroll").click(function(){$("html,body").animate({scrollTop:$(".all").offset().top},"1000");return false})})
+      </script>
+      <script>
+          /*for header hiding*/
+  var prevScrollpos = window.pageYOffset;
+  window.onscroll = function() {
+  var currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+      document.getElementById("header").style.top = "0";
+    } else {
+      document.getElementById("header").style.top = "-256px";
+    }
+    prevScrollpos = currentScrollPos;
+  }
+  </script>
+
+  </body>
+
+  </html>
