@@ -76,7 +76,7 @@ ul{
 #header{
   position: fixed;
   top: 0;
-  transition: top 0.5s;
+  transition: top 0.3s;
   width: 100%;
   z-index: 10000000;
 }
@@ -211,6 +211,10 @@ text-align: center;
   padding-top: 10px;
   text-align: center;
   background: #151515;
+}
+
+.covid p{
+  text-align: justify;
 }
 
 .btn {
@@ -379,6 +383,16 @@ text-align: center;
   border: 1px solid #e62429;
   padding: 5px;
   padding-right: 10px;
+}
+
+.age-actual{
+  background-color: grey;
+}
+
+.age{
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
 }
 
 @media screen and (max-width:1024px) {

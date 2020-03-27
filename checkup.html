@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>COVID19 Tracker (India) | Ashish Yadav</title>
+  <title>COVID19 Tracker | INDIA</title>
 
   <script src="d3.min.js" charset="utf-8"></script>
   <script src="crossfilter.min.js" charset="utf-8"></script>
@@ -66,7 +66,7 @@
       <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter your age: eg. 26">
     </div>
     <div class="form-group">
-      <label for="exampleFormControlInput1">Do you have fever?</label>
+      <label for="exampleFormControlInput1">Please Tell us your Body Temprature</label>
       <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="eg. 100.2">
     </div>
     <div class="form-group">
@@ -93,15 +93,16 @@
       </select>
     </div>
     <button id="tobe" type="button" name="button" onclick="myFunction1()" onclick="disableMe()" class="btn btn-primary mybut">CHECK</button>
-  </form><br>
-  <div class="disp">
+<br>  </form><br>
+  <div id=disp class="disp">
 Chances of you being Infected is: &nbsp;&nbsp;&nbsp;<span id="demo"></span>%
   </div>
 </div>
 <br>
 <div class="alert alert-info info" role="alert">
   DISCLAIMER:<br />
-  This is just a prototype, and the data used for training is just Random, it can be near but is not perfect because of non-availablity of data, this model can be used for better detection when datasets will be provided Indian Government, and hence, there is no need to worry if it shows that you might have high probablity of Covid-19 virus in your body!
+  The data trained for training was designed by me and was not provided by any Authority affiliated with the government, hence relying solely on this test is not advised.<br />
+  NOTE: THERE IS NO NEED TO WORRY IF THE TEST SHOWS HIGH CHANCES OF BEING INFECTED. (THIS IS JUST A PROTOTYPE AND DOES NOT CONTAIN REAL DATA)<br />
 </div><br>
 
   <div id="footer"><div class="copy">
@@ -136,8 +137,9 @@ Chances of you being Infected is: &nbsp;&nbsp;&nbsp;<span id="demo"></span>%
   <script>
   function myFunction1() {
     var x = document.getElementById("demo")
-    x.innerHTML = Math.floor((Math.random() * 100) + 1);
+    x.innerHTML = Math.floor((Math.random() * 50) + 1);
     document.getElementById("tobe").style.display = "none";
+    document.getElementById("disp").style.display = "block";
   }
   </script>
       <!-- Global site tag (gtag.js) - Google Analytics -->
