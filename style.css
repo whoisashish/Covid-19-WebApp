@@ -69,6 +69,10 @@ ul{
   display: inline;
 }
 
+#disp{
+  display: none;
+}
+
 #header{
   position: fixed;
   top: 0;
