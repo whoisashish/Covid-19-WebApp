@@ -1,2 +1,3 @@
 # Covid-19-Tracker-and-self-check
-A dashboard for live tracking of covid-19 in the world, and special attention to India, with the special feature of a self-check in case of mild symptoms.
+This project presents a Simple yet effective features for tracking and dealing with Covid-19 virus, which includes the following:
+             1. A live counter displaying the number of Hospitalised, Deceased and Recovered cases of Covid-19 corona                                  virus across INDIA.
