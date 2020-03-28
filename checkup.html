@@ -13,10 +13,13 @@
   <meta name="description" content="India's very own Covid-19 Tracking Dashboard with availablility to track covid spread in other countries too.">
   <meta name="keywords" content="HTML,CSS,XML,JavaScript,CoronaVirus,corona,CORONAVIRUS,coronavirus,CoVid,covid19,CoVid-19,noval">
   <meta name="author" content="Ashish Yadav">
+  <meta property="og:title" content="Covid19 Tracker | INDIA">
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg">
+  <meta property="og:url" content="https://stayhomestaysafe.ml">
   <script src="india.js" charset="utf-8"></script>
   <script src="viz.js" charset="utf-8"></script>
-<script src="https://kit.fontawesome.com/5b941bf5b1.js" crossorigin="anonymous"></script>
-<link href="https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/5b941bf5b1.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="favicon.png">
@@ -61,142 +64,153 @@
   </nav>
 
 
-<div class="all1">
-  <form class="map"><h4 class="descheading2">Self Check-up Prototype</h4>
-    <div class="form-group">
-      <label for="exampleFormControlInput1">What is your age?</label>
-      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter your age: eg. 26">
+  <div class="all1">
+    <form class="map">
+      <h4 class="descheading2">Self Check-up Prototype</h4>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">What is your age?</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter your age: eg. 26">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Please Tell us your Body Temprature</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="eg. 100.2">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlSelect2">Do you have Body Pain?</label>
+        <select custom-select class="form-control custom-select" id="exampleFormControlSelect2">
+          <option>No, I dont have pain</option>
+          <option>Yes, mild Pain.</option>
+          <option>Yes, I have severe Pain.</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlSelect2">Do you have Runny Nose?</label>
+        <select custom-select class="form-control custom-select" id="exampleFormControlSelect2">
+          <option>Yes, a lot. 😢</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlSelect2">Are you having difficulty in breathing?</label>
+        <select custom-select class="form-control custom-select" id="exampleFormControlSelect2">
+          <option>No</option>
+          <option>Yes, but it maybe due to asthma.</option>
+          <option>Yes, I am facing lot of difficulty in breathing.</option>
+        </select>
+      </div>
+      <button id="tobe" type="button" name="button" onclick="myFunction1()" onclick="disableMe()" class="btn btn-primary mybut">CHECK</button>
+      <br>
+    </form><br>
+    <div id=disp class="disp">
+      Chances of you being Infected is: &nbsp;&nbsp;&nbsp;<span id="demo"></span>%
     </div>
-    <div class="form-group">
-      <label for="exampleFormControlInput1">Please Tell us your Body Temprature</label>
-      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="eg. 100.2">
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlSelect2">Do you have Body Pain?</label>
-      <select custom-select class="form-control custom-select" id="exampleFormControlSelect2">
-        <option>No, I dont have pain</option>
-        <option>Yes, mild Pain.</option>
-        <option>Yes, I have severe Pain.</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlSelect2">Do you have Runny Nose?</label>
-      <select custom-select class="form-control custom-select" id="exampleFormControlSelect2">
-        <option>Yes, a lot. 😢</option>
-        <option>No</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlSelect2">Are you having difficulty in breathing?</label>
-      <select custom-select class="form-control custom-select" id="exampleFormControlSelect2">
-        <option>No</option>
-        <option>Yes, but it maybe due to asthma.</option>
-        <option>Yes, I am facing lot of difficulty in breathing.</option>
-      </select>
-    </div>
-    <button id="tobe" type="button" name="button" onclick="myFunction1()" onclick="disableMe()" class="btn btn-primary mybut">CHECK</button>
-<br>  </form><br>
-  <div id=disp class="disp">
-Chances of you being Infected is: &nbsp;&nbsp;&nbsp;<span id="demo"></span>%
   </div>
-</div>
-<br>
-<div class="alert alert-info info" role="alert">
-  DISCLAIMER:<br />
-  The data trained for training was designed by me and was not provided by any Authority affiliated with the government, hence relying solely on this test is not advised.<br />
-  NOTE: THERE IS NO NEED TO WORRY IF THE TEST SHOWS HIGH CHANCES OF BEING INFECTED. (THIS IS JUST A PROTOTYPE AND DOES NOT CONTAIN REAL DATA)<br />
-</div><br>
-
-  <div id="footer"><div class="copy">
-    © AjmerSuman 2020
+  <br>
+  <div class="alert alert-info info" role="alert">
+    DISCLAIMER:<br />
+    The data trained for training was designed by me and was not provided by any Authority affiliated with the government, hence relying solely on this test is not advised.<br />
+    NOTE: THERE IS NO NEED TO WORRY IF THE TEST SHOWS HIGH CHANCES OF BEING INFECTED. (THIS IS JUST A PROTOTYPE AND DOES NOT CONTAIN REAL DATA)<br />
   </div><br>
-  <div class="mygov">
-  <ul>
-    <li class="a1 descheading" id="help"><br /><strong>GOVERNMENT HELPLINE</strong></li><br><br>
-    <li class="a1"><a href="https://wa.me/+919013151515"><i class="fab fa-whatsapp"></i></a></li>
-    <li class="a1" id="myInput"><a href="tel:+911123978046 "><i class="fas fa-phone"></i></a></li>
-    <li class="a1"><a href="mailto:ncov2019@gov.in"><i class="far fa-envelope"></i></a></li>
-  </ul>
-  </div>
-  <div class="me">
-  <ul>
-    <br /><strong class="descheading">&nbsp;&nbsp;FOLLOW ME</strong><br><br>
-    <li class="a1"><a href="https://www.instagram.com/who.is.ashish"><i class="fab fa-instagram"></i></a></li>
-    <li class="a1"><a href="https://www.linkedin.com/in/ashish-yadav-5558a4179"><i class="fab fa-linkedin-in"></i></a></li>
-    <li class="a1"><a href="mailto:nowwhoisashish@gmail.com"><i class="far fa-envelope"></i></a></li>
-  </ul>
-  </div>
-  <div class="sources">Data sources
+
+  <div id="footer">
+    <div class="copy">
+      © AjmerSuman 2020
+    </div><br>
+    <div class="mygov">
+      <ul>
+        <li class="a1 descheading" id="help"><br /><strong>GOVERNMENT HELPLINE</strong></li><br><br>
+        <li class="a1"><a href="https://wa.me/+919013151515"><i class="fab fa-whatsapp"></i></a></li>
+        <li class="a1" id="myInput"><a href="tel:+911123978046 "><i class="fas fa-phone"></i></a></li>
+        <li class="a1"><a href="mailto:ncov2019@gov.in"><i class="far fa-envelope"></i></a></li>
+      </ul>
+    </div>
+    <div class="me">
+      <ul>
+        <br /><strong class="descheading">&nbsp;&nbsp;FOLLOW ME</strong><br><br>
+        <li class="a1"><a href="https://www.instagram.com/who.is.ashish"><i class="fab fa-instagram"></i></a></li>
+        <li class="a1"><a href="https://www.linkedin.com/in/ashish-yadav-5558a4179"><i class="fab fa-linkedin-in"></i></a></li>
+        <li class="a1"><a href="mailto:nowwhoisashish@gmail.com"><i class="far fa-envelope"></i></a></li>
+      </ul>
+    </div>
+    <div class="sources">Data sources
       <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports">WHO</a>,
       <a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html">CDC</a>,
       <a href="https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases">ECDC</a>,
       <a href="http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml">NHC</a> and
       <a href="https://3g.dxy.cn/newh5/view/pneumonia?scene=2&amp;clicktime=1579582238&amp;enterid=1579582238&amp;from=singlemessage&amp;isappinstalled=0">DXY</a>
-      provided by <a href="https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6">Johns Hopkins CSSE</a>.<br />Indian <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSc_2y5N0I67wDU38DjDh35IZSIS30rQf7_NYZhtYYGU1jJYT6_kDx4YpF-qw0LSlGsBYP8pqM_a1Pd/pubhtml">DataBase</a> on Covid-19 spread.
-  </div>
+      provided by <a href="https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6">Johns Hopkins CSSE</a>.<br />Indian <a
+        href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSc_2y5N0I67wDU38DjDh35IZSIS30rQf7_NYZhtYYGU1jJYT6_kDx4YpF-qw0LSlGsBYP8pqM_a1Pd/pubhtml">DataBase</a> on Covid-19 spread.
+    </div>
   </div>
 
   <script>
-  function myFunction1() {
-    var x = document.getElementById("demo")
-    x.innerHTML = Math.floor((Math.random() * 50) + 1);
-    document.getElementById("tobe").style.display = "none";
-    document.getElementById("disp").style.display = "block";
-  }
+    function myFunction1() {
+      var x = document.getElementById("demo")
+      x.innerHTML = Math.floor((Math.random() * 50) + 1);
+      document.getElementById("tobe").style.display = "none";
+      document.getElementById("disp").style.display = "block";
+    }
   </script>
-      <!-- Global site tag (gtag.js) - Google Analytics -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43322397-2"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43322397-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-          dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
 
-        gtag('config', 'UA-43322397-2');
-      </script>
-      <script type="text/javascript">
-        /*for smooth achor bookmark link sailing*/
-        let anchorlinks = document.querySelectorAll('a[href^="#"]')
+    gtag('config', 'UA-43322397-2');
+  </script>
+  <script type="text/javascript">
+    /*for smooth achor bookmark link sailing*/
+    let anchorlinks = document.querySelectorAll('a[href^="#"]')
 
-        for (let item of anchorlinks) { // relitere
-          item.addEventListener('click', (e) => {
-            let hashval = item.getAttribute('href')
-            let target = document.querySelector(hashval)
-            target.scrollIntoView({
-              behavior: 'smooth'
-            })
-            history.pushState(null, null, hashval)
-            e.preventDefault()
-          })
-        }
-      </script>
-      <script type="text/javascript">
-      /*for scrolling to top*/
-      $(window).scroll(function() {
-    if ($(this).scrollTop() > 50 ) {
+    for (let item of anchorlinks) { // relitere
+      item.addEventListener('click', (e) => {
+        let hashval = item.getAttribute('href')
+        let target = document.querySelector(hashval)
+        target.scrollIntoView({
+          behavior: 'smooth'
+        })
+        history.pushState(null, null, hashval)
+        e.preventDefault()
+      })
+    }
+  </script>
+  <script type="text/javascript">
+    /*for scrolling to top*/
+    $(window).scroll(function() {
+      if ($(this).scrollTop() > 50) {
         $('.scrolltop:hidden').stop(true, true).fadeIn();
-    } else {
+      } else {
         $('.scrolltop').stop(true, true).fadeOut();
+      }
+    });
+    $(function() {
+      $(".scroll").click(function() {
+        $("html,body").animate({
+          scrollTop: $(".all").offset().top
+        }, "1000");
+        return false
+      })
+    })
+  </script>
+  <script>
+    /*for header hiding*/
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("header").style.top = "0";
+      } else {
+        document.getElementById("header").style.top = "-256px";
+      }
+      prevScrollpos = currentScrollPos;
     }
-  });
-  $(function(){$(".scroll").click(function(){$("html,body").animate({scrollTop:$(".all").offset().top},"1000");return false})})
-      </script>
-      <script>
-          /*for header hiding*/
-  var prevScrollpos = window.pageYOffset;
-  window.onscroll = function() {
-  var currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos) {
-      document.getElementById("header").style.top = "0";
-    } else {
-      document.getElementById("header").style.top = "-256px";
-    }
-    prevScrollpos = currentScrollPos;
-  }
   </script>
 
-  </body>
+</body>
 
-  </html>
+</html>
