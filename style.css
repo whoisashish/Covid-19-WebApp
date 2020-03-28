@@ -207,7 +207,11 @@ display: table-cell;
 }
 
 .mybut1{
-  width: 100%;
+  width: 50%;
+}
+
+#fname{
+  width: 50%;
 }
 
 .alert{
@@ -335,10 +339,21 @@ text-align: center;
 	bottom:8px;
 	right:15px;
 }
+.languagetop{
+  opacity: 0.7;
+	width:100%;
+	margin:0 auto;
+	position:fixed;
+	bottom:38px;
+	right:15px;
+}
+.languagetop a{
+  text-decoration: none;
+  color: white;
+}
 .scroll {
-  border-radius: 50%;
   height: 70px;
-   width: 70px;
+  width: 70px;
 	position:absolute;
 	right:20px;
 	bottom:20px;
@@ -352,8 +367,32 @@ text-align: center;
 	-webkit-transition: 0.5s;
 	-o-transition: 0.5s;
 }
+.language{
+  height: 70px;
+  width: 70px;
+	position:absolute;
+	right:20px;
+	bottom:70px;
+	background:#ff0000;
+	padding:20px;
+	text-align: center;
+	margin: 0 0 0 0;
+	cursor:pointer;
+	transition: 0.5s;
+	-moz-transition: 0.5s;
+	-webkit-transition: 0.5s;
+	-o-transition: 0.5s;
+  text-align: center;
+}
 .scroll:hover {
 	background:red;
+	transition: 0.5s;
+	-moz-transition: 0.5s;
+	-webkit-transition: 0.5s;
+	-o-transition: 0.5s;
+}
+.language:hover{
+  background:red;
 	transition: 0.5s;
 	-moz-transition: 0.5s;
 	-webkit-transition: 0.5s;
@@ -478,8 +517,19 @@ text-align: center;
     display: table-row;
   }
 
+.mybut{
+  width: 80%;
+}
 
   .mobile{
     display: block;
+  }
+
+  .mybut1{
+    width: 90%;
+  }
+
+  #fname{
+    width: 90%;
   }
 }
