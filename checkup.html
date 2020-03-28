@@ -129,10 +129,14 @@
     </form><br>
 
     <div id=disp class="disp map">
-      Chances of you being Infected is: &nbsp;&nbsp;&nbsp;<span id="demo"></span>%<br />
+      Chances of you being Infected is: &nbsp;&nbsp;&nbsp;<span id="demo"></span>%<br /><p>Maintain peace amongst these Hard times, and Do cooperate with Governments's Order's.</p>
     </div><br />
     <div class="alert alert-dark" role="alert">
     Even if you have mild symptoms, do consult your Family doctor over phone.<br />#stayhomestaysafe
+  </div>
+  <div class="map" id="disp1">
+    <a href="index.html#hero"><button class="btn btn-primary mybut">CoronaVirus Status in India</button></a>
+    <a href="index.html#anycheck"><button class="btn btn-primary mybut">CoronaVirus Status in the World</button></a>
   </div>
   </div>
   <br>
@@ -173,6 +177,7 @@
       x.innerHTML = Math.floor((Math.random() * 60) + 1);
       document.getElementById("tobe10").style.display = "none";
       document.getElementById("disp").style.display = "block";
+      document.getElementById("disp1").style.display = "block";
       document.getElementById("fin").style.display = "none";
       document.getElementById("card-holder").style.display = "none";
       document.getElementById("res").style.display = "block";

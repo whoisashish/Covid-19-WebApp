@@ -97,7 +97,7 @@
               <span class="tag is-black is-light">● LIVE</span>
             </div><br>
           </div>
-          <div class="hero-body">
+          <div id="hero" class="hero-body">
             <div class="container">
               <div class="columns is-uppercase">
                 <div class="column confirm"><br>
@@ -132,13 +132,13 @@
       </div>
     </div>
     <br>
-    <div class="anycheck map">
+    <div class="anycheck map" id="anycheck">
       <form onsubmit="return false">
         <h4 class="descheading">Check for any country</h4>
               Country:&nbsp;&nbsp;<br class="mobile" /> <input type="text" placeholder="Type country's name" id="userCountry">&nbsp;&nbsp;<br class="mobile" />
-            <button type="submit" onclick="run()" id="submit" class="btn btn-primary">Check</button>
+            <button type="submit" onclick="run()" id="submit" class="btn btn-primary">Check</button><br />
               <p id="anycheckdisp">Total Cases: <span style="color: orange;" id="casesOutput"></span> <br>
-                  Cases reported Today: <span style="color: grey;" id="todayCasesOutput"></span><br>
+                  Cases reported Today: <span style="color: white;" id="todayCasesOutput"></span><br>
                   Total Deaths: <span style="color: #e62429;" id="deathsOutput"></span><br>
                   Deaths reported Today: <span style="color: gold;" id="todayDeathsOutput"></span><br>
                   Total Recovered: <span  style="color: blue;" id="curedOutput"></span><br>

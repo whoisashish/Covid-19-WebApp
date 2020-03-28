@@ -197,9 +197,13 @@ display: table-cell;
   display: none;
 }
 
+#disp1{
+  display: none;
+}
+
 .mybut{
   margin-bottom: 20px;
-  width: 40%;
+  width: 50%;
 }
 
 .mybut1{
