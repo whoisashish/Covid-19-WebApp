@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>COVID19 ट्रैकर | भारत</title>
+  <meta name="description" content="India's very own Covid-19 Tracking Dashboard with availability to track covid spread in other countries too.">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript,CoronaVirus,corona,CORONAVIRUS,coronavirus,CoVid,covid19,CoVid-19,noval">
+  <meta name="author" content="Ashish Yadav">
+  <meta name="url" content="https://stayhomestaysafe.ml">
+  <meta name="image" content="https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg">
+  <meta property="og:title" content="Covid19 Tracker | INDIA">
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg">
+  <meta property="og:url" content="https://stayhomestaysafe.ml">
+
+  <script src="d3.min.js" charset="utf-8"></script>
+  <script src="crossfilter.min.js" charset="utf-8"></script>
+  <script src="dc.min.js" charset="utf-8"></script>
+  <script src="jquery.min.js" charset="utf-8"></script>
+  <script src="bootstrap.min.js" charset="utf-8"></script>
+
+  <script src="india.js" charset="utf-8"></script>
+  <script src="viz.js" charset="utf-8"></script>
+  <script src="https://kit.fontawesome.com/5b941bf5b1.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <style media="screen">
+    g.deselected,
+    rect.deselected {
+      opacity: 0.3;
+    }
+
+    g.state.selected path {
+      fill: #A1DA9B;
+    }
+  </style>
+</head>
+
+<body>
+  <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <span class="navbar-brand">COVID-19 डैशबोर्ड <span class="by"><a href="https://www.instagram.com/who.is.ashish">आशीष</a> द्वारा</span></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="globe/index1.html">दुनिया के आंकड़े</a>
+        </li>
+        <li class="nav-item">
+          <a class="a2 nav-link" href="#covid">कोरोना के बारे में जानकारी</a>
+          <a class="a3 nav-link" href="#covid1">कोरोना के बारे में जानकारी</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="news.html">समाचार और अपडेट</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="checkup.html">स्व जांच</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#download">हेल्पलाइन</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <br>
+  <div class="all">
+    <p class="lead">
+      <span id="loading" style="float:right;">
+रिफ्रेशिंग…</span>
+      <br>
+    </p>
+
+    <div class="map">
+      <div class="map-description">
+
+        <div class="cells"></div>
+        <section class="hero is-black is-fullheight has-text-centered">
+          <div class="hero-head">
+            <div class="container1">
+              <div class="ima">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg" alt="Flag of India">
+              </div>
+              <h4 class="descheading main title is-size-4">कोरोना लाइव मामलों की संख्या</h4><br>
+              <span class="tag is-black is-light">● लाइव</span>
+            </div><br>
+          </div>
+          <div id="hero" class="hero-body">
+            <div class="container">
+              <div class="columns is-uppercase">
+                <div class="column confirm"><br>
+                  <h2 class="subtitle has-text-warning is-size-4-mobile is-size-3-tablet">
+मामलों की पुष्टि</h2>
+                  <h1 class="title confirmed has-text-warning is-size-3-mobile is-size-1-tablet">Refreshing...</h1>
+                  <span class="tag is-warning"></span><br><br><br>
+                </div>
+                <div class="column recover"><br>
+                  <h2 class="subtitle has-text-link is-size-4-mobile is-size-3-tablet">स्वस्थ होनेवाला</h2>
+                  <h1 class="title recovered has-text-link is-size-3 -mobile is-size-1-tablet">Refreshing...</h1>
+                  <span class="tag is-link"></span><br><br><br>
+                </div>
+                <div class="column decease"><br>
+                  <h2 class="subtitle has-text-grey-dark is-size-4-mobile is-size-3-tablet">मृतक की संख्या</h2>
+                  <h1 class="title deceased has-text-grey-dark is-size-3 -mobile is-size-1-tablet">Refreshing...</h1>
+                  <span class="tag is-dark"></span><br><br><br>
+                </div>
+                <div class="column screen">
+                  <h3 class="subtitle has-text-grey-dark is-size-4-mobile is-size-3-tablet"><br />यात्रियों की <br />एयरपोर्ट पर जांच <br />की गई</h3>
+                  <h1 class="title has-text-grey-dark is-size-3 -mobile is-size-1-tablet">15,24,266</h1>
+                  <span class="tag is-dark"></span>
+                </div>
+              </div>
+            </div>
+          </div><br>
+          <div class="hero-foot">
+            <p class="has-text-success">
+              घबराओ मत. आवश्यक सावधानी बरतें. घर के भीतर रहें.
+अपने हाथ नियमित रूप से धोएं. सुरक्षित रहें. जय हिन्द.
+            </p>
+          </div><br>
+        </section><br>
+      </div>
+    </div>
+    <br>
+    <div class="anycheck map" id="anycheck">
+      <form onsubmit="return false">
+        <h4 class="descheading">किसी भी देश के लिए जाँच करें</h4>
+              देश का नाम:&nbsp;&nbsp;<br class="mobile" /> <input type="text" placeholder="Type country's name" id="userCountry">&nbsp;&nbsp;<br class="mobile" />
+            <button type="submit" onclick="run()" id="submit" class="btn btn-primary">Check</button><br />
+              <p id="anycheckdisp">कुल मामले: <span style="color: orange;" id="casesOutput"></span> <br>
+                  आज के मामलों की रिपोर्ट: <span style="color: white;" id="todayCasesOutput"></span><br>
+
+कुल मौतें: <span style="color: #e62429;" id="deathsOutput"></span><br>
+                  आज मरने वालों की संख्या: <span style="color: gold;" id="todayDeathsOutput"></span><br>
+                  कुल स्वस्थ: <span  style="color: blue;" id="curedOutput"></span><br>
+
+सक्रिय मामले: <span style="color: goldenrod;" id="activeOutput"></span><br>
+
+गंभीर मामले: <span style="color: red;" id="criticalOutput"></span><br>
+                  1 मिलियन में मामलों की संख्या: <span style="color: silver;" id="casesPerMillionOutput"></span></p>
+          </form><br />
+          <script>
+              var coronaData;
+              var countryName;
+              var cases;
+              var todayCases;
+              var deaths;
+              var todayDeaths;
+              var cured;
+              var active;
+              var critical;
+              var casesPerOneMillion;
+              url = "https://corona.lmao.ninja/countries/";
+              function run() {
+                  if (countryName != null) {
+                      countryName = "";
+                  }
+                  if (url != null) {
+                      url = "https://corona.lmao.ninja/countries/";
+                  }
+                  countryName = document.getElementById("userCountry").value;
+                  function completeUrl(countryRet) {
+                      return url = url + countryRet;
+                  }
+                  completeUrl(countryName);
+                  console.log(url);
+                  fetch(url)
+                      .then(res => res.json())
+                      .then(function (data) {
+                          coronaData = data;
+                          console.log(coronaData);
+                          cases = data.cases;
+                          todayCases = data.todayCases;
+                          deaths = data.deaths;
+                          todayDeaths = data.todayDeaths;
+                          cured = data.recovered;
+                          active = data.active;
+                          critical = data.critical;
+                          casesPerOneMillion = data.casesPerOneMillion;
+                          console.log(cases, deaths, cured);
+                          document.getElementById('casesOutput').innerHTML = cases;
+                          document.getElementById('todayCasesOutput').innerHTML = todayCases;
+                          document.getElementById('deathsOutput').innerHTML = deaths;
+                          document.getElementById('todayDeathsOutput').innerHTML = todayDeaths;
+                          document.getElementById('curedOutput').innerHTML = cured;
+                          document.getElementById('activeOutput').innerHTML = active;
+                          document.getElementById('criticalOutput').innerHTML = critical;
+                          document.getElementById('casesPerMillionOutput').innerHTML = casesPerOneMillion;
+                      })
+              }
+          </script>
+    </div><br>
+    <div class="totalcount" id="total">
+      <span id="count">
+        <span class="total-count"></span> मैं से
+        <span class="filter-count" style="color:white;font-weight:bold;"></span>
+ दिखा रहा है
+      </span>
+      <button type="button" class="btn btn-primary shadow-none" id="reset">रीसेट</button>
+      <p class="exp">*भारत में कुल मामले</p>
+    </div>
+    <div class="map">
+      <div class="map-description">
+        <div class="space">
+          <br><br><br><br>
+        </div>
+        <h6 class="descheading">भारत (और उपखंड) के लिए CoVid19 ट्रैकर मैप</h6>
+        <p>यह मानचित्र भारत में प्रत्येक राज्य और केंद्रशासित प्रदेशों में कुल पुष्टि किए गए मामलों की संख्या (या बरामद या मृतक के रूप में चयनित) है।
+          <br>1. किसी विशेष राज्य पर होवर करना राज्य के नाम के साथ-साथ रिपोर्ट किए गए मामलों की सटीक संख्या दिखाता है.
+          <br>2. किसी विशेष स्थिति पर क्लिक करने से राज्य के संबंध में निम्नलिखित ग्राफ़ और चार्ट बदल जाते हैं.
+          <br>3. किसी राज्य का रंग जितना गहरा होता है, वह CoVid फैलने की स्थिति होती है.</p>
+        <div class="space"><br><br><br><br><img src="https://i.ya-webdesign.com/images/virus-transparent-animated-gif.gif" alt="virus-transparent-animated-gif" border="0"></div>
+      </div>
+      <div class="map-actual" id="map">
+        <h6 class="descheading1">भारत &nbsp;&nbsp; | &nbsp;&nbsp; INDIA</h6><br><br>
+      </div>
+    </div>
+    <br>
+    <div class="report">
+      <div class="report-actual">
+        <div id="reported-bar">
+          <h6 class="descheading">समय विचरण</h6>
+        </div>
+      </div>
+      <div class="report-description">
+        <h6 class="descheading">मामलों की संख्या</h6>
+        <p>
+यह ग्राफ भारत में (30 जनवरी 2020) पहले दिन से शुरू होने वाले समय पर रिपोर्ट किए गए मामलों की संख्या (या पुनर्प्राप्त या मृतक के रूप में चयनित) प्रदर्शित करता है.
+          <br>1. टाइम विंडो बनाने के लिए क्लिक करें और खींचें.
+          <br>2. समय खिड़की न्यूनतम आकार 1 दिन हो सकती है.
+          <br>3. सभी रेखांकन और मानचित्र डेटा बदलते हैं और उस समय के अनुरूप आंकड़ों को दर्शाते हैं.</p>
+      </div>
+    </div>
+    <br>
+    <div class="correct">
+      <div class="status">
+        <div class="status-description">
+          <h6 class="descheading">मामलों की स्थिति</h6><br>
+          <p>
+यह पाई-चार्ट भारत में कुल सक्रिय, पुनर्प्राप्त और मृतक मामलों के प्रतिशत वार वितरण का संकेत देता है, जिसे भारत में कोवलोनोवायरस कोविद -19 की तारीख तक अद्यतन किया गया है.
+            <br>1. भारत में Covid19 के एनालिटिक्स को बदलने और देखने के लिए किसी भी एक हिस्से (या एकाधिक) पर क्लिक करें.
+            <br>2. एक सेगमेंट पर होवर करना उस मामले का सटीक आंकड़ा दिखाता है.
+            <br>3. सभी रेखांकन और मानचित्र डेटा बदल जाते हैं और उस अनुभाग के अनुरूप आंकड़े दर्शाते हैं.</p>
+        </div>
+        <div class="status-actual">
+          <div id="status-pie">
+            <h6 class="descheading">कुल वितरण</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+    <div class="gender">
+      <div class="gender-actual">
+        <h6 class="descheading">लिंग के आँकड़े</h6>
+        <div id="gender-pie"></div>
+      </div>
+      <div class="gender-description">
+        <h6 class="descheading">पुरुष और महिला के बीच कोरोना वायरस का प्रभाव</h6><br>
+        <p>
+यह पाई-चार्ट पुरुषों और महिलाओं के बीच कुल सक्रिय, पुनर्प्राप्त और मृत मामलों के प्रतिशत वार वितरण को दर्शाता है.
+          <br>1. भारत में पुरुषों या महिलाओं में Covid19 के विश्लेषण को देखने और देखने के लिए किसी एक हिस्से पर क्लिक करें.
+          <br>2. एक सेगमेंट पर होवर करना उस मामले का सटीक आंकड़ा दिखाता है.
+          <br>3. सभी रेखांकन और मानचित्र डेटा बदल जाते हैं और उस अनुभाग के अनुरूप आंकड़े दर्शाते हैं.</p>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="age">
+      <div class="age-description">
+        <h6 class="descheading">विभिन्न आयु समूहों के बीच कोविद -19 का प्रभाव</h6><br>
+        <p>यह पाई-चार्ट पुरुषों और महिलाओं के बीच कुल सक्रिय, पुनर्प्राप्त और मृत मामलों के प्रतिशत वार वितरण को दर्शाता है.
+          <br>1.
+भारत में पुरुषों या महिलाओं में Covid19 के विश्लेषण को देखने और देखने के लिए किसी एक हिस्से पर क्लिक करें.
+          <br>2.
+एक सेगमेंट पर होवर करना उस मामले का सटीक आंकड़ा दिखाता है.
+          <br>3.
+सभी रेखांकन और मानचित्र डेटा बदल जाते हैं और उस अनुभाग के अनुरूप आंकड़े दर्शाते हैं.</p>
+      </div>
+      <div class="age-actual">
+        <h6 class="descheading">आयु वर्ग</h6>
+        <div id="age-row"></div>
+      </div>
+    </div>
+    <br>
+    <div id="covid" class="corona">
+      <img src="https://i.ya-webdesign.com/images/virus-transparent-animated-gif.gif" alt="">
+    </div>
+    <div id="covid1" class="covid">
+      <h5 class="descheading">
+कोरोनवीरस (COVID-19)</h5>
+      <p>
+कोरोनावायरस रोग (COVID-19) एक संक्रामक रोग है जो एक नए खोजे गए कोरोनवायरस के कारण होता है.</p>
+      <p>
+COVID-19 वायरस से संक्रमित अधिकांश लोग हल्के से मध्यम श्वसन बीमारी का अनुभव करेंगे और विशेष उपचार की आवश्यकता के बिना ठीक हो जाएंगे। पुराने लोग, और हृदय रोग जैसी अंतर्निहित चिकित्सा समस्याओं के साथ,
+        मधुमेह, पुरानी सांस की बीमारी और कैंसर की गंभीर बीमारी विकसित होने की अधिक संभावना है.</p>
+      <p>संचरण को रोकने और धीमा करने के लिए सबसे अच्छा तरीका है COVID-19 वायरस के बारे में अच्छी तरह से बताया गया है कि यह किस बीमारी का कारण है और यह कैसे फैलता है। अपने हाथ धोने या शराब आधारित रगड़ का उपयोग करके अपने आप को और दूसरों को संक्रमण से बचाएं
+        बार-बार और अपने चेहरे को छूने नहीं. </p>
+      <p>COVID-19 वायरस मुख्य रूप से लार की बूंदों से फैलता है या नाक से तब निकलता है जब कोई संक्रमित व्यक्ति खांसता या छींकता है, इसलिए यह महत्वपूर्ण है कि आप श्वसन शिष्टाचार का भी अभ्यास करें (उदाहरण के लिए, फ्लेक्स में खाँसने से
+        कोहनी).</p>
+      <p>
+इस समय, COVID-19 के लिए कोई विशिष्ट टीके या उपचार नहीं हैं। हालांकि, संभावित उपचारों का मूल्यांकन करने वाले कई नैदानिक ​​परीक्षण चल रहे हैं। डब्ल्यूएचओ नैदानिक ​​निष्कर्ष बनते ही अद्यतन जानकारी प्रदान करना जारी रखेगा
+        उपलब्ध.</p>
+    </div><br>
+    <div class="covid">
+      <h5 class="descheading">रोकथाम</h5>
+      <p>
+संक्रमण को रोकने के लिए और COVID-19 के संचरण को धीमा करने के लिए, निम्नलिखित करें:<br />
+      1.
+अपने हाथों को नियमित रूप से साबुन और पानी से धोएं, या उन्हें अल्कोहल-आधारित हाथ रगड़कर साफ करें.
+      <br /> 2. आपके और खांसने या छींकने वाले लोगों के बीच कम से कम 1 मीटर की दूरी बनाए रखें.
+      <br /> 3. अपने चेहरे को छूने से बचें.
+      <br /> 4. खांसते या छींकते समय अपना मुंह और नाक ढक लें.
+      <br /> 5. यदि आप अस्वस्थ महसूस करते हैं तो घर पर रहें.
+      <br /> 6.
+धूम्रपान और फेफड़ों को कमजोर करने वाली अन्य गतिविधियों से बचना चाहिए.<br />
+      7.
+अनावश्यक यात्रा से बचने और लोगों के बड़े समूहों से दूर रहने से शारीरिक दूरी का अभ्यास करें.</p>
+
+    </div><br>
+    <div class="covid">
+      <h5 class="descheading">
+लक्षण</h5>
+      <p>COVID-19 के सबसे आम लक्षण बुखार, थकान और सूखी खांसी हैं। कुछ रोगियों में दर्द और दर्द, नाक की भीड़, नाक बह रही है, गले में खराश या दस्त हो सकता है। ये लक्षण आमतौर पर हल्के होते हैं और धीरे-धीरे शुरू होते हैं। कुछ लोग संक्रमित हो जाते हैं लेकिन कोई लक्षण विकसित नहीं करते हैं और अस्वस्थ महसूस नहीं करते हैं। अधिकांश लोगों (लगभग 80%) को विशेष उपचार की आवश्यकता के बिना बीमारी से उबरना पड़ता है। COVID-19 पाने वाले हर 6 में से 1 व्यक्ति गंभीर रूप से बीमार हो जाता है और सांस लेने में कठिनाई पैदा करता है। वृद्ध लोगों, और उच्च रक्तचाप, हृदय की समस्याओं या मधुमेह जैसी अंतर्निहित चिकित्सा समस्याओं वाले लोगों में गंभीर बीमारी विकसित होने की अधिक संभावना है। बुखार, खांसी और सांस लेने में कठिनाई वाले लोगों को चिकित्सा ध्यान देना चाहिए.</p>
+    </div><br>
+    <div class="download" id="download">
+      <h5 class="descheading2"><strong>
+विभिन्न राज्यों की हेल्पलाइन नंबर</strong></h5>
+      <a href="help.pdf" download><button class="btn"><i class="fa fa-download"></i> डाउनलोड</button></a>
+    </div>
+    <br>
+    <div class='scrolltop'>
+      <div class='scroll icon'><i class="fa fa-4x fa-angle-up"></i></div>
+    </div>
+    <div class='languagetop'>
+      <a href="index.html"><div class='language icon'>Eng.</div></a>
+    </div>
+  </div>
+  <div id="footer">
+    <div class="copy">
+      © AjmerSuman 2020
+    </div><br>
+    <div class="mygov">
+      <ul>
+        <li class="a1 descheading" id="help"><br /><strong>सरकारी सहायता</strong></li><br><br>
+        <li class="a1"><a href="https://wa.me/+919013151515"><i class="fab fa-whatsapp"></i></a></li>
+        <li class="a1" id="myInput"><a href="tel:+911123978046 "><i class="fas fa-phone"></i></a></li>
+        <li class="a1"><a href="mailto:ncov2019@gov.in"><i class="far fa-envelope"></i></a></li>
+      </ul>
+    </div>
+    <div class="me">
+      <ul>
+        <br /><strong class="descheading">&nbsp;&nbsp;मेरे बारे में</strong><br><br>
+        <li class="a1"><a href="https://www.instagram.com/who.is.ashish"><i class="fab fa-instagram"></i></a></li>
+        <li class="a1"><a href="https://www.linkedin.com/in/ashish-yadav-5558a4179"><i class="fab fa-linkedin-in"></i></a></li>
+        <li class="a1"><a href="mailto:nowwhoisashish@gmail.com"><i class="far fa-envelope"></i></a></li>
+      </ul>
+    </div>
+    <div class="sources">Data sources
+      <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports">WHO</a>,
+      <a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html">CDC</a>,
+      <a href="https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases">ECDC</a>,
+      <a href="http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml">NHC</a> and
+      <a href="https://3g.dxy.cn/newh5/view/pneumonia?scene=2&amp;clicktime=1579582238&amp;enterid=1579582238&amp;from=singlemessage&amp;isappinstalled=0">DXY</a>
+      provided by <a href="https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6">Johns Hopkins CSSE</a>.<br />Indian <a
+        href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSc_2y5N0I67wDU38DjDh35IZSIS30rQf7_NYZhtYYGU1jJYT6_kDx4YpF-qw0LSlGsBYP8pqM_a1Pd/pubhtml">DataBase</a> on Covid-19 spread.
+    </div>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js'></script>
+  <script src='https://www.vantajs.com/dist/vanta.cells.min.js'></script>
+  <script src="./script.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43322397-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-43322397-2');
+  </script>
+  <script type="text/javascript">
+    /*for smooth achor bookmark link sailing*/
+    let anchorlinks = document.querySelectorAll('a[href^="#"]')
+
+    for (let item of anchorlinks) { // relitere
+      item.addEventListener('click', (e) => {
+        let hashval = item.getAttribute('href')
+        let target = document.querySelector(hashval)
+        target.scrollIntoView({
+          behavior: 'smooth'
+        })
+        history.pushState(null, null, hashval)
+        e.preventDefault()
+      })
+    }
+  </script>
+  <script type="text/javascript">
+    /*for scrolling to top*/
+    $(window).scroll(function() {
+      if ($(this).scrollTop() > 50) {
+        $('.scrolltop:hidden').stop(true, true).fadeIn();
+      } else {
+        $('.scrolltop').stop(true, true).fadeOut();
+      }
+    });
+    $(function() {
+      $(".scroll").click(function() {
+        $("html,body").animate({
+          scrollTop: $(".all").offset().top
+        }, "1000");
+        return false
+      })
+    })
+  </script>
+  <script>
+    /*for header hiding*/
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("header").style.top = "0";
+      } else {
+        document.getElementById("header").style.top = "-256px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+  </script>
+
+</body>
+
+</html>
