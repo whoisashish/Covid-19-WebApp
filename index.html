@@ -107,6 +107,11 @@
                   <h1 class="title deceased has-text-grey-dark is-size-3 -mobile is-size-1-tablet">Refreshing...</h1>
                   <span class="tag is-dark"></span><br><br><br>
                 </div>
+                <div class="column screen">
+                  <h3 class="subtitle has-text-grey-dark is-size-4-mobile is-size-3-tablet"><br />Passengers <br /> Screened at <br />Airport</h3>
+                  <h1 class="title has-text-grey-dark is-size-3 -mobile is-size-1-tablet">15,24,266</h1>
+                  <span class="tag is-dark"></span>
+                </div>
               </div>
             </div>
           </div><br>
@@ -119,6 +124,70 @@
       </div>
     </div>
     <br>
+    <div class="anycheck map">
+      <form onsubmit="return false">
+              Country:&nbsp;&nbsp;<br class="pc" /> <input type="text" placeholder="Type country's name" id="userCountry">&nbsp;&nbsp;<br class="pc" />
+            <button type="submit" onclick="run()" id="submit" class="btn btn-primary">Check</button>
+              <p id="anycheckdisp">Cases: <span style="color: orange;" id="casesOutput"></span> <br>
+                  Today Cases: <span style="color: grey;" id="todayCasesOutput"></span><br>
+                  Deaths: <span style="color: #e62429;" id="deathsOutput"></span><br>
+                  Today Deaths: <span style="color: brown;" id="todayDeathsOutput"></span><br>
+                  Recovered: <span  style="color: blue;" id="curedOutput"></span><br>
+                  Active: <span style="color: goldenrod;" id="activeOutput"></span><br>
+                  Critical: <span style="color: red;" id="criticalOutput"></span><br>
+                  Cases Per 1 Million: <span style="color: silver;" id="casesPerMillionOutput"></span></p>
+          </form><br />
+          <script>
+              var coronaData;
+              var countryName;
+              var cases;
+              var todayCases;
+              var deaths;
+              var todayDeaths;
+              var cured;
+              var active;
+              var critical;
+              var casesPerOneMillion;
+              url = "https://corona.lmao.ninja/countries/";
+              function run() {
+                  if (countryName != null) {
+                      countryName = "";
+                  }
+                  if (url != null) {
+                      url = "https://corona.lmao.ninja/countries/";
+                  }
+                  countryName = document.getElementById("userCountry").value;
+                  function completeUrl(countryRet) {
+                      return url = url + countryRet;
+                  }
+                  completeUrl(countryName);
+                  console.log(url);
+                  fetch(url)
+                      .then(res => res.json())
+                      .then(function (data) {
+                          coronaData = data;
+                          console.log(coronaData);
+                          cases = data.cases;
+                          todayCases = data.todayCases;
+                          deaths = data.deaths;
+                          todayDeaths = data.todayDeaths;
+                          cured = data.recovered;
+                          active = data.active;
+                          critical = data.critical;
+                          casesPerOneMillion = data.casesPerOneMillion;
+                          console.log(cases, deaths, cured);
+                          document.getElementById('casesOutput').innerHTML = cases;
+                          document.getElementById('todayCasesOutput').innerHTML = todayCases;
+                          document.getElementById('deathsOutput').innerHTML = deaths;
+                          document.getElementById('todayDeathsOutput').innerHTML = todayDeaths;
+                          document.getElementById('curedOutput').innerHTML = cured;
+                          document.getElementById('activeOutput').innerHTML = active;
+                          document.getElementById('criticalOutput').innerHTML = critical;
+                          document.getElementById('casesPerMillionOutput').innerHTML = casesPerOneMillion;
+                      })
+              }
+          </script>
+    </div><br>
     <div class="map">
       <div class="map-description">
         <div class="space">

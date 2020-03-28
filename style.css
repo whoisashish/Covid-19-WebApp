@@ -49,8 +49,27 @@ ul{
   border-radius: 7px;
 }
 
+form input{
+  margin: 10px;
+}
+
+.pc{
+  display: none;
+}
+
 .decease{
   background-color: black;
+  padding: 15px;
+  border-radius: 7px;
+}
+
+.fix{
+  padding: 10px;
+  display: table-cell;
+}
+
+.screen{
+  background-color: #e62429;
   padding: 15px;
   border-radius: 7px;
 }
@@ -421,5 +440,10 @@ text-align: center;
 
   .column{
     display: table-row;
+  }
+
+
+  .pc{
+    display: block;
   }
 }
