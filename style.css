@@ -206,6 +206,10 @@ display: table-cell;
   width: 100%;
 }
 
+.alert{
+  text-align: center;
+}
+
 .mybut2{
   width: 90%;
   margin: auto;
