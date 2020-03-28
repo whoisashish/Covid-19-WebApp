@@ -66,52 +66,77 @@
 
   <div class="all1">
     <form class="map">
-      <h4 class="descheading2">Self Check-up Prototype</h4>
-      <div class="form-group">
-        <label for="exampleFormControlInput1">What is your age?</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter your age: eg. 26">
-      </div>
-      <div class="form-group">
-        <label for="exampleFormControlInput1">Please Tell us your Body Temprature</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="eg. 100.2">
-      </div>
-      <div class="form-group">
-        <label for="exampleFormControlSelect2">Do you have Body Pain?</label>
-        <select custom-select class="form-control custom-select" id="exampleFormControlSelect2">
-          <option>No, I dont have pain</option>
-          <option>Yes, mild Pain.</option>
-          <option>Yes, I have severe Pain.</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="exampleFormControlSelect2">Do you have Runny Nose?</label>
-        <select custom-select class="form-control custom-select" id="exampleFormControlSelect2">
-          <option>Yes, a lot. 😢</option>
-          <option>No</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="exampleFormControlSelect2">Are you having difficulty in breathing?</label>
-        <select custom-select class="form-control custom-select" id="exampleFormControlSelect2">
-          <option>No</option>
-          <option>Yes, but it maybe due to asthma.</option>
-          <option>Yes, I am facing lot of difficulty in breathing.</option>
-        </select>
-      </div>
-      <button id="tobe" type="button" name="button" onclick="myFunction1()" onclick="disableMe()" class="btn btn-primary mybut">CHECK</button>
+      <h4 id="fin" class="descheading2">Are you having Symptoms!!</h4>
+        <h4 id="res" class="descheading2">Here is your result.</h4>
+    <div class="card-holder" id="card-holder">
+    <div id="tobe" class="cough back">
+<img src="cough.png" alt="" style="height:170px;width:120px;"><br><br>Do you have cough?<br /><br />
+  <button type="button" name="button" onclick="check1()" class="btn btn-primary mybut">Yes</button><br>
+  <button type="button" name="button" onclick="check1()" class="btn btn-primary mybut">No</button>
+</div>
+<div id="tobe1" class="cough back">
+<img src="cold.png" alt="" style="height:170px;width:120px;"><br><br>Do you have a Cold?<br /><br />
+<button type="button" name="button" onclick="check2()" class="btn btn-primary mybut">Yes</button><br>
+<button type="button" name="button" onclick="check2()" class="btn btn-primary mybut">No</button>
+</div>
+<div id="tobe2" class="diarrhea back">
+<img src="diarrhea.png" alt="" style="height:170px;width:150px;"><br><br>Are you having diarrhea?<br /><br />
+<button type="button" name="button" onclick="check3()" class="btn btn-primary mybut">Yes</button><br>
+<button type="button" name="button" onclick="check3()" class="btn btn-primary mybut">No</button>
+</div>
+<div id="tobe3" class="sore back">
+<img src="sore.png" alt="" style="height:170px;width:150px;"><br><br>Are you having a sore throat?<br /><br />
+<button type="button" name="button" onclick="check4()" class="btn btn-primary mybut">Yes</button><br>
+<button type="button" name="button" onclick="check4()" class="btn btn-primary mybut">No</button>
+</div>
+<div id="tobe4" class="body back">
+<img src="body.png" alt="" style="height:170px;width:150px;"><br><br>Are you having body pain?<br /><br />
+<button type="button" name="button" onclick="check5()" class="btn btn-primary mybut">Yes</button><br>
+<button type="button" name="button" onclick="check5()" class="btn btn-primary mybut">No</button>
+</div>
+<div id="tobe5" class="head back">
+<img src="head.png" alt="" style="height:170px;width:150px;"><br><br>Are you having a Head Ache?<br /><br />
+<button type="button" name="button" onclick="check6()" class="btn btn-primary mybut">Yes</button><br>
+<button type="button" name="button" onclick="check6()" class="btn btn-primary mybut">No</button>
+</div>
+<div id="tobe6" class="fever back">
+<img src="fever.png" alt="" style="height:170px;width:80px;"><br><br>Please do tell us your Body temprature.<br /><br />
+<input type="text" id="fname" name="fname" placeholder="98.00"><br>
+<button type="button" name="button" onclick="check7()" class="btn btn-primary mybut1">I entered my body temprature!</button>
+</div>
+<div id="tobe7" class="breath back">
+<img src="breath.png" alt="" style="height:170px;width:170px;"><br><br>Are you having Trouble Breathing?<br /><br />
+<button type="button" name="button" onclick="check8()" class="btn btn-primary mybut">Yes</button><br>
+<button type="button" name="button" onclick="check8()" class="btn btn-primary mybut">No</button>
+</div>
+<div id="tobe8" class="fatigue back">
+<img src="fatigue.png" alt="" style="height:170px;width:150px;"><br><br>Are you experiencing fatigue?<br /><br />
+<button type="button" name="button" onclick="check9()" class="btn btn-primary mybut">Yes</button><br>
+<button type="button" name="button" onclick="check9()" class="btn btn-primary mybut">No</button>
+</div>
+<div id="tobe9" class="travel back">
+<img src="plane.png" alt="" style="height:170px;width:150px;"><br><br>Have you travelled in the past 14 days (inside India or Internationally)?<br /><br />
+<button type="button" name="button" onclick="check10()" class="btn btn-primary mybut">Yes</button><br>
+<button type="button" name="button" onclick="check10()" class="btn btn-primary mybut">No</button>
+</div>
+<div id="tobe10" class="doctor back">
+<img src="doctor.png" alt="" style="height:170px;width:170px;"><br><br>Do you have direct contact to a known Covid-19 patient (active or recovered case) ?<br /><br />
+<button type="button" name="button" onclick="myFunction1()" class="btn btn-primary mybut">Yes</button><br>
+<button type="button" name="button" onclick="myFunction1()" class="btn btn-primary mybut">No</button>
+</div>
+    </div>
       <br>
     </form><br>
-    <div id=disp class="disp">
-      Chances of you being Infected is: &nbsp;&nbsp;&nbsp;<span id="demo"></span>%
-    </div>
+
+    <div id=disp class="disp map">
+      Chances of you being Infected is: &nbsp;&nbsp;&nbsp;<span id="demo"></span>%<br />
+      <button type="button" name="button" onclick="restart()" class="btn btn-primary mybut2 map-description">Restart test</button>
+    </div><br />
+    <div class="alert alert-dark" role="alert">
+    Even if you have mild symptoms, do consult your Family doctor over phone.<br />#stayhomestaysafe
+  </div>
   </div>
   <br>
-  <div class="alert alert-info info" role="alert">
-    DISCLAIMER:<br />
-    The data trained for training was designed by me and was not provided by any Authority affiliated with the government, hence relying solely on this test is not advised.<br />
-    NOTE: THERE IS NO NEED TO WORRY IF THE TEST SHOWS HIGH CHANCES OF BEING INFECTED. (THIS IS JUST A PROTOTYPE AND DOES NOT CONTAIN REAL DATA)<br />
-  </div><br>
-
   <div id="footer">
     <div class="copy">
       © AjmerSuman 2020
@@ -146,9 +171,58 @@
   <script>
     function myFunction1() {
       var x = document.getElementById("demo")
-      x.innerHTML = Math.floor((Math.random() * 50) + 1);
-      document.getElementById("tobe").style.display = "none";
+      x.innerHTML = Math.floor((Math.random() * 60) + 1);
+      document.getElementById("tobe10").style.display = "none";
       document.getElementById("disp").style.display = "block";
+      document.getElementById("fin").style.display = "none";
+      document.getElementById("card-holder").style.display = "none";
+      document.getElementById("res").style.display = "block";
+      document.getElementById("restart").style.display = "block";
+    }
+    function restart() {
+      document.getElementById("disp").style.display = "none";
+      document.getElementById("fin").style.display = "block";
+      document.getElementById("tobe").style.display = "block";
+    }
+    function check1() {
+      document.getElementById("tobe").style.display = "none";
+      document.getElementById("tobe1").style.display = "block";
+    }
+    function check2() {
+      document.getElementById("tobe1").style.display = "none";
+      document.getElementById("tobe2").style.display = "block";
+    }
+    function check3() {
+      document.getElementById("tobe2").style.display = "none";
+      document.getElementById("tobe3").style.display = "block";
+    }
+    function check4() {
+      document.getElementById("tobe3").style.display = "none";
+      document.getElementById("tobe4").style.display = "block";
+    }
+    function check5() {
+      document.getElementById("tobe4").style.display = "none";
+      document.getElementById("tobe5").style.display = "block";
+    }
+    function check6() {
+      document.getElementById("tobe5").style.display = "none";
+      document.getElementById("tobe6").style.display = "block";
+    }
+    function check7() {
+      document.getElementById("tobe6").style.display = "none";
+      document.getElementById("tobe7").style.display = "block";
+    }
+    function check8() {
+      document.getElementById("tobe7").style.display = "none";
+      document.getElementById("tobe8").style.display = "block";
+    }
+    function check9() {
+      document.getElementById("tobe8").style.display = "none";
+      document.getElementById("tobe9").style.display = "block";
+    }
+    function check10() {
+      document.getElementById("tobe9").style.display = "none";
+      document.getElementById("tobe10").style.display = "block";
     }
   </script>
   <!-- Global site tag (gtag.js) - Google Analytics -->

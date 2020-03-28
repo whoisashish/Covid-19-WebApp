@@ -53,7 +53,7 @@ form input{
   margin: 10px;
 }
 
-.pc{
+.mobile{
   display: none;
 }
 
@@ -193,8 +193,22 @@ display: table-cell;
   margin-right: 20px;
 }
 
+#tobe1,#tobe2,#tobe3,#tobe4,#tobe5,#restart,#tobe6,#tobe7,#tobe8,#tobe9,#tobe10,#res{
+  display: none;
+}
+
 .mybut{
   margin-bottom: 20px;
+  width: 40%;
+}
+
+.mybut1{
+  width: 100%;
+}
+
+.mybut2{
+  width: 90%;
+  margin: auto;
 }
 
 .mast{
@@ -414,7 +428,17 @@ text-align: center;
   padding-left: 10px;
 }
 
+.card-holder{
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+}
+
 @media screen and (max-width:1024px) {
+    .pc{
+      display: none;
+    }
+
   .a1{
     text-align: left;
   }
@@ -431,6 +455,10 @@ text-align: center;
   display: block;
   }
 
+  .row{
+    display: table-row;
+  }
+
   .space, .descheading1{
     display: none;
   }
@@ -443,7 +471,7 @@ text-align: center;
   }
 
 
-  .pc{
+  .mobile{
     display: block;
   }
 }
