@@ -336,7 +336,7 @@ text-align: center;
 	width:100%;
 	margin:0 auto;
 	position:fixed;
-	bottom:8px;
+	bottom:2px;
 	right:15px;
 }
 .languagetop{
@@ -344,8 +344,8 @@ text-align: center;
 	width:100%;
 	margin:0 auto;
 	position:fixed;
-	bottom:38px;
-	right:15px;
+	bottom:2px;
+	left:15px;
 }
 .languagetop a{
   text-decoration: none;
@@ -371,8 +371,8 @@ text-align: center;
   height: 70px;
   width: 70px;
 	position:absolute;
-	right:20px;
-	bottom:70px;
+	left:20px;
+	bottom:20px;
 	background:#ff0000;
 	padding:20px;
 	text-align: center;
