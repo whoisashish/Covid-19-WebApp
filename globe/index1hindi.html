@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
+  <title>COVID19 ट्रैकर | विश्व</title>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.14/esri/themes/light/main.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+  <script src="https://js.arcgis.com/4.14/"></script>
+  <script src="main.js"></script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+  <div class="header">
+    <a class="special" href="../indexhindi.html">
+      <h1>वापस</h1>
+    </a>
+    <p class="small">
+      पीली रेखा प्रत्येक देश में पुष्ट मामलों<br /> की संख्या को दर्शाता है</p>
+  </div>
+
+  <section>
+    <div id="dashboardRegion"></div>
+
+    <canvas id="dashboardBarChart"></canvas>
+    <div class="dashboard-component">
+      <div id="dashboardConfirmed" class="dashboard-number confirmed"></div>
+      <div class="extra">पुष्ट मामलों की संख्या</div>
+    </div>
+    <div class="dashboard-component">
+      <div id="dashboardRecovered" class="dashboard-number recovered"></div>
+      <div class="extra">
+        बेहतर मामलों की संख्या</div>
+    </div>
+    <div class="dashboard-component">
+      <div id="dashboardDeaths" class="dashboard-number deaths"></div>
+      <div class="extra">मृतक की संख्या</div>
+    </div>
+
+    <canvas id="dashboardLineChart"></canvas>
+
+    <div class="dashboard-attribution"></div>
+  </section>
+
+  <div class="dashboard-credits">
+    <p><a href="https://www.linkedin.com/in/ashish-yadav-5558a4179">Ashish</a> on LinkedIn.</p>
+    <div class="copy">
+      <!-- Start of WebFreeCounter Code -->
+<img src="https://www.webfreecounter.com/hit.php?id=gvkopno&nd=6&style=17" border="0" alt="visitor counter">
+<!-- End of WebFreeCounter Code -->
+    </div>
+    <p>This prototype was built with the <nobr><a href="https://developers.arcgis.com/javascript/">ArcGIS API for JavaScript</a></nobr>
+    </p>
+    <p>Data sources
+      <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports">WHO</a>,
+      <a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html">CDC</a>,
+      <a href="https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases">ECDC</a>,
+      <a href="http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml">NHC</a> and
+      <a href="https://3g.dxy.cn/newh5/view/pneumonia?scene=2&amp;clicktime=1579582238&amp;enterid=1579582238&amp;from=singlemessage&amp;isappinstalled=0">DXY</a>
+      provided by <a href="https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6">Johns Hopkins CSSE</a>.
+    </p>
+  </div>
+</body>
+
+</html>
