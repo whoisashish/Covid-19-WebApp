@@ -1,3 +1,4 @@
+
 body{
   background: #444;
   color: white;
@@ -5,6 +6,72 @@ body{
   -webkit-font-smoothing: antialiased;
  -moz-osx-font-smoothing: grayscale;
 }
+
+.app-content{
+  font-family: 'Baloo Da 2', cursive;
+}
+
+.app-content h4{
+  color: #e62429;
+}
+
+.app-content a{
+  color: white;
+  text-decoration: none;
+}
+
+.app-content a:hover{
+  color: grey;;
+  text-decoration: none;
+}
+
+.all2{
+  padding: 0;
+  padding-top: 56px;
+  bottom: 0;
+  height: 100%;
+}
+
+.headline{
+  padding: 10px 0;
+  background-color: #ef1a3f;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.all2{
+  background: #151515;
+}
+
+.article{
+  border:solid;
+  border-width: 1px;
+  border-radius: 10px;
+  border-color: #eeeedd;
+  padding-bottom: 5px;
+  padding-right: 0px;
+  padding-left: 0px;
+  line-height: 100%;
+}
+
+.article a{
+  text-decoration: none;
+  color: white;
+}
+
+.headline p{
+  font-size: 40px;
+  /*font-family: "Comic Sans MS", cursive, sans-serif;*/
+}
+
+.article img{
+  display: inline-block;
+  max-height: 100%;
+  width: 100%;
+  padding-top: 5px;
+  margin-top: 5px;
+}
+
 *{
   user-select: none;
 }
@@ -415,7 +482,8 @@ text-align: center;
     color: #14E6ED;
 }
 
-.a2{display: none;}
+.a2{
+  display: none;}
 
 .corona{
   display: none;
