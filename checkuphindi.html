@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>COVID19 Tracker | INDIA</title>
+  <title>COVID19 ट्रैकर | भारत</title>
 
   <script src="d3.min.js" charset="utf-8"></script>
   <script src="crossfilter.min.js" charset="utf-8"></script>
@@ -39,7 +39,7 @@
 
 <body>
   <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <span class="navbar-brand">COVID-19 Dashboard <span class="by">by <a href="https://www.instagram.com/who.is.ashish">ASHISH</a></span></span>
+    <span class="navbar-brand">COVID-19 डैशबोर्ड <span class="by"><a href="https://www.instagram.com/who.is.ashish">आशीष</a> द्वारा</span></span>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -53,11 +53,14 @@
           <a class="nav-link" href="globe/index1hindi.html">दुनिया के आंकड़े</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="news.html">समाचार और अपडेट</a>
+        </li>
+        <li class="nav-item">
           <a class="a2 nav-link" href="indexhindi.html#covid">कोरोना के बारे में जानकारी</a>
           <a class="a3 nav-link" href="indexhindi.html#covid1">कोरोना के बारे में जानकारी</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#help">Helpline</a>
+          <a class="nav-link" href="#help">हेल्पलाइन</a>
         </li>
       </ul>
     </div>
@@ -66,79 +69,93 @@
 
   <div class="all1">
     <form class="map">
-      <h4 id="fin" class="descheading2">Are you having Symptoms!!</h4>
-        <h4 id="res" class="descheading2">Here is your result.</h4>
+      <h4 id="fin" class="descheading2">क्या आप लक्षण दिखा रहे हैं?</h4>
+        <h4 id="res" class="descheading2">यह आपका परिणाम है.</h4>
     <div class="card-holder" id="card-holder">
     <div id="tobe" class="cough back">
-<img src="https://i.ibb.co/D10Tfh1/cough.png" alt="" style="height:170px;width:120px;"><br><br>Do you have cough?<br /><br />
-  <button type="button" name="button" onclick="check1()" class="btn btn-primary mybut">Yes</button><br>
-  <button type="button" name="button" onclick="check1()" class="btn btn-primary mybut">No</button>
+<img src="https://i.ibb.co/D10Tfh1/cough.png" alt="" style="height:170px;width:120px;"><br><br>क्या आपको खांसी है??<br /><br />
+  <button type="button" name="button" onclick="check1()" class="btn btn-primary mybut">हाँ</button><br>
+  <button type="button" name="button" onclick="check1()" class="btn btn-primary mybut">नहीं</button>
 </div>
 <div id="tobe1" class="cough back">
-<img src="https://i.ibb.co/K9tmp1q/cold.png" alt="" style="height:170px;width:120px;"><br><br>Do you have a Cold?<br /><br />
-<button type="button" name="button" onclick="check2()" class="btn btn-primary mybut">Yes</button><br>
-<button type="button" name="button" onclick="check2()" class="btn btn-primary mybut">No</button>
+<img src="https://i.ibb.co/K9tmp1q/cold.png" alt="" style="height:170px;width:120px;"><br><br>क्या तुम्हे सर्दी हे?<br /><br />
+<button type="button" name="button" onclick="check2()" class="btn btn-primary mybut">हाँ</button><br>
+<button type="button" name="button" onclick="check2()" class="btn btn-primary mybut">नहीं</button>
 </div>
 <div id="tobe2" class="diarrhea back">
-<img src="https://i.ibb.co/3NLBGcV/diarrhea.png" alt="" style="height:170px;width:150px;"><br><br>Are you having diarrhea?<br /><br />
-<button type="button" name="button" onclick="check3()" class="btn btn-primary mybut">Yes</button><br>
-<button type="button" name="button" onclick="check3()" class="btn btn-primary mybut">No</button>
+<img src="https://i.ibb.co/3NLBGcV/diarrhea.png" alt="" style="height:170px;width:150px;"><br><br>क्या आपको दस्त हो रहे हैं?<br /><br />
+<button type="button" name="button" onclick="check3()" class="btn btn-primary mybut">हाँ</button><br>
+<button type="button" name="button" onclick="check3()" class="btn btn-primary mybut">नहीं</button>
 </div>
 <div id="tobe3" class="sore back">
-<img src="https://i.ibb.co/PzKTSyG/sore.png" alt="" style="height:170px;width:150px;"><br><br>Are you having a sore throat?<br /><br />
-<button type="button" name="button" onclick="check4()" class="btn btn-primary mybut">Yes</button><br>
-<button type="button" name="button" onclick="check4()" class="btn btn-primary mybut">No</button>
+<img src="https://i.ibb.co/PzKTSyG/sore.png" alt="" style="height:170px;width:150px;"><br><br>
+क्या आपके गले में खराश हो रही है?<br /><br />
+<button type="button" name="button" onclick="check4()" class="btn btn-primary mybut">हाँ</button><br>
+<button type="button" name="button" onclick="check4()" class="btn btn-primary mybut">नहीं</button>
 </div>
 <div id="tobe4" class="body back">
-<img src="https://i.ibb.co/Ss6Ld2c/body.png" alt="" style="height:170px;width:150px;"><br><br>Are you having body pain?<br /><br />
-<button type="button" name="button" onclick="check5()" class="btn btn-primary mybut">Yes</button><br>
-<button type="button" name="button" onclick="check5()" class="btn btn-primary mybut">No</button>
+<img src="https://i.ibb.co/Ss6Ld2c/body.png" alt="" style="height:170px;width:150px;"><br><br>
+क्या आपको शरीर में दर्द हो रहा है?<br /><br />
+<button type="button" name="button" onclick="check5()" class="btn btn-primary mybut">हाँ</button><br>
+<button type="button" name="button" onclick="check5()" class="btn btn-primary mybut">नहीं</button>
 </div>
 <div id="tobe5" class="head back">
-<img src="https://i.ibb.co/2s83vCr/head.png" alt="" style="height:170px;width:150px;"><br><br>Are you having a Head Ache?<br /><br />
-<button type="button" name="button" onclick="check6()" class="btn btn-primary mybut">Yes</button><br>
-<button type="button" name="button" onclick="check6()" class="btn btn-primary mybut">No</button>
+<img src="https://i.ibb.co/2s83vCr/head.png" alt="" style="height:170px;width:150px;"><br><br>
+क्या आपको सिर में दर्द हो रहा है?<br /><br />
+<button type="button" name="button" onclick="check6()" class="btn btn-primary mybut">हाँ</button><br>
+<button type="button" name="button" onclick="check6()" class="btn btn-primary mybut">नहीं</button>
 </div>
 <div id="tobe6" class="fever back">
-<img src="https://i.ibb.co/Km5NYqf/fever.png" alt="" style="height:170px;width:80px;"><br><br>Please do tell us your Body temprature.<br /><br />
+<img src="https://i.ibb.co/Km5NYqf/fever.png" alt="" style="height:170px;width:80px;"><br><br>कृपया हमें अपना शरीर का तापमान बताएं.<br /><br />
 <input type="text" id="fname" name="fname" placeholder="98.00"><br>
-<button type="button" name="button" onclick="check7()" class="btn btn-primary mybut1">I entered my body temprature!</button>
+<button type="button" name="button" onclick="check7()" class="btn btn-primary mybut1">मैंने अपने शरीर का तापमान डाल दिया है!</button>
 </div>
 <div id="tobe7" class="breath back">
-<img src="https://i.ibb.co/FJBVWt5/breath.png" alt="" style="height:170px;width:170px;"><br><br>Are you having Trouble Breathing?<br /><br />
-<button type="button" name="button" onclick="check8()" class="btn btn-primary mybut">Yes</button><br>
-<button type="button" name="button" onclick="check8()" class="btn btn-primary mybut">No</button>
+<img src="https://i.ibb.co/FJBVWt5/breath.png" alt="" style="height:170px;width:170px;"><br><br>
+क्या आपको सांस लेने में तकलीफ हो रही है?<br /><br />
+<button type="button" name="button" onclick="check8()" class="btn btn-primary mybut">हाँ</button><br>
+<button type="button" name="button" onclick="check8()" class="btn btn-primary mybut">नहीं</button>
 </div>
 <div id="tobe8" class="fatigue back">
-<img src="https://i.ibb.co/kmB06BT/fatigue.png" alt="" style="height:170px;width:150px;"><br><br>Are you experiencing fatigue?<br /><br />
-<button type="button" name="button" onclick="check9()" class="btn btn-primary mybut">Yes</button><br>
-<button type="button" name="button" onclick="check9()" class="btn btn-primary mybut">No</button>
+<img src="https://i.ibb.co/kmB06BT/fatigue.png" alt="" style="height:170px;width:150px;"><br><br>क्या आप थकान का अनुभव कर रहे हैं?<br /><br />
+<button type="button" name="button" onclick="check9()" class="btn btn-primary mybut">हाँ</button><br>
+<button type="button" name="button" onclick="check9()" class="btn btn-primary mybut">नहीं</button>
 </div>
 <div id="tobe9" class="travel back">
-<img src="https://i.ibb.co/fH9jDcN/plane.png" alt="" style="height:170px;width:150px;"><br><br>Have you travelled in the past 14 days (inside India or Internationally)?<br /><br />
-<button type="button" name="button" onclick="check10()" class="btn btn-primary mybut">Yes</button><br>
-<button type="button" name="button" onclick="check10()" class="btn btn-primary mybut">No</button>
+<img src="https://i.ibb.co/fH9jDcN/plane.png" alt="" style="height:170px;width:150px;"><br><br>क्या आपने पिछले 14 दिनों में (भारत या अंतर्राष्ट्रीय रूप से) यात्रा की है?<br /><br />
+<button type="button" name="button" onclick="check10()" class="btn btn-primary mybut">हाँ</button><br>
+<button type="button" name="button" onclick="check10()" class="btn btn-primary mybut">नहीं</button>
 </div>
 <div id="tobe10" class="doctor back">
-<img src="https://i.ibb.co/6PDBVCM/doctor.png" alt="" style="height:170px;width:170px;"><br><br>Do you have direct contact to a known Covid-19 patient (active or recovered case)?<br /><br />
-<button type="button" name="button" onclick="myFunction1()" class="btn btn-primary mybut">Yes</button><br>
-<button type="button" name="button" onclick="myFunction1()" class="btn btn-primary mybut">No</button>
+<img src="https://i.ibb.co/6PDBVCM/doctor.png" alt="" style="height:170px;width:170px;"><br><br>क्या आपके पास किसी परिचित कोविद -19 रोगी से सीधा संपर्क है?<br /><br />
+<button type="button" name="button" onclick="myFunction1()" class="btn btn-primary mybut">हाँ</button><br>
+<button type="button" name="button" onclick="myFunction1()" class="btn btn-primary mybut">नहीं</button>
 </div>
     </div>
       <br>
     </form><br>
 
     <div id=disp class="disp map">
-      Chances of you being Infected is: &nbsp;&nbsp;&nbsp;<span id="demo"></span>%<br /><br /><p>Maintain peace amongst these Hard times, and Do cooperate with Governments's Order's.</p>
+      आपके संक्रमित होने की संभावना है: &nbsp;&nbsp;&nbsp;<span id="demo"></span>%<br /><br /><p>
+इन कठिन समयों के बीच शांति बनाए रखें, और सरकारों के आदेश के साथ सहयोग करें.</p>
     </div><br />
     <div class="alert alert-dark" role="alert">
-    Even if you have mild symptoms, do consult your Family doctor over phone.<br />#stayhomestaysafe<p>
-      Government of India is taking all necessary steps to ensure that we are prepared well to face the challenge and threat posed by the growing pandemic of COVID 19 – the Corona Virus. With active support of the people of India, we have been able to contain the spread of the Virus in our country. The most important factor in preventing the spread of the Virus locally is to empower the citizens with the right information and taking precautions as per the advisories being issued by Ministry of Health & Family Welfare.
+
+  अगर आपके पास हल्के लक्षण हैं, तो फोन पर अपने परिवार के डॉक्टर से परामर्श करें.<br />#घरमेंरहोसुरक्षितरहो<p>
+
+भारत सरकार यह सुनिश्चित करने के लिए सभी आवश्यक कदम उठा रही है कि हम COVID 19 - कोरोना वायरस की बढ़ती महामारी से उत्पन्न चुनौती और खतरे का सामना करने के लिए अच्छी तरह से तैयार हैं। भारत के लोगों के सक्रिय समर्थन के साथ, हम अपने देश में वायरस के प्रसार को नियंत्रित करने में सक्षम हैं। स्थानीय रूप से वायरस के प्रसार को रोकने में सबसे महत्वपूर्ण कारक नागरिकों को सही जानकारी और स्वास्थ्य और परिवार कल्याण मंत्रालय द्वारा जारी की जा रही सलाह के अनुसार सावधानी बरतना है.
     </p>
   </div>
   <div class="map" id="disp1">
-    <a href="index.html#hero"><button class="btn btn-primary mybut">CoronaVirus Status in India</button></a>
-    <a href="index.html#anycheck"><button class="btn btn-primary mybut">CoronaVirus Status in the World</button></a>
+    <a href="index.html#hero"><button class="btn btn-primary mybut">भारत में कोरोनावायरस की स्थिति</button></a>
+    <a href="index.html#anycheck"><button class="btn btn-primary mybut">
+विश्व में कोरोनावायरस की स्थिति</button></a>
+  </div>
+  <div class='scrolltop'>
+    <div class='scroll icon'><i class="fa fa-4x fa-angle-up"></i></div>
+  </div>
+  <div class='languagetop'>
+    <a href="checkup.html"><div class='language icon'>Eng.</div></a>
   </div>
   </div>
   <br>
@@ -148,7 +165,7 @@
     </div><br>
     <div class="mygov">
       <ul>
-        <li class="a1 descheading" id="help"><br /><strong>GOVERNMENT HELPLINE</strong></li><br><br>
+        <li class="a1 descheading" id="help"><br /><strong>सरकारी सहायता</strong></li><br><br>
         <li class="a1"><a href="https://wa.me/+919013151515"><i class="fab fa-whatsapp"></i></a></li>
         <li class="a1" id="myInput"><a href="tel:+911123978046 "><i class="fas fa-phone"></i></a></li>
         <li class="a1"><a href="mailto:ncov2019@gov.in"><i class="far fa-envelope"></i></a></li>
@@ -156,7 +173,7 @@
     </div>
     <div class="me">
       <ul>
-        <br /><strong class="descheading">&nbsp;&nbsp;FOLLOW ME</strong><br><br>
+        <br /><strong class="descheading">&nbsp;&nbsp;मेरे बारे में</strong><br><br>
         <li class="a1"><a href="https://www.instagram.com/who.is.ashish"><i class="fab fa-instagram"></i></a></li>
         <li class="a1"><a href="https://www.linkedin.com/in/ashish-yadav-5558a4179"><i class="fab fa-linkedin-in"></i></a></li>
         <li class="a1"><a href="mailto:nowwhoisashish@gmail.com"><i class="far fa-envelope"></i></a></li>
@@ -173,8 +190,8 @@
     </div>
     <div class="copy">
       <!-- Start of WebFreeCounter Code -->
-<img src="https://www.webfreecounter.com/hit.php?id=gvkopno&nd=6&style=17" border="0" alt="visitor counter">
-<!-- End of WebFreeCounter Code -->
+  <img src="https://www.webfreecounter.com/hit.php?id=gvkopno&nd=6&style=17" border="0" alt="visitor counter">
+  <!-- End of WebFreeCounter Code -->
     </div>
   </div>
 
@@ -243,21 +260,24 @@
 
     gtag('config', 'UA-43322397-2');
   </script>
-  <script type="text/javascript">
-    /*for smooth achor bookmark link sailing*/
-    let anchorlinks = document.querySelectorAll('a[href^="#"]')
+  <script>
+    jQuery($ => {
+      // The speed of the scroll in milliseconds
+      const speed = 1000;
 
-    for (let item of anchorlinks) { // relitere
-      item.addEventListener('click', (e) => {
-        let hashval = item.getAttribute('href')
-        let target = document.querySelector(hashval)
-        target.scrollIntoView({
-          behavior: 'smooth'
-        })
-        history.pushState(null, null, hashval)
-        e.preventDefault()
-      })
-    }
+      $('a[href*="#"]')
+        .filter((i, a) => a.getAttribute('href').startsWith('#') || a.href.startsWith(`${location.href}#`))
+        .unbind('click.smoothScroll')
+        .bind('click.smoothScroll', event => {
+          const targetId = event.currentTarget.getAttribute('href').split('#')[1];
+          const targetElement = document.getElementById(targetId);
+
+          if (targetElement) {
+            event.preventDefault();
+            $('html, body').animate({ scrollTop: $(targetElement).offset().top }, speed);
+          }
+        });
+    });
   </script>
   <script type="text/javascript">
     /*for scrolling to top*/
@@ -271,7 +291,7 @@
     $(function() {
       $(".scroll").click(function() {
         $("html,body").animate({
-          scrollTop: $(".all").offset().top
+          scrollTop: $(".all1").offset().top
         }, "1000");
         return false
       })

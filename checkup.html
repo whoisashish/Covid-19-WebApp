@@ -140,6 +140,12 @@
     <a href="index.html#hero"><button class="btn btn-primary mybut">CoronaVirus Status in India</button></a>
     <a href="index.html#anycheck"><button class="btn btn-primary mybut">CoronaVirus Status in the World</button></a>
   </div>
+  <div class='scrolltop'>
+    <div class='scroll icon'><i class="fa fa-4x fa-angle-up"></i></div>
+  </div>
+  <div class='languagetop'>
+    <a href="checkuphindi.html"><div class='language icon'>हिन्दी</div></a>
+  </div>
   </div>
   <br>
   <div id="footer">
@@ -243,21 +249,24 @@
 
     gtag('config', 'UA-43322397-2');
   </script>
-  <script type="text/javascript">
-    /*for smooth achor bookmark link sailing*/
-    let anchorlinks = document.querySelectorAll('a[href^="#"]')
+  <script>
+    jQuery($ => {
+      // The speed of the scroll in milliseconds
+      const speed = 1000;
 
-    for (let item of anchorlinks) { // relitere
-      item.addEventListener('click', (e) => {
-        let hashval = item.getAttribute('href')
-        let target = document.querySelector(hashval)
-        target.scrollIntoView({
-          behavior: 'smooth'
-        })
-        history.pushState(null, null, hashval)
-        e.preventDefault()
-      })
-    }
+      $('a[href*="#"]')
+        .filter((i, a) => a.getAttribute('href').startsWith('#') || a.href.startsWith(`${location.href}#`))
+        .unbind('click.smoothScroll')
+        .bind('click.smoothScroll', event => {
+          const targetId = event.currentTarget.getAttribute('href').split('#')[1];
+          const targetElement = document.getElementById(targetId);
+
+          if (targetElement) {
+            event.preventDefault();
+            $('html, body').animate({ scrollTop: $(targetElement).offset().top }, speed);
+          }
+        });
+    });
   </script>
   <script type="text/javascript">
     /*for scrolling to top*/
@@ -271,7 +280,7 @@
     $(function() {
       $(".scroll").click(function() {
         $("html,body").animate({
-          scrollTop: $(".all").offset().top
+          scrollTop: $(".all1").offset().top
         }, "1000");
         return false
       })

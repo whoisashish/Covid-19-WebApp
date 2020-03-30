@@ -18,7 +18,6 @@
   <script src="dc.min.js" charset="utf-8"></script>
   <script src="jquery.min.js" charset="utf-8"></script>
   <script src="bootstrap.min.js" charset="utf-8"></script>
-
   <script src="india.js" charset="utf-8"></script>
   <script src="viz.js" charset="utf-8"></script>
   <script src="https://kit.fontawesome.com/5b941bf5b1.js" crossorigin="anonymous"></script>
@@ -374,21 +373,24 @@
 
     gtag('config', 'UA-43322397-2');
   </script>
-  <script type="text/javascript">
-    /*for smooth achor bookmark link sailing*/
-    let anchorlinks = document.querySelectorAll('a[href^="#"]')
+  <script>
+    jQuery($ => {
+      // The speed of the scroll in milliseconds
+      const speed = 1000;
 
-    for (let item of anchorlinks) { // relitere
-      item.addEventListener('click', (e) => {
-        let hashval = item.getAttribute('href')
-        let target = document.querySelector(hashval)
-        target.scrollIntoView({
-          behavior: 'smooth'
-        })
-        history.pushState(null, null, hashval)
-        e.preventDefault()
-      })
-    }
+      $('a[href*="#"]')
+        .filter((i, a) => a.getAttribute('href').startsWith('#') || a.href.startsWith(`${location.href}#`))
+        .unbind('click.smoothScroll')
+        .bind('click.smoothScroll', event => {
+          const targetId = event.currentTarget.getAttribute('href').split('#')[1];
+          const targetElement = document.getElementById(targetId);
+
+          if (targetElement) {
+            event.preventDefault();
+            $('html, body').animate({ scrollTop: $(targetElement).offset().top }, speed);
+          }
+        });
+    });
   </script>
   <script type="text/javascript">
     /*for scrolling to top*/

@@ -57,7 +57,7 @@
           <a class="a3 nav-link" href="#covid1">कोरोना के बारे में जानकारी</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="newshindi.html">समाचार और अपडेट</a>
+          <a class="nav-link" href="news.html">समाचार और अपडेट</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="checkuphindi.html">स्व जांच</a>
@@ -395,22 +395,25 @@ COVID-19 वायरस से संक्रमित अधिकांश �
 
     gtag('config', 'UA-43322397-2');
   </script>
-  <script type="text/javascript">
-    /*for smooth achor bookmark link sailing*/
-    let anchorlinks = document.querySelectorAll('a[href^="#"]')
+  <script>
+  jQuery($ => {
+    // The speed of the scroll in milliseconds
+    const speed = 1000;
 
-    for (let item of anchorlinks) { // relitere
-      item.addEventListener('click', (e) => {
-        let hashval = item.getAttribute('href')
-        let target = document.querySelector(hashval)
-        target.scrollIntoView({
-          behavior: 'smooth'
-        })
-        history.pushState(null, null, hashval)
-        e.preventDefault()
-      })
-    }
-  </script>
+    $('a[href*="#"]')
+      .filter((i, a) => a.getAttribute('href').startsWith('#') || a.href.startsWith(`${location.href}#`))
+      .unbind('click.smoothScroll')
+      .bind('click.smoothScroll', event => {
+        const targetId = event.currentTarget.getAttribute('href').split('#')[1];
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          event.preventDefault();
+          $('html, body').animate({ scrollTop: $(targetElement).offset().top }, speed);
+        }
+      });
+  });
+</script>
   <script type="text/javascript">
     /*for scrolling to top*/
     $(window).scroll(function() {
