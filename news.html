@@ -18,6 +18,12 @@
   <script src="dc.min.js" charset="utf-8"></script>
   <script src="jquery.min.js" charset="utf-8"></script>
   <script src="bootstrap.min.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="player.css">
+
+  <link href="https://vjs.zencdn.net/7.7.5/video-js.css" rel="stylesheet" />
+
+  <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+  <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
 
   <script src="india.js" charset="utf-8"></script>
   <script src="viz.js" charset="utf-8"></script>
@@ -57,7 +63,8 @@
           <a class="nav-link" href="globe/index1.html">3D globe statistics</a>
         </li>
         <li class="nav-item">
-          <a class="a3 nav-link" href="index.html#covid1">All about Corona</a>
+          <a class="a2 nav-link" href="#covid">All about Corona</a>
+          <a class="a3 nav-link" href="#covid1">All about Corona</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="checkup.html">Self-checkup</a>
@@ -70,12 +77,78 @@
   </nav>
 
   <div class="all2">
+<div class="head"><hr />
+<h4 class="descheading">NEWS</h4>News gets Updated and Refreshed every 4 Hours &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; Latest on top
+</div>
+<hr />
     <div class="map container app-content">
       <!-- app content goes here -->
     </div>
+<div class="head"><hr />
+<h4 class="descheading">UPDATES</h4>Regular updates from Ministry of Health and Family Welfare &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; Now no more Rumours
+<hr />
+<div class="updates">
+  <div class="card-deck">
+    <div class="card">
+      <img src="https://i.ibb.co/K5SCQxG/jc.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">I support Janta Curfew</h5>
+        <p class="card-text">Curfew of the people, by the people, for the people to fight #COVID19. As a responsible citizen, come forward & respond to PM Narendra Modi's call for Janta Curfew by taking the #ISupportJantaCurfew pledge. https://pledge.mygov.in/janatacurfew/ #IndiaFightsCorona.</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">March 22 2020 | 12:12:19 AM</small>
+      </div>
+    </div>
+    <div class="card">
+      <div class="vid">
+        <video id="my-video" class="video-js vjs-default-skin vjs-16-9" controls preload="auto" width="100%" height="100%" data-setup="{}">
+        <source src="updates/jc.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Why Janta Curfew</h5>
+        <p class="card-text">
+Come make the #JantaCurfew a success by staying in the house from 7am to 9pm on 22 March on the call of PM Narendra Modi. Listen why staying inside your homes is an essential piece in defeating Noval Corona Virus, from our Honourable Prime Minister Narendra Modi Himself. #JantaCurfewMarch22 #HelpUsToHelpYou #IndiaFightsCorona #CoronaVirusUpdate
+For more information, visit: mygov.in/covid-19
+24x7 Toll Free Helpline No. 1075</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+</div>
+
+
     <div class='scrolltop'>
       <div class='scroll icon'><i class="fa fa-4x fa-angle-up"></i></div>
     </div>
+    <div class='languagetop'>
+      <a href="newshindi.html"><div class='language icon'>हिन्दी</div></a>
+    </div>
+
     <div id="footer">
       <div class="copy">
         © AjmerSuman 2020
@@ -90,6 +163,11 @@
       </div>
       <div class="me">
         <ul>
+          <br /><strong class="descheading">&nbsp;&nbsp;FOLLOW ME</strong><br><br>
+          <li class="a1"><a href="https://www.instagram.com/who.is.ashish"><i class="fab fa-instagram"></i></a></li>
+          <li class="a1"><a href="https://www.linkedin.com/in/ashish-yadav-5558a4179"><i class="fab fa-linkedin-in"></i></a></li>
+          <li class="a1"><a href="mailto:nowwhoisashish@gmail.com"><i class="far fa-envelope"></i></a></li>
+        </ul>
       </div>
       <div class="sources">Data sources
         <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports">WHO</a>,
@@ -106,7 +184,7 @@
   <!-- End of WebFreeCounter Code -->
       </div>
     </div>
-  </div>
+    </div>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js'></script>
@@ -175,6 +253,7 @@
     }
   </script>
 
+<script src="https://vjs.zencdn.net/7.7.5/video.js"></script>
 
 </body>
 
