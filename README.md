@@ -7,6 +7,6 @@ This project presents a Simple yet effective features for tracking and dealing w
              5. A 3D visualization of the noval coronavirus spread across the entire globe.</br>
              6. State and Union territory specific Insights of noval coronaVirus.</br>
              7. All the Information(How, What and Why) about Covid-19, Symptoms and Precautions.</br>
-             8. Government Helpline Information. 
+             8. Government Helpline Information. <br/>
              9. Daily updated news and Info page About Noval coronaVirus Covid-19.
            
