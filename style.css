@@ -7,12 +7,45 @@ body{
  -moz-osx-font-smoothing: grayscale;
 }
 
+hr{
+  border-top: 1px dashed red;
+}
+
+.head{
+  font-size: 12px;
+}
+
 .app-content{
   font-family: 'Baloo Da 2', cursive;
 }
 
 .app-content h4{
-  color: #e62429;
+  color: #FF0000;
+}
+
+.app-content span{
+  color: #39ff14;
+}
+
+.card-body{
+  background: #444;
+}
+
+.card-footer{
+  background: black;
+}
+
+.card-title{
+  color: #FF0000;
+}
+
+.updates{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.mygov{
+  float: left;
 }
 
 .app-content a{
@@ -21,7 +54,7 @@ body{
 }
 
 .app-content a:hover{
-  color: grey;;
+  color: grey;
   text-decoration: none;
 }
 
@@ -30,6 +63,8 @@ body{
   padding-top: 56px;
   bottom: 0;
   height: 100%;
+  text-align: center;
+  background: #151515;
 }
 
 .headline{
@@ -37,10 +72,6 @@ body{
   background-color: #ef1a3f;
   color: #fff;
   margin-bottom: 5px;
-}
-
-.all2{
-  background: #151515;
 }
 
 .article{
