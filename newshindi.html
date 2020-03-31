@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>COVID19 Tracker | INDIA</title>
+  <meta name="description" content="India's very own Covid-19 Tracking Dashboard with availability to track covid spread in other countries too.">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript,CoronaVirus,corona,CORONAVIRUS,coronavirus,CoVid,covid19,CoVid-19,noval">
+  <meta name="author" content="Ashish Yadav">
+  <meta name="url" content="https://stayhomestaysafe.ml">
+  <meta name="image" content="https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg">
+  <meta property="og:title" content="Covid19 Tracker | INDIA">
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg">
+  <meta property="og:url" content="https://stayhomestaysafe.ml">
+    <script src="myscript.js" charset="utf-8"></script>
+  <script src="d3.min.js" charset="utf-8"></script>
+  <script src="crossfilter.min.js" charset="utf-8"></script>
+  <script src="dc.min.js" charset="utf-8"></script>
+  <script src="jquery.min.js" charset="utf-8"></script>
+  <script src="bootstrap.min.js" charset="utf-8"></script>
+
+  <script src="india.js" charset="utf-8"></script>
+  <script src="viz.js" charset="utf-8"></script>
+  <script src="https://kit.fontawesome.com/5b941bf5b1.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+  <style media="screen">
+    g.deselected,
+    rect.deselected {
+      opacity: 0.3;
+    }
+
+    g.state.selected path {
+      fill: #A1DA9B;
+    }
+  </style>
+</head>
+
+<body>
+  <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <span class="navbar-brand">COVID-19 डैशबोर्ड <span class="by"><a href="https://www.instagram.com/who.is.ashish">आशीष</a> द्वारा</span></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="indexhindi.html">भारतीय आंकड़</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="globe/index1hindi.html">दुनिया के आंकड़े</a>
+        </li>
+        <li class="nav-item">
+          <a class="a2 nav-link" href="#covid">कोरोना के बारे में जानकारी</a>
+          <a class="a3 nav-link" href="#covid1">कोरोना के बारे में जानकारी</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="checkuphindi.html">स्व जांच</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#download">हेल्पलाइन</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="all2">
+    <div class="head"><hr />
+    <h4 class="descheading">समाचार</h4>
+समाचार हर 4 घंटे में अपडेट और रिफ्रेश हो जाते हैं &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; नवीनतम समाचार शीर्ष पर दिखाए जाते हैं
+    </div>
+    <hr />
+    <div class="map container app-content">
+      <!-- app content goes here -->
+    </div>
+    <div class='scrolltop'>
+      <div class='scroll icon'><i class="fa fa-4x fa-angle-up"></i></div>
+    </div>
+    <div class='languagetop'>
+      <a href="news.html"><div class='language icon'>Eng.</div></a>
+    </div>
+    <div id="footer">
+      <div class="copy">
+        © AjmerSuman 2020
+      </div><br>
+      <div class="mygov">
+        <ul>
+          <li class="a1 descheading" id="help"><br /><strong>सरकारी सहायता</strong></li><br><br>
+          <li class="a1"><a href="https://wa.me/+919013151515"><i class="fab fa-whatsapp"></i></a></li>
+          <li class="a1" id="myInput"><a href="tel:+911123978046 "><i class="fas fa-phone"></i></a></li>
+          <li class="a1"><a href="mailto:ncov2019@gov.in"><i class="far fa-envelope"></i></a></li>
+        </ul>
+      </div>
+      <div class="me">
+        <ul>
+          <br /><strong class="descheading">&nbsp;&nbsp;मेरे बारे में</strong><br><br>
+          <li class="a1"><a href="https://www.instagram.com/who.is.ashish"><i class="fab fa-instagram"></i></a></li>
+          <li class="a1"><a href="https://www.linkedin.com/in/ashish-yadav-5558a4179"><i class="fab fa-linkedin-in"></i></a></li>
+          <li class="a1"><a href="mailto:nowwhoisashish@gmail.com"><i class="far fa-envelope"></i></a></li>
+        </ul>
+      </div>
+      <div class="sources">Data sources
+        <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports">WHO</a>,
+        <a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html">CDC</a>,
+        <a href="https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases">ECDC</a>,
+        <a href="http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml">NHC</a> and
+        <a href="https://3g.dxy.cn/newh5/view/pneumonia?scene=2&amp;clicktime=1579582238&amp;enterid=1579582238&amp;from=singlemessage&amp;isappinstalled=0">DXY</a>
+        provided by <a href="https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6">Johns Hopkins CSSE</a>.<br />Indian <a
+          href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSc_2y5N0I67wDU38DjDh35IZSIS30rQf7_NYZhtYYGU1jJYT6_kDx4YpF-qw0LSlGsBYP8pqM_a1Pd/pubhtml">DataBase</a> on Covid-19 spread.
+      </div>
+      <div class="copy">
+        <!-- Start of WebFreeCounter Code -->
+  <img src="https://www.webfreecounter.com/hit.php?id=gvkopno&nd=6&style=17" border="0" alt="visitor counter">
+  <!-- End of WebFreeCounter Code -->
+      </div>
+    </div>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js'></script>
+  <script src='https://www.vantajs.com/dist/vanta.cells.min.js'></script>
+  <script src="./script.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43322397-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-43322397-2');
+  </script>
+  <script>
+    jQuery($ => {
+      // The speed of the scroll in milliseconds
+      const speed = 1000;
+
+      $('a[href*="#"]')
+        .filter((i, a) => a.getAttribute('href').startsWith('#') || a.href.startsWith(`${location.href}#`))
+        .unbind('click.smoothScroll')
+        .bind('click.smoothScroll', event => {
+          const targetId = event.currentTarget.getAttribute('href').split('#')[1];
+          const targetElement = document.getElementById(targetId);
+
+          if (targetElement) {
+            event.preventDefault();
+            $('html, body').animate({ scrollTop: $(targetElement).offset().top }, speed);
+          }
+        });
+    });
+  </script>
+  <script type="text/javascript">
+    /*for scrolling to top*/
+    $(window).scroll(function() {
+      if ($(this).scrollTop() > 50) {
+        $('.scrolltop:hidden').stop(true, true).fadeIn();
+      } else {
+        $('.scrolltop').stop(true, true).fadeOut();
+      }
+    });
+    $(function() {
+      $(".scroll").click(function() {
+        $("html,body").animate({
+          scrollTop: $(".all2").offset().top
+        }, "1000");
+        return false
+      })
+    })
+  </script>
+  <script>
+    /*for header hiding*/
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("header").style.top = "0";
+      } else {
+        document.getElementById("header").style.top = "-256px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+  </script>
+
+
+</body>
+
+</html>
