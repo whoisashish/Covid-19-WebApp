@@ -39,6 +39,11 @@ hr{
   color: #FF0000;
 }
 
+#sbtn{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 .updates{
   padding-left: 20px;
   padding-right: 20px;
