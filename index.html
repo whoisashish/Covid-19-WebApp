@@ -49,7 +49,7 @@
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="globe/index1.html">3D globe statistics</a>
+          <a class="nav-link" href="all.html">Insights on the world</a>
         </li>
         <li class="nav-item">
           <a class="a2 nav-link" href="#covid">All about Corona</a>
@@ -123,71 +123,6 @@
       </div>
     </div>
     <br>
-    <div class="anycheck map" id="anycheck">
-      <form onsubmit="return false">
-        <h4 class="descheading">Check for any country</h4>
-              Country:&nbsp;&nbsp;<br class="mobile" /> <input type="text" placeholder="Type country's name" id="userCountry">&nbsp;&nbsp;<br class="mobile" />
-            <button type="submit" onclick="run()" id="submit" class="btn btn-primary">Check</button><br />
-              <p id="anycheckdisp">Total Cases: <span style="color: orange;" id="casesOutput"></span> <br>
-                  Cases reported Today: <span style="color: white;" id="todayCasesOutput"></span><br>
-                  Total Deaths: <span style="color: #e62429;" id="deathsOutput"></span><br>
-                  Deaths reported Today: <span style="color: gold;" id="todayDeathsOutput"></span><br>
-                  Total Recovered: <span  style="color: blue;" id="curedOutput"></span><br>
-                  Active cases: <span style="color: goldenrod;" id="activeOutput"></span><br>
-                  Critical cases: <span style="color: red;" id="criticalOutput"></span><br>
-                  Cases Per 1 Million: <span style="color: silver;" id="casesPerMillionOutput"></span></p>
-          </form><br />
-          <script>
-              var coronaData;
-              var countryName;
-              var cases;
-              var todayCases;
-              var deaths;
-              var todayDeaths;
-              var cured;
-              var active;
-              var critical;
-              var casesPerOneMillion;
-              url = "https://corona.lmao.ninja/countries/";
-              function run() {
-                  if (countryName != null) {
-                      countryName = "";
-                  }
-                  if (url != null) {
-                      url = "https://corona.lmao.ninja/countries/";
-                  }
-                  countryName = document.getElementById("userCountry").value;
-                  function completeUrl(countryRet) {
-                      return url = url + countryRet;
-                  }
-                  completeUrl(countryName);
-                  console.log(url);
-                  fetch(url)
-                      .then(res => res.json())
-                      .then(function (data) {
-                          coronaData = data;
-                          console.log(coronaData);
-                          cases = data.cases;
-                          todayCases = data.todayCases;
-                          deaths = data.deaths;
-                          todayDeaths = data.todayDeaths;
-                          cured = data.recovered;
-                          active = data.active;
-                          critical = data.critical;
-                          casesPerOneMillion = data.casesPerOneMillion;
-                          console.log(cases, deaths, cured);
-                          document.getElementById('casesOutput').innerHTML = cases;
-                          document.getElementById('todayCasesOutput').innerHTML = todayCases;
-                          document.getElementById('deathsOutput').innerHTML = deaths;
-                          document.getElementById('todayDeathsOutput').innerHTML = todayDeaths;
-                          document.getElementById('curedOutput').innerHTML = cured;
-                          document.getElementById('activeOutput').innerHTML = active;
-                          document.getElementById('criticalOutput').innerHTML = critical;
-                          document.getElementById('casesPerMillionOutput').innerHTML = casesPerOneMillion;
-                      })
-              }
-          </script>
-    </div><br>
     <div class="totalcount" id="total">
       <span id="count">
         Viewing
