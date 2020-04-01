@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>COVID19 Tracker | INDIA</title>
+  <title>COVID19 Tracker | WORLD</title>
 
   <script src="d3.min.js" charset="utf-8"></script>
 
@@ -26,6 +26,30 @@
   <link rel="icon" href="favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+    <style>
+      .mapreal{
+        width: 100%;
+        height: 550px;
+        margin: 5px;
+        border: 3px solid black;
+        border-radius: 5px;
+        z-index: 0;
+      }
+    </style>
+
   <style media="screen">
     g.deselected,
     rect.deselected {
@@ -38,6 +62,120 @@
   </style>
 </head>
 <body>
+  <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <span class="navbar-brand">COVID-19 Dashboard <span class="by">by <a href="https://www.instagram.com/who.is.ashish">ASHISH</a></span></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Indian statistics</a>
+        </li>
+        <li class="nav-item">
+          <a class="a2 nav-link" href="#covid">All about Corona</a>
+          <a class="a3 nav-link" href="#covid1">All about Corona</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="news.html">News and Updates</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="checkup.html">Self-checkup</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#download">Helpline</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="all2">
+    <div class="anycheck map" id="anycheck">
+      <form onsubmit="return false">
+        <h4 class="descheading">Check for any country</h4>
+              Country:&nbsp;&nbsp;<br class="mobile" /> <input type="text" placeholder="Type country's name" id="userCountry">&nbsp;&nbsp;<br class="mobile" />
+            <button type="submit" onclick="run()" id="submit" class="btn btn-primary">Check</button><br />
+              <p id="anycheckdisp">Total Cases: <span style="color: orange;" id="casesOutput"></span> <br>
+                  Cases reported Today: <span style="color: white;" id="todayCasesOutput"></span><br>
+                  Total Deaths: <span style="color: #e62429;" id="deathsOutput"></span><br>
+                  Deaths reported Today: <span style="color: gold;" id="todayDeathsOutput"></span><br>
+                  Total Recovered: <span  style="color: blue;" id="curedOutput"></span><br>
+                  Active cases: <span style="color: goldenrod;" id="activeOutput"></span><br>
+                  Critical cases: <span style="color: red;" id="criticalOutput"></span><br>
+                  Cases Per 1 Million: <span style="color: silver;" id="casesPerMillionOutput"></span></p>
+          </form><br />
+          <script>
+              var coronaData;
+              var countryName;
+              var cases;
+              var todayCases;
+              var deaths;
+              var todayDeaths;
+              var cured;
+              var active;
+              var critical;
+              var casesPerOneMillion;
+              url = "https://corona.lmao.ninja/countries/";
+              function run() {
+                  if (countryName != null) {
+                      countryName = "";
+                  }
+                  if (url != null) {
+                      url = "https://corona.lmao.ninja/countries/";
+                  }
+                  countryName = document.getElementById("userCountry").value;
+                  function completeUrl(countryRet) {
+                      return url = url + countryRet;
+                  }
+                  completeUrl(countryName);
+                  console.log(url);
+                  fetch(url)
+                      .then(res => res.json())
+                      .then(function (data) {
+                          coronaData = data;
+                          console.log(coronaData);
+                          cases = data.cases;
+                          todayCases = data.todayCases;
+                          deaths = data.deaths;
+                          todayDeaths = data.todayDeaths;
+                          cured = data.recovered;
+                          active = data.active;
+                          critical = data.critical;
+                          casesPerOneMillion = data.casesPerOneMillion;
+                          console.log(cases, deaths, cured);
+                          document.getElementById('casesOutput').innerHTML = cases;
+                          document.getElementById('todayCasesOutput').innerHTML = todayCases;
+                          document.getElementById('deathsOutput').innerHTML = deaths;
+                          document.getElementById('todayDeathsOutput').innerHTML = todayDeaths;
+                          document.getElementById('curedOutput').innerHTML = cured;
+                          document.getElementById('activeOutput').innerHTML = active;
+                          document.getElementById('criticalOutput').innerHTML = critical;
+                          document.getElementById('casesPerMillionOutput').innerHTML = casesPerOneMillion;
+                      })
+              }
+          </script>
+    </div><br>
+    <div class="map">
+<a href="globe/index1.html"><button class="btn btn-primary">Visualize in 3D</button></a>
+</div><br />
+    <section class="container-fluid map">
+
+  		<div id="mapid" class="mapreal">
+  		</div>
+  		<script src="./js/initMap.js">
+  		</script>
+  		<script src="./js/displayCases.js">
+  		</script>
+
+  	</section><br />
+  </div>
+  <div class='scrolltop'>
+    <div class='scroll icon'><i class="fa fa-4x fa-angle-up"></i></div>
+  </div>
+  <div class='languagetop'>
+    <a href="allhindi.html"><div class='language icon'>हिन्दी</div></a>
+  </div>
 
   <div id="footer">
     <div class="copy">
@@ -74,6 +212,9 @@
 <!-- End of WebFreeCounter Code -->
     </div>
   </div>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
   <script>
     function myFunction1() {
@@ -168,7 +309,7 @@
     $(function() {
       $(".scroll").click(function() {
         $("html,body").animate({
-          scrollTop: $(".all").offset().top
+          scrollTop: $(".all2").offset().top
         }, "1000");
         return false
       })
