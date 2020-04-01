@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>COVID19 ट्रैकर | विश्व</title>
+
+  <script src="d3.min.js" charset="utf-8"></script>
+
+  <script src="crossfilter.min.js" charset="utf-8"></script>
+  <script src="dc.min.js" charset="utf-8"></script>
+  <script src="jquery.min.js" charset="utf-8"></script>
+  <script src="bootstrap.min.js" charset="utf-8"></script>
+  <meta name="description" content="India's very own Covid-19 Tracking Dashboard with availablility to track covid spread in other countries too.">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript,CoronaVirus,corona,CORONAVIRUS,coronavirus,CoVid,covid19,CoVid-19,noval">
+  <meta name="author" content="Ashish Yadav">
+  <meta property="og:title" content="Covid19 Tracker | INDIA">
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg">
+  <meta property="og:url" content="https://stayhomestaysafe.ml">
+  <script src="india.js" charset="utf-8"></script>
+  <script src="viz.js" charset="utf-8"></script>
+  <script src="https://kit.fontawesome.com/5b941bf5b1.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+    <style>
+      .mapreal{
+        width: 100%;
+        height: 550px;
+        margin: 5px;
+        border: 3px solid black;
+        border-radius: 5px;
+        z-index: 0;
+      }
+    </style>
+
+  <style media="screen">
+    g.deselected,
+    rect.deselected {
+      opacity: 0.3;
+    }
+
+    g.state.selected path {
+      fill: #A1DA9B;
+    }
+  </style>
+</head>
+<body>
+  <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <span class="navbar-brand">COVID-19 डैशबोर्ड <span class="by"><a href="https://www.instagram.com/who.is.ashish">आशीष</a> द्वारा</span></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="indexhindi.html">भारत के आंकड़े</a>
+        </li>
+        <li class="nav-item">
+          <a class="a2 nav-link" href="#covid">कोरोना के बारे में जानकारी</a>
+          <a class="a3 nav-link" href="#covid1">कोरोना के बारे में जानकारी</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="newshindi.html">समाचार और अपडेट</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="checkuphindi.html">स्व जांच</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#download">हेल्पलाइन</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="all2">
+    <div class="anycheck map" id="anycheck">
+      <form onsubmit="return false">
+        <h4 class="descheading">किसी भी देश के लिए जाँच करें</h4>
+              देश का नाम:&nbsp;&nbsp;<br class="mobile" /> <input type="text" placeholder="देश का नाम डालें" id="userCountry">&nbsp;&nbsp;<br class="mobile" />
+            <button type="submit" onclick="run()" id="submit" class="btn btn-primary">दिखाओ</button><br />
+              <p id="anycheckdisp">कुल मामले: <span style="color: orange;" id="casesOutput"></span> <br>
+                  आज के मामलों की रिपोर्ट: <span style="color: white;" id="todayCasesOutput"></span><br>
+
+  कुल मौतें: <span style="color: #e62429;" id="deathsOutput"></span><br>
+                  आज मरने वालों की संख्या: <span style="color: gold;" id="todayDeathsOutput"></span><br>
+                  कुल स्वस्थ: <span  style="color: blue;" id="curedOutput"></span><br>
+
+  सक्रिय मामले: <span style="color: goldenrod;" id="activeOutput"></span><br>
+
+  गंभीर मामले: <span style="color: red;" id="criticalOutput"></span><br>
+                  1 मिलियन में मामलों की संख्या: <span style="color: silver;" id="casesPerMillionOutput"></span></p>
+          </form><br />
+          <script>
+              var coronaData;
+              var countryName;
+              var cases;
+              var todayCases;
+              var deaths;
+              var todayDeaths;
+              var cured;
+              var active;
+              var critical;
+              var casesPerOneMillion;
+              url = "https://corona.lmao.ninja/countries/";
+              function run() {
+                  if (countryName != null) {
+                      countryName = "";
+                  }
+                  if (url != null) {
+                      url = "https://corona.lmao.ninja/countries/";
+                  }
+                  countryName = document.getElementById("userCountry").value;
+                  function completeUrl(countryRet) {
+                      return url = url + countryRet;
+                  }
+                  completeUrl(countryName);
+                  console.log(url);
+                  fetch(url)
+                      .then(res => res.json())
+                      .then(function (data) {
+                          coronaData = data;
+                          console.log(coronaData);
+                          cases = data.cases;
+                          todayCases = data.todayCases;
+                          deaths = data.deaths;
+                          todayDeaths = data.todayDeaths;
+                          cured = data.recovered;
+                          active = data.active;
+                          critical = data.critical;
+                          casesPerOneMillion = data.casesPerOneMillion;
+                          console.log(cases, deaths, cured);
+                          document.getElementById('casesOutput').innerHTML = cases;
+                          document.getElementById('todayCasesOutput').innerHTML = todayCases;
+                          document.getElementById('deathsOutput').innerHTML = deaths;
+                          document.getElementById('todayDeathsOutput').innerHTML = todayDeaths;
+                          document.getElementById('curedOutput').innerHTML = cured;
+                          document.getElementById('activeOutput').innerHTML = active;
+                          document.getElementById('criticalOutput').innerHTML = critical;
+                          document.getElementById('casesPerMillionOutput').innerHTML = casesPerOneMillion;
+                      })
+              }
+          </script>
+    </div><br>
+    <div class="map">
+<a href="globe/index1hindi.html"><button class="btn btn-primary">3D में देखें</button></a>
+</div><br />
+    <section class="container-fluid map">
+
+  		<div id="mapid" class="mapreal">
+  		</div>
+  		<script src="./js/initMap.js">
+  		</script>
+  		<script src="./js/displayCases.js">
+  		</script>
+
+  	</section><br />
+  </div>
+  <div class='scrolltop'>
+    <div class='scroll icon'><i class="fa fa-4x fa-angle-up"></i></div>
+  </div>
+  <div class='languagetop'>
+    <a href="all.html"><div class='language icon'>Eng.</div></a>
+  </div>
+
+  <div id="footer">
+    <div class="copy">
+      © AjmerSuman 2020
+    </div><br>
+    <div class="mygov">
+      <ul>
+        <li class="a1 descheading" id="help"><br /><strong>सरकारी सहायता</strong></li><br><br>
+        <li class="a1"><a href="https://wa.me/+919013151515"><i class="fab fa-whatsapp"></i></a></li>
+        <li class="a1" id="myInput"><a href="tel:+911123978046 "><i class="fas fa-phone"></i></a></li>
+        <li class="a1"><a href="mailto:ncov2019@gov.in"><i class="far fa-envelope"></i></a></li>
+      </ul>
+    </div>
+    <div class="me">
+      <ul>
+        <br /><strong class="descheading">&nbsp;&nbsp;मेरे बारे में</strong><br><br>
+        <li class="a1"><a href="https://www.instagram.com/who.is.ashish"><i class="fab fa-instagram"></i></a></li>
+        <li class="a1"><a href="https://www.linkedin.com/in/ashish-yadav-5558a4179"><i class="fab fa-linkedin-in"></i></a></li>
+        <li class="a1"><a href="mailto:nowwhoisashish@gmail.com"><i class="far fa-envelope"></i></a></li>
+      </ul>
+    </div>
+    <div class="sources">Data sources
+      <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports">WHO</a>,
+      <a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html">CDC</a>,
+      <a href="https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases">ECDC</a>,
+      <a href="http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml">NHC</a> and
+      <a href="https://3g.dxy.cn/newh5/view/pneumonia?scene=2&amp;clicktime=1579582238&amp;enterid=1579582238&amp;from=singlemessage&amp;isappinstalled=0">DXY</a>
+      provided by <a href="https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6">Johns Hopkins CSSE</a>.<br />Indian <a
+        href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSc_2y5N0I67wDU38DjDh35IZSIS30rQf7_NYZhtYYGU1jJYT6_kDx4YpF-qw0LSlGsBYP8pqM_a1Pd/pubhtml">DataBase</a> on Covid-19 spread.
+    </div>
+    <div class="copy">
+      <!-- Start of WebFreeCounter Code -->
+<img src="https://www.webfreecounter.com/hit.php?id=gvkopno&nd=6&style=17" border="0" alt="visitor counter">
+<!-- End of WebFreeCounter Code -->
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  <script>
+    function myFunction1() {
+      var x = document.getElementById("demo")
+      x.innerHTML = Math.floor((Math.random() * 60) + 1);
+      document.getElementById("tobe10").style.display = "none";
+      document.getElementById("disp").style.display = "block";
+      document.getElementById("disp1").style.display = "block";
+      document.getElementById("fin").style.display = "none";
+      document.getElementById("card-holder").style.display = "none";
+      document.getElementById("res").style.display = "block";
+      document.getElementById("restart").style.display = "block";
+    }
+    function check1() {
+      document.getElementById("tobe").style.display = "none";
+      document.getElementById("tobe1").style.display = "block";
+    }
+    function check2() {
+      document.getElementById("tobe1").style.display = "none";
+      document.getElementById("tobe2").style.display = "block";
+    }
+    function check3() {
+      document.getElementById("tobe2").style.display = "none";
+      document.getElementById("tobe3").style.display = "block";
+    }
+    function check4() {
+      document.getElementById("tobe3").style.display = "none";
+      document.getElementById("tobe4").style.display = "block";
+    }
+    function check5() {
+      document.getElementById("tobe4").style.display = "none";
+      document.getElementById("tobe5").style.display = "block";
+    }
+    function check6() {
+      document.getElementById("tobe5").style.display = "none";
+      document.getElementById("tobe6").style.display = "block";
+    }
+    function check7() {
+      document.getElementById("tobe6").style.display = "none";
+      document.getElementById("tobe7").style.display = "block";
+    }
+    function check8() {
+      document.getElementById("tobe7").style.display = "none";
+      document.getElementById("tobe8").style.display = "block";
+    }
+    function check9() {
+      document.getElementById("tobe8").style.display = "none";
+      document.getElementById("tobe9").style.display = "block";
+    }
+    function check10() {
+      document.getElementById("tobe9").style.display = "none";
+      document.getElementById("tobe10").style.display = "block";
+    }
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43322397-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-43322397-2');
+  </script>
+  <script type="text/javascript">
+    /*for smooth achor bookmark link sailing*/
+    let anchorlinks = document.querySelectorAll('a[href^="#"]')
+
+    for (let item of anchorlinks) { // relitere
+      item.addEventListener('click', (e) => {
+        let hashval = item.getAttribute('href')
+        let target = document.querySelector(hashval)
+        target.scrollIntoView({
+          behavior: 'smooth'
+        })
+        history.pushState(null, null, hashval)
+        e.preventDefault()
+      })
+    }
+  </script>
+  <script type="text/javascript">
+    /*for scrolling to top*/
+    $(window).scroll(function() {
+      if ($(this).scrollTop() > 50) {
+        $('.scrolltop:hidden').stop(true, true).fadeIn();
+      } else {
+        $('.scrolltop').stop(true, true).fadeOut();
+      }
+    });
+    $(function() {
+      $(".scroll").click(function() {
+        $("html,body").animate({
+          scrollTop: $(".all2").offset().top
+        }, "1000");
+        return false
+      })
+    })
+  </script>
+  <script>
+    /*for header hiding*/
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("header").style.top = "0";
+      } else {
+        document.getElementById("header").style.top = "-256px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+  </script>
+
+  </body>
+
+  </html>
