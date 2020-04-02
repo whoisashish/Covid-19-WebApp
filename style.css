@@ -7,6 +7,14 @@ body{
  -moz-osx-font-smoothing: grayscale;
 }
 
+a{
+  text-decoration: none;
+}
+
+.container-fluid{
+  padding-bottom: 10px;
+}
+
 hr{
   border-top: 1px dashed red;
 }
@@ -29,6 +37,11 @@ hr{
 
 .card-body{
   background: #333;
+}
+
+.container-fluid{
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .card-footer{

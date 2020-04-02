@@ -3,9 +3,11 @@
 
 <head>
   <meta charset="utf-8">
-  <title>COVID19 ट्रैकर | विश्व</title>
+  <title>COVID19 Tracker | INDIA</title>
 
   <script src="d3.min.js" charset="utf-8"></script>
+
+  <link rel="stylesheet" href="css/style2.css">
 
   <script src="crossfilter.min.js" charset="utf-8"></script>
   <script src="dc.min.js" charset="utf-8"></script>
@@ -39,6 +41,27 @@
   <script src="https://code.jquery.com/jquery-3.4.1.js"
     integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/esri-leaflet/dist/esri-leaflet.js"></script>
+
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css?v=1.3">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161936951-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-161936951-1');
+      </script>
+
     <style>
       .mapreal{
         width: 100%;
@@ -63,7 +86,7 @@
 </head>
 <body>
   <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <span class="navbar-brand">COVID-19 डैशबोर्ड <span class="by"><a href="https://www.instagram.com/who.is.ashish">आशीष</a> द्वारा</span></span>
+    <span class="navbar-brand">COVID-19 Dashboard <span class="by">by <a href="https://www.instagram.com/who.is.ashish">ASHISH</a></span></span>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -71,128 +94,97 @@
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="indexhindi.html">मुख्य पृष्ठ़</a>
+          <a class="nav-link" href="index.html">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="indiahindi.html">भारतीय आंकड़</a>
+          <a class="nav-link" href="india.html">Indian statistics</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="allhindi.html">दुनिया के आंकड़े</a>
+          <a class="a2 nav-link" href="index.html#covid">All about Corona</a>
+          <a class="a3 nav-link" href="index.html#covid1">All about Corona</a>
         </li>
         <li class="nav-item">
-          <a class="a2 nav-link" href="#covid">कोरोना के बारे में जानकारी</a>
-          <a class="a3 nav-link" href="#covid1">कोरोना के बारे में जानकारी</a>
+          <a class="nav-link" href="news.html">News and Updates</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="newshindi.html">समाचार और अपडेट</a>
+          <a class="nav-link" href="checkup.html">Self-checkup</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="checkuphindi.html">स्व जांच</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#download">हेल्पलाइन</a>
+          <a class="nav-link" href="#download">Helpline</a>
         </li>
       </ul>
     </div>
   </nav>
+<br>
+<div class="all">
 
-  <div class="all2">
-    <div class="anycheck map" id="anycheck">
-      <form onsubmit="return false">
-        <h4 class="descheading">किसी भी देश के लिए जाँच करें</h4>
-              देश का नाम:&nbsp;&nbsp;<br class="mobile" /> <input type="text" placeholder="देश का नाम डालें" id="userCountry">&nbsp;&nbsp;<br class="mobile" />
-            <button type="submit" onclick="run()" id="submit" class="btn btn-primary">दिखाओ</button><br />
-              <p id="anycheckdisp">कुल मामले: <span style="color: orange;" id="casesOutput"></span> <br>
-                  आज के मामलों की रिपोर्ट: <span style="color: white;" id="todayCasesOutput"></span><br>
-
-  कुल मौतें: <span style="color: #e62429;" id="deathsOutput"></span><br>
-                  आज मरने वालों की संख्या: <span style="color: gold;" id="todayDeathsOutput"></span><br>
-                  कुल स्वस्थ: <span  style="color: blue;" id="curedOutput"></span><br>
-
-  सक्रिय मामले: <span style="color: goldenrod;" id="activeOutput"></span><br>
-
-  गंभीर मामले: <span style="color: red;" id="criticalOutput"></span><br>
-                  1 मिलियन में मामलों की संख्या: <span style="color: silver;" id="casesPerMillionOutput"></span></p>
-          </form><br />
-          <script>
-              var coronaData;
-              var countryName;
-              var cases;
-              var todayCases;
-              var deaths;
-              var todayDeaths;
-              var cured;
-              var active;
-              var critical;
-              var casesPerOneMillion;
-              url = "https://corona.lmao.ninja/countries/";
-              function run() {
-                  if (countryName != null) {
-                      countryName = "";
-                  }
-                  if (url != null) {
-                      url = "https://corona.lmao.ninja/countries/";
-                  }
-                  countryName = document.getElementById("userCountry").value;
-                  function completeUrl(countryRet) {
-                      return url = url + countryRet;
-                  }
-                  completeUrl(countryName);
-                  console.log(url);
-                  fetch(url)
-                      .then(res => res.json())
-                      .then(function (data) {
-                          coronaData = data;
-                          console.log(coronaData);
-                          cases = data.cases;
-                          todayCases = data.todayCases;
-                          deaths = data.deaths;
-                          todayDeaths = data.todayDeaths;
-                          cured = data.recovered;
-                          active = data.active;
-                          critical = data.critical;
-                          casesPerOneMillion = data.casesPerOneMillion;
-                          console.log(cases, deaths, cured);
-                          document.getElementById('casesOutput').innerHTML = cases;
-                          document.getElementById('todayCasesOutput').innerHTML = todayCases;
-                          document.getElementById('deathsOutput').innerHTML = deaths;
-                          document.getElementById('todayDeathsOutput').innerHTML = todayDeaths;
-                          document.getElementById('curedOutput').innerHTML = cured;
-                          document.getElementById('activeOutput').innerHTML = active;
-                          document.getElementById('criticalOutput').innerHTML = critical;
-                          document.getElementById('casesPerMillionOutput').innerHTML = casesPerOneMillion;
-                      })
-              }
-          </script>
-    </div><br>
-    <div class="map">
-<a href="globe/index1hindi.html"><button class="btn btn-primary">3D में देखें</button></a>
-</div><br />
-    <section class="container-fluid map">
-
-  		<div id="mapid" class="mapreal">
-  		</div>
-  		<script src="./js/initMap.js">
-  		</script>
-  		<script src="./js/displayCases.js">
-  		</script>
-
-  	</section><br />
+<div class="map">
+  <div class="container-fluid">
+    <div class="row">
+      <div id="sidebar" class="col-sm-3">
+        <h2 class="descheading title">COVID-19 in India</h2>
+        <small class="by">Data based on news reports, compare with<a href="http://www.mohfw.gov.in/" target="_blank"> MoHFW </a>here</small><br>
+        <small>Data last updated on <span id="timestamp"></span></small>
+        <table>
+          <tbody>
+            <tr>
+              <th style="text-align:center;">National Level</th>
+              <th>Numbers</th>
+            </tr>
+            <tr>
+              <td>Total Confirmed Cases</td>
+              <td id="tot_conf">&nbsp;</td>
+            </tr>
+            <tr>
+              <td>Total Discharged/Recovered</td>
+              <td id="tot_disch">&nbsp;</td>
+            </tr>
+            <tr>
+              <td>Total Deaths</td>
+              <td id="tot_death">&nbsp;</td>
+            </tr>
+            <tr>
+              <td>Total Active Cases</td>
+              <td id="tot_act">&nbsp;</td>
+            </tr>
+            <tr>
+              <td>Number of States(& UTs) Affected</td>
+              <td id="st_aff">&nbsp;</td>
+            </tr>
+            <tr>
+              <td>Number of Districts Affected</td>
+              <td id="dt_aff">&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
+        <small>*data includes foreign nationals</small>
+        <hr>
+        <p>Interact with the highlighted districts on the map to get the breakup of cases for each district. Note that some small districts are only visible at high zoom levels.</p>
+      </div>
+      <div class="col-sm-9 p-0">
+        <div data-behaviour="choropleth-map"></div>
+        <div id="legend"></div>
+      </div>
+    </div>
   </div>
-  <div class='scrolltop'>
-    <div class='scroll icon'><i class="fa fa-4x fa-angle-up"></i></div>
-  </div>
-  <div class='languagetop'>
-    <a href="all.html"><div class='language icon'>Eng.</div></a>
-  </div>
+</div>
 
+</div>
+<br>
+
+<div class='scrolltop'>
+  <div class='scroll icon'><i class="fa fa-4x fa-angle-up"></i></div>
+</div>
+<div class='languagetop'>
+  <a href="indiahindi.html"><div class='language icon'>हिन्दी</div></a>
+</div>
   <div id="footer">
     <div class="copy">
       © AjmerSuman 2020
     </div><br>
     <div class="mygov">
       <ul>
-        <li class="a1 descheading" id="help"><br /><strong>सरकारी सहायता</strong></li><br><br>
+        <li class="a1 descheading" id="help"><br /><strong>GOVERNMENT HELPLINE</strong></li><br><br>
         <li class="a1"><a href="https://wa.me/+919013151515"><i class="fab fa-whatsapp"></i></a></li>
         <li class="a1" id="myInput"><a href="tel:+911123978046 "><i class="fas fa-phone"></i></a></li>
         <li class="a1"><a href="mailto:ncov2019@gov.in"><i class="far fa-envelope"></i></a></li>
@@ -200,7 +192,7 @@
     </div>
     <div class="me">
       <ul>
-        <br /><strong class="descheading">&nbsp;&nbsp;मेरे बारे में</strong><br><br>
+        <br /><strong class="descheading">&nbsp;&nbsp;FOLLOW ME</strong><br><br>
         <li class="a1"><a href="https://www.instagram.com/who.is.ashish"><i class="fab fa-instagram"></i></a></li>
         <li class="a1"><a href="https://www.linkedin.com/in/ashish-yadav-5558a4179"><i class="fab fa-linkedin-in"></i></a></li>
         <li class="a1"><a href="mailto:nowwhoisashish@gmail.com"><i class="far fa-envelope"></i></a></li>
@@ -339,5 +331,10 @@
   </script>
 
   </body>
+
+  <script src="js/tabletop.js"></script>
+  <script src="js/districts_729.js"></script>
+  <script src="js/states.js"></script>
+  <script src="js/choropleth.js?v=1.6"></script>
 
   </html>

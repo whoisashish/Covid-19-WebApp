@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>COVID19 ट्रैकर | भारत</title>
+  <title>COVID19 ट्रैकर</title>
   <meta name="description" content="India's very own Covid-19 Tracking Dashboard with availability to track covid spread in other countries too.">
   <meta name="keywords" content="HTML,CSS,XML,JavaScript,CoronaVirus,corona,CORONAVIRUS,coronavirus,CoVid,covid19,CoVid-19,noval">
   <meta name="author" content="Ashish Yadav">
@@ -49,6 +49,12 @@
 
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="indexhindi.html">मुख्य पृष्ठ़</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="indiahindi.html">भारतीय आंकड़</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="allhindi.html">दुनिया के आंकड़े</a>
         </li>
@@ -127,74 +133,7 @@
       </div>
     </div>
     <br>
-    <div class="anycheck map" id="anycheck">
-      <form onsubmit="return false">
-        <h4 class="descheading">किसी भी देश के लिए जाँच करें</h4>
-              देश का नाम:&nbsp;&nbsp;<br class="mobile" /> <input type="text" placeholder="देश का नाम डालें" id="userCountry">&nbsp;&nbsp;<br class="mobile" />
-            <button type="submit" onclick="run()" id="submit" class="btn btn-primary">दिखाओ</button><br />
-              <p id="anycheckdisp">कुल मामले: <span style="color: orange;" id="casesOutput"></span> <br>
-                  आज के मामलों की रिपोर्ट: <span style="color: white;" id="todayCasesOutput"></span><br>
 
-कुल मौतें: <span style="color: #e62429;" id="deathsOutput"></span><br>
-                  आज मरने वालों की संख्या: <span style="color: gold;" id="todayDeathsOutput"></span><br>
-                  कुल स्वस्थ: <span  style="color: blue;" id="curedOutput"></span><br>
-
-सक्रिय मामले: <span style="color: goldenrod;" id="activeOutput"></span><br>
-
-गंभीर मामले: <span style="color: red;" id="criticalOutput"></span><br>
-                  1 मिलियन में मामलों की संख्या: <span style="color: silver;" id="casesPerMillionOutput"></span></p>
-          </form><br />
-          <script>
-              var coronaData;
-              var countryName;
-              var cases;
-              var todayCases;
-              var deaths;
-              var todayDeaths;
-              var cured;
-              var active;
-              var critical;
-              var casesPerOneMillion;
-              url = "https://corona.lmao.ninja/countries/";
-              function run() {
-                  if (countryName != null) {
-                      countryName = "";
-                  }
-                  if (url != null) {
-                      url = "https://corona.lmao.ninja/countries/";
-                  }
-                  countryName = document.getElementById("userCountry").value;
-                  function completeUrl(countryRet) {
-                      return url = url + countryRet;
-                  }
-                  completeUrl(countryName);
-                  console.log(url);
-                  fetch(url)
-                      .then(res => res.json())
-                      .then(function (data) {
-                          coronaData = data;
-                          console.log(coronaData);
-                          cases = data.cases;
-                          todayCases = data.todayCases;
-                          deaths = data.deaths;
-                          todayDeaths = data.todayDeaths;
-                          cured = data.recovered;
-                          active = data.active;
-                          critical = data.critical;
-                          casesPerOneMillion = data.casesPerOneMillion;
-                          console.log(cases, deaths, cured);
-                          document.getElementById('casesOutput').innerHTML = cases;
-                          document.getElementById('todayCasesOutput').innerHTML = todayCases;
-                          document.getElementById('deathsOutput').innerHTML = deaths;
-                          document.getElementById('todayDeathsOutput').innerHTML = todayDeaths;
-                          document.getElementById('curedOutput').innerHTML = cured;
-                          document.getElementById('activeOutput').innerHTML = active;
-                          document.getElementById('criticalOutput').innerHTML = critical;
-                          document.getElementById('casesPerMillionOutput').innerHTML = casesPerOneMillion;
-                      })
-              }
-          </script>
-    </div><br>
     <div class="totalcount" id="total">
       <span id="count">
         <span class="total-count"></span> मैं से
