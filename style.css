@@ -544,11 +544,34 @@ text-align: center;
     color: #14E6ED;
 }
 
-.a2{
-  display: none;}
+.btn-left{
+  left: -10px;
+  padding-left: 10px;
+  float: left;
+  width: 60%;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.covid img{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.btn-right{
+  right: -10px;
+  width: 60%;
+  float: right;
+  padding-right: 10px;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+.but{
+  width: 100%;
+  display: block;
+}
 
 .corona{
-  display: none;
   padding-top: 0px;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
@@ -639,9 +662,6 @@ text-align: center;
   .space, .descheading1{
     display: none;
   }
-.a2{display: block;}
-
-  .a3{display: none;}
 
   .column{
     display: table-row;
