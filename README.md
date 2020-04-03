@@ -8,5 +8,7 @@ This project presents a Simple yet effective features for tracking and dealing w
              6. State and Union territory specific Insights of noval coronaVirus.</br>
              7. All the Information(How, What and Why) about Covid-19, Symptoms and Precautions.</br>
              8. Government Helpline Information. <br/>
-             9. Daily updated news and Info page About Noval coronaVirus Covid-19.
+             9. Daily updated news and Info page About Noval coronaVirus Covid-19.</br>
+             10. Added update portal from Ministry of Health and Family Welfares.<br/>
+             11. District wise map distribution for India including details of Infected. (Foreign nationals or not, attended some ceremony, and Hospitals admitted in.
            
