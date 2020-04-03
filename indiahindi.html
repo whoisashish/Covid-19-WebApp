@@ -166,13 +166,27 @@
 प्रत्येक जिले के मामलों के ब्रेकअप को प्राप्त करने के लिए नक्शे पर प्रकाश डाला जिलों के साथ बातचीत करें. ध्यान दें कि कुछ छोटे जिले केवल उच्च ज़ूम स्तरों पर दिखाई देते हैं.</p>
       </div>
       <div class="col-sm-9 p-0">
-        <div data-behaviour="choropleth-map"></div>
+          <button type="button" name="button" onclick="openFullscreen();" class="btn btn-primary"><small>पूर्ण स्क्रीन में मानचित्र देखें</small></button><br /><br />
+        <div data-behaviour="choropleth-map" id="mymap"></div>
         <div id="legend"></div>
       </div>
     </div>
   </div>
 </div>
-
+<script>
+var elem = document.getElementById("mymap");
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+</script>
 </div>
 <br>
 

@@ -161,13 +161,30 @@
         <p>Interact with the highlighted districts on the map to get the breakup of cases for each district. Note that some small districts are only visible at high zoom levels.</p>
       </div>
       <div class="col-sm-9 p-0">
-        <div data-behaviour="choropleth-map"></div>
+        <button type="button" name="button" onclick="openFullscreen();" class="btn btn-primary"><small>View Map in Full Screen</small></button><br /><br />
+        <div data-behaviour="choropleth-map" id="mymap"></div>
         <div id="legend"></div>
       </div>
     </div>
   </div>
 </div>
-
+<div class="map">
+  
+</div>
+<script>
+var elem = document.getElementById("mymap");
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+</script>
 </div>
 <br>
 
