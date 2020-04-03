@@ -462,11 +462,18 @@ text-align: center;
 	position:fixed;
 	bottom:2px;
 	left:15px;
+    z-index: 1000000000;
 }
 .languagetop a{
   text-decoration: none;
   color: white;
+    z-index: 1000000000;
 }
+
+#mymap{
+  z-index: 0;
+}
+
 .scroll {
   height: 70px;
   width: 70px;
@@ -484,6 +491,7 @@ text-align: center;
 	-o-transition: 0.5s;
 }
 .language{
+  z-index: 1000000000;
   height: 70px;
   width: 70px;
 	position:absolute;
@@ -513,6 +521,7 @@ text-align: center;
 	-moz-transition: 0.5s;
 	-webkit-transition: 0.5s;
 	-o-transition: 0.5s;
+    z-index: 1000000000;
 }
 .scroll:hover .fa {
 	padding-top:-15px;
