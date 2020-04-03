@@ -77,8 +77,10 @@
           <a class="nav-link" href="india.html">Indian statistics</a>
         </li>
         <li class="nav-item">
-          <a class="a2 nav-link" href="index.html#covid">All about Corona</a>
-          <a class="a3 nav-link" href="index.html#covid1">All about Corona</a>
+          <a class="nav-link" href="all.html">Global statistics</a>
+        </li>
+        <li class="nav-item">
+          <a class="a3 nav-link" href="corona.html">All about Corona</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="news.html">News and Updates</a>
@@ -87,7 +89,7 @@
           <a class="nav-link" href="checkup.html">Self-checkup</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#download">Helpline</a>
+          <a class="nav-link" href="#footer">Helpline</a>
         </li>
       </ul>
     </div>
@@ -160,8 +162,7 @@
           </script>
     </div><br>
     <div class="map">
-<a href="globe/index1.html"><button class="btn btn-primary">Visualize in 3D</button></a>
-</div><br />
+</div>  <button type="button" name="button" onclick="openFullscreen();" class="btn btn-primary"><small>View Map in Full Screen</small></button><br /><br />
     <section class="container-fluid map">
 
   		<div id="mapid" class="mapreal">
@@ -171,8 +172,21 @@
   		<script src="./js/displayCases.js">
   		</script>
 
-  	</section><br />
-  </div>
+  	</section><hr />
+  <a href="globe/index1.html"><button class="btn btn-primary">Visualize in 3D</button></a><hr /><br /></div><script>
+  var elem = document.getElementById("mapid");
+  function openFullscreen() {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+      elem.msRequestFullscreen();
+    }
+  }
+  </script>
   <div class='scrolltop'>
     <div class='scroll icon'><i class="fa fa-4x fa-angle-up"></i></div>
   </div>

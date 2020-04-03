@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>COVID19 ट्रैकर</title>
+  <meta name="description" content="India's very own Covid-19 Tracking Dashboard with availability to track covid spread in other countries too.">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript,CoronaVirus,corona,CORONAVIRUS,coronavirus,CoVid,covid19,CoVid-19,noval">
+  <meta name="author" content="Ashish Yadav">
+  <meta name="url" content="https://stayhomestaysafe.ml">
+  <meta name="image" content="https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg">
+  <meta property="og:title" content="Covid19 Tracker | INDIA">
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg">
+  <meta property="og:url" content="https://stayhomestaysafe.ml">
+
+  <script src="d3.min.js" charset="utf-8"></script>
+  <script src="crossfilter.min.js" charset="utf-8"></script>
+  <script src="dc.min.js" charset="utf-8"></script>
+  <script src="jquery.min.js" charset="utf-8"></script>
+  <script src="bootstrap.min.js" charset="utf-8"></script>
+  <script src="myscript.js" charset="utf-8"></script>
+  <script src="india.js" charset="utf-8"></script>
+  <script src="viz.js" charset="utf-8"></script>
+  <script src="https://kit.fontawesome.com/5b941bf5b1.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <style media="screen">
+    g.deselected,
+    rect.deselected {
+      opacity: 0.3;
+    }
+
+    g.state.selected path {
+      fill: #A1DA9B;
+    }
+  </style>
+</head>
+
+<body>
+  <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <span class="navbar-brand">COVID-19 डैशबोर्ड <span class="by"><a href="https://www.instagram.com/who.is.ashish">आशीष</a> द्वारा</span></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="indexhindi.html">मुख्य पृष्ठ़</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="indiahindi.html">भारतीय आंकड़</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="allhindi.html">दुनिया के आंकड़े</a>
+        </li>
+        <li class="nav-item">
+          <a class="a3 nav-link" href="coronahindi.html">कोरोना के बारे में जानकारी</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="newshindi.html">समाचार और अपडेट</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="checkuphindi.html">स्व जांच</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#footer">हेल्पलाइन</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <br>
+  <div class="all">
+    <div id="covid" class="corona">
+      <img src="https://i.ya-webdesign.com/images/virus-transparent-animated-gif.gif" alt="">
+    </div>
+    <div id="covid1" class="covid">
+      <h5 class="descheading">
+कोरोनवीरस (COVID-19)</h5>
+      <p>
+कोरोनावायरस रोग (COVID-19) एक संक्रामक रोग है जो एक नए खोजे गए कोरोनवायरस के कारण होता है.</p>
+      <p>
+COVID-19 वायरस से संक्रमित अधिकांश लोग हल्के से मध्यम श्वसन बीमारी का अनुभव करेंगे और विशेष उपचार की आवश्यकता के बिना ठीक हो जाएंगे। पुराने लोग, और हृदय रोग जैसी अंतर्निहित चिकित्सा समस्याओं के साथ,
+        मधुमेह, पुरानी सांस की बीमारी और कैंसर की गंभीर बीमारी विकसित होने की अधिक संभावना है.</p>
+      <p>संचरण को रोकने और धीमा करने के लिए सबसे अच्छा तरीका है COVID-19 वायरस के बारे में अच्छी तरह से बताया गया है कि यह किस बीमारी का कारण है और यह कैसे फैलता है। अपने हाथ धोने या शराब आधारित रगड़ का उपयोग करके अपने आप को और दूसरों को संक्रमण से बचाएं
+        बार-बार और अपने चेहरे को छूने नहीं. </p>
+      <p>COVID-19 वायरस मुख्य रूप से लार की बूंदों से फैलता है या नाक से तब निकलता है जब कोई संक्रमित व्यक्ति खांसता या छींकता है, इसलिए यह महत्वपूर्ण है कि आप श्वसन शिष्टाचार का भी अभ्यास करें (उदाहरण के लिए, फ्लेक्स में खाँसने से
+        कोहनी).</p>
+      <p>
+इस समय, COVID-19 के लिए कोई विशिष्ट टीके या उपचार नहीं हैं। हालांकि, संभावित उपचारों का मूल्यांकन करने वाले कई नैदानिक ​​परीक्षण चल रहे हैं। डब्ल्यूएचओ नैदानिक ​​निष्कर्ष बनते ही अद्यतन जानकारी प्रदान करना जारी रखेगा
+        उपलब्ध.</p><img src="https://i.ibb.co/2cn6TSm/1.gif
+  <img src="https://i.ibb.co/h9ZQVg8/2.jpg" alt="">
+" alt="">
+    </div><br>
+    <div class="covid">
+      <h5 class="descheading">रोकथाम</h5>
+      <p>
+संक्रमण को रोकने के लिए और COVID-19 के संचरण को धीमा करने के लिए, निम्नलिखित करें:<br />
+      1.
+अपने हाथों को नियमित रूप से साबुन और पानी से धोएं, या उन्हें अल्कोहल-आधारित हाथ रगड़कर साफ करें.
+      <br /> 2. आपके और खांसने या छींकने वाले लोगों के बीच कम से कम 1 मीटर की दूरी बनाए रखें.
+      <br /> 3. अपने चेहरे को छूने से बचें.
+      <br /> 4. खांसते या छींकते समय अपना मुंह और नाक ढक लें.
+      <br /> 5. यदि आप अस्वस्थ महसूस करते हैं तो घर पर रहें.
+      <br /> 6.
+धूम्रपान और फेफड़ों को कमजोर करने वाली अन्य गतिविधियों से बचना चाहिए.<br />
+      7.
+अनावश्यक यात्रा से बचने और लोगों के बड़े समूहों से दूर रहने से शारीरिक दूरी का अभ्यास करें.</p>
+<img src="https://i.ibb.co/h9ZQVg8/2.jpg" alt="">
+    </div><br>
+    <div class="covid">
+      <h5 class="descheading">
+लक्षण</h5>
+      <p>COVID-19 के सबसे आम लक्षण बुखार, थकान और सूखी खांसी हैं। कुछ रोगियों में दर्द और दर्द, नाक की भीड़, नाक बह रही है, गले में खराश या दस्त हो सकता है। ये लक्षण आमतौर पर हल्के होते हैं और धीरे-धीरे शुरू होते हैं। कुछ लोग संक्रमित हो जाते हैं लेकिन कोई लक्षण विकसित नहीं करते हैं और अस्वस्थ महसूस नहीं करते हैं। अधिकांश लोगों (लगभग 80%) को विशेष उपचार की आवश्यकता के बिना बीमारी से उबरना पड़ता है। COVID-19 पाने वाले हर 6 में से 1 व्यक्ति गंभीर रूप से बीमार हो जाता है और सांस लेने में कठिनाई पैदा करता है। वृद्ध लोगों, और उच्च रक्तचाप, हृदय की समस्याओं या मधुमेह जैसी अंतर्निहित चिकित्सा समस्याओं वाले लोगों में गंभीर बीमारी विकसित होने की अधिक संभावना है। बुखार, खांसी और सांस लेने में कठिनाई वाले लोगों को चिकित्सा ध्यान देना चाहिए.</p>
+    </div>
+    <br>
+    <div class='scrolltop'>
+      <div class='scroll icon'><i class="fa fa-4x fa-angle-up"></i></div>
+    </div>
+    <div class='languagetop'>
+      <a href="corona.html"><div class='language icon'>Eng.</div></a>
+    </div>
+  </div>
+  <div id="footer">
+    <div class="copy">
+      © AjmerSuman 2020
+    </div><br>
+    <div class="mygov">
+      <ul>
+        <li class="a1 descheading" id="help"><br /><strong>सरकारी सहायता</strong></li><br><br>
+        <li class="a1"><a href="https://wa.me/+919013151515"><i class="fab fa-whatsapp"></i></a></li>
+        <li class="a1" id="myInput"><a href="tel:+911123978046 "><i class="fas fa-phone"></i></a></li>
+        <li class="a1"><a href="mailto:ncov2019@gov.in"><i class="far fa-envelope"></i></a></li>
+      </ul>
+    </div>
+    <div class="me">
+      <ul>
+        <br /><strong class="descheading">&nbsp;&nbsp;मेरे बारे में</strong><br><br>
+        <li class="a1"><a href="https://www.instagram.com/who.is.ashish"><i class="fab fa-instagram"></i></a></li>
+        <li class="a1"><a href="https://www.linkedin.com/in/ashish-yadav-5558a4179"><i class="fab fa-linkedin-in"></i></a></li>
+        <li class="a1"><a href="mailto:nowwhoisashish@gmail.com"><i class="far fa-envelope"></i></a></li>
+      </ul>
+    </div>
+    <div class="sources">Data sources
+      <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports">WHO</a>,
+      <a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html">CDC</a>,
+      <a href="https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases">ECDC</a>,
+      <a href="http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml">NHC</a> and
+      <a href="https://3g.dxy.cn/newh5/view/pneumonia?scene=2&amp;clicktime=1579582238&amp;enterid=1579582238&amp;from=singlemessage&amp;isappinstalled=0">DXY</a>
+      provided by <a href="https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6">Johns Hopkins CSSE</a>.<br />Indian <a
+        href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSc_2y5N0I67wDU38DjDh35IZSIS30rQf7_NYZhtYYGU1jJYT6_kDx4YpF-qw0LSlGsBYP8pqM_a1Pd/pubhtml">DataBase</a> on Covid-19 spread.
+    </div>
+    <div class="copy">
+      <!-- Start of WebFreeCounter Code -->
+<img src="https://www.webfreecounter.com/hit.php?id=gvkopno&nd=6&style=17" border="0" alt="visitor counter">
+<!-- End of WebFreeCounter Code -->
+    </div>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js'></script>
+  <script src='https://www.vantajs.com/dist/vanta.cells.min.js'></script>
+  <script src="./script.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43322397-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-43322397-2');
+  </script>
+  <script>
+  jQuery($ => {
+    // The speed of the scroll in milliseconds
+    const speed = 1000;
+
+    $('a[href*="#"]')
+      .filter((i, a) => a.getAttribute('href').startsWith('#') || a.href.startsWith(`${location.href}#`))
+      .unbind('click.smoothScroll')
+      .bind('click.smoothScroll', event => {
+        const targetId = event.currentTarget.getAttribute('href').split('#')[1];
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          event.preventDefault();
+          $('html, body').animate({ scrollTop: $(targetElement).offset().top }, speed);
+        }
+      });
+  });
+</script>
+  <script type="text/javascript">
+    /*for scrolling to top*/
+    $(window).scroll(function() {
+      if ($(this).scrollTop() > 50) {
+        $('.scrolltop:hidden').stop(true, true).fadeIn();
+      } else {
+        $('.scrolltop').stop(true, true).fadeOut();
+      }
+    });
+    $(function() {
+      $(".scroll").click(function() {
+        $("html,body").animate({
+          scrollTop: $(".all").offset().top
+        }, "1000");
+        return false
+      })
+    })
+  </script>
+  <script>
+    /*for header hiding*/
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("header").style.top = "0";
+      } else {
+        document.getElementById("header").style.top = "-359px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+  </script>
+
+</body>
+
+</html>

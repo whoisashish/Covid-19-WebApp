@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>COVID19 Tracker</title>
+  <meta name="description" content="India's very own Covid-19 Tracking Dashboard with availability to track covid spread in other countries too.">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript,CoronaVirus,corona,CORONAVIRUS,coronavirus,CoVid,covid19,CoVid-19,noval">
+  <meta name="author" content="Ashish Yadav">
+  <meta name="url" content="https://stayhomestaysafe.ml">
+  <meta name="image" content="https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg">
+  <meta property="og:title" content="Covid19 Tracker | INDIA">
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg">
+  <meta property="og:url" content="https://stayhomestaysafe.ml">
+    <script src="myscript.js" charset="utf-8"></script>
+  <script src="d3.min.js" charset="utf-8"></script>
+  <script src="crossfilter.min.js" charset="utf-8"></script>
+  <script src="dc.min.js" charset="utf-8"></script>
+  <script src="jquery.min.js" charset="utf-8"></script>
+  <script src="bootstrap.min.js" charset="utf-8"></script>
+  <script src="india.js" charset="utf-8"></script>
+  <script src="viz.js" charset="utf-8"></script>
+  <script src="https://kit.fontawesome.com/5b941bf5b1.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <style media="screen">
+    g.deselected,
+    rect.deselected {
+      opacity: 0.3;
+    }
+
+    g.state.selected path {
+      fill: #A1DA9B;
+    }
+  </style>
+</head>
+
+<body>
+  <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <span class="navbar-brand">COVID-19 Dashboard <span class="by">by <a href="https://www.instagram.com/who.is.ashish">ASHISH</a></span></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="india.html">Indian statistics</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="all.html">Global statistics</a>
+        </li>
+        <li class="nav-item">
+          <a class="a3 nav-link" href="corona.html">All about Corona</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="news.html">News and Updates</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="checkup.html">Self-checkup</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#footer">Helpline</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <br>
+  <div class="all">
+
+  <div id="covid" class="corona">
+    <img src="https://i.ya-webdesign.com/images/virus-transparent-animated-gif.gif" alt="">
+  </div>
+  <div id="covid1" class="covid">
+    <h5 class="descheading">CORONAVIRUS (COVID-19)</h5>
+    <p>Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.</p>
+    <p>Most people infected with the COVID-19 virus will experience mild to moderate respiratory illness and recover without requiring special treatment. Older people, and those with underlying medical problems like cardiovascular disease,
+      diabetes, chronic respiratory disease, and cancer are more likely to develop serious illness.</p>
+    <p>The best way to prevent and slow down transmission is be well informed about the COVID-19 virus, the disease it causes and how it spreads. Protect yourself and others from infection by washing your hands or using an alcohol based rub
+      frequently and not touching your face. </p>
+    <p>The COVID-19 virus spreads primarily through droplets of saliva or discharge from the nose when an infected person coughs or sneezes, so it’s important that you also practice respiratory etiquette (for example, by coughing into a flexed
+      elbow).</p>
+    <p>At this time, there are no specific vaccines or treatments for COVID-19. However, there are many ongoing clinical trials evaluating potential treatments. WHO will continue to provide updated information as soon as clinical findings become
+      available.</p>
+      <img src="https://i.ibb.co/2cn6TSm/1.gif" alt="">
+  </div><br>
+  <div class="covid">
+    <h5 class="descheading">PREVENTION</h5>
+    <p>To prevent infection and to slow transmission of COVID-19, do the following:
+    1. Wash your hands regularly with soap and water, or clean them with alcohol-based hand rub.
+    <br /> 2. Maintain at least 1 metre distance between you and people coughing or sneezing.
+    <br /> 3. Avoid touching your face.
+    <br /> 4. Cover your mouth and nose when coughing or sneezing.
+    <br /> 5. Stay home if you feel unwell.
+    <br /> 6. Refrain from smoking and other activities that weaken the lungs.<br />
+    7. Practice physical distancing by avoiding unnecessary travel and staying away from large groups of people.</p>
+<img src="https://i.ibb.co/h9ZQVg8/2.jpg" alt="">
+  </div><br>
+  <div class="covid">
+    <h5 class="descheading">SYMPTOMS</h5>
+    <p>The most common symptoms of COVID-19 are fever, tiredness, and dry cough. Some patients may have aches and pains, nasal congestion, runny nose, sore throat or diarrhea. These symptoms are usually mild and begin gradually. Some people become infected but don’t develop any symptoms and don't feel unwell. Most people (about 80%) recover from the disease without needing special treatment. Around 1 out of every 6 people who gets COVID-19 becomes seriously ill and develops difficulty breathing. Older people, and those with underlying medical problems like high blood pressure, heart problems or diabetes, are more likely to develop serious illness. People with fever, cough and difficulty breathing should seek medical attention.</p>
+  </div>
+  <br>
+  <div class='scrolltop'>
+    <div class='scroll icon'><i class="fa fa-4x fa-angle-up"></i></div>
+  </div>
+  <div class='languagetop'>
+    <a href="coronahindi.html"><div class='language icon'>हिन्दी</div></a>
+  </div>
+</div>
+  </div>
+<div id="footer">
+  <div class="copy">
+    © AjmerSuman 2020
+  </div><br>
+  <div class="mygov">
+    <ul>
+      <li class="a1 descheading" id="help"><br /><strong>GOVERNMENT HELPLINE</strong></li><br><br>
+      <li class="a1"><a href="https://wa.me/+919013151515"><i class="fab fa-whatsapp"></i></a></li>
+      <li class="a1" id="myInput"><a href="tel:+911123978046 "><i class="fas fa-phone"></i></a></li>
+      <li class="a1"><a href="mailto:ncov2019@gov.in"><i class="far fa-envelope"></i></a></li>
+    </ul>
+  </div>
+  <div class="me">
+    <ul>
+      <br /><strong class="descheading">&nbsp;&nbsp;FOLLOW ME</strong><br><br>
+      <li class="a1"><a href="https://www.instagram.com/who.is.ashish"><i class="fab fa-instagram"></i></a></li>
+      <li class="a1"><a href="https://www.linkedin.com/in/ashish-yadav-5558a4179"><i class="fab fa-linkedin-in"></i></a></li>
+      <li class="a1"><a href="mailto:nowwhoisashish@gmail.com"><i class="far fa-envelope"></i></a></li>
+    </ul>
+  </div>
+  <div class="sources">Data sources
+    <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports">WHO</a>,
+    <a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html">CDC</a>,
+    <a href="https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases">ECDC</a>,
+    <a href="http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml">NHC</a> and
+    <a href="https://3g.dxy.cn/newh5/view/pneumonia?scene=2&amp;clicktime=1579582238&amp;enterid=1579582238&amp;from=singlemessage&amp;isappinstalled=0">DXY</a>
+    provided by <a href="https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6">Johns Hopkins CSSE</a>.<br />Indian <a
+      href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSc_2y5N0I67wDU38DjDh35IZSIS30rQf7_NYZhtYYGU1jJYT6_kDx4YpF-qw0LSlGsBYP8pqM_a1Pd/pubhtml">DataBase</a> on Covid-19 spread.
+  </div>
+  <div class="copy">
+    <!-- Start of WebFreeCounter Code -->
+<img src="https://www.webfreecounter.com/hit.php?id=gvkopno&nd=6&style=17" border="0" alt="visitor counter">
+<!-- End of WebFreeCounter Code -->
+  </div>
+</div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js'></script>
+<script src='https://www.vantajs.com/dist/vanta.cells.min.js'></script>
+<script src="./script.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-43322397-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-43322397-2');
+</script>
+<script>
+  jQuery($ => {
+    // The speed of the scroll in milliseconds
+    const speed = 1000;
+
+    $('a[href*="#"]')
+      .filter((i, a) => a.getAttribute('href').startsWith('#') || a.href.startsWith(`${location.href}#`))
+      .unbind('click.smoothScroll')
+      .bind('click.smoothScroll', event => {
+        const targetId = event.currentTarget.getAttribute('href').split('#')[1];
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          event.preventDefault();
+          $('html, body').animate({ scrollTop: $(targetElement).offset().top }, speed);
+        }
+      });
+  });
+</script>
+<script type="text/javascript">
+  /*for scrolling to top*/
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 50) {
+      $('.scrolltop:hidden').stop(true, true).fadeIn();
+    } else {
+      $('.scrolltop').stop(true, true).fadeOut();
+    }
+  });
+  $(function() {
+    $(".scroll").click(function() {
+      $("html,body").animate({
+        scrollTop: $(".all").offset().top
+      }, "1000");
+      return false
+    })
+  })
+</script>
+<script>
+  /*for header hiding*/
+  var prevScrollpos = window.pageYOffset;
+  window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+      document.getElementById("header").style.top = "0";
+    } else {
+      document.getElementById("header").style.top = "-359px";
+    }
+    prevScrollpos = currentScrollPos;
+  }
+</script>
+
+</body>
+
+</html>
