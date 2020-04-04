@@ -15,8 +15,25 @@ a{
   padding-bottom: 10px;
 }
 
+#header{
+  z-index: 1;
+}
+
+.s2{
+  text-align: center;
+}
+
 hr{
   border-top: 1px dashed red;
+}
+
+.modal-body, .modal-footer{
+  background: #444;
+}
+
+.modal{
+  z-index: 1000000000;
+  border-radius: 7px;
 }
 
 .head{
