@@ -13,9 +13,7 @@
   <meta name="description" content="India's very own Covid-19 Tracking Dashboard with availablility to track covid spread in other countries too.">
   <meta name="keywords" content="HTML,CSS,XML,JavaScript,CoronaVirus,corona,CORONAVIRUS,coronavirus,CoVid,covid19,CoVid-19,noval">
   <meta name="author" content="Ashish Yadav">
-  <meta property="og:title" content="Covid19 Tracker | INDIA">
-  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg">
-  <meta property="og:url" content="https://stayhomestaysafe.ml">
+
   <script src="india.js" charset="utf-8"></script>
   <script src="viz.js" charset="utf-8"></script>
   <script src="https://kit.fontawesome.com/5b941bf5b1.js" crossorigin="anonymous"></script>
@@ -57,6 +55,9 @@
         </li>
         <li class="nav-item">
           <a class="a3 nav-link" href="corona.html">All about Corona</a>
+        </li>
+        <li class="nav-item">
+          <a class="a3 nav-link" href="game.html">Play Games</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="news.html">News and Updates</a>
@@ -145,8 +146,8 @@
     </p>
   </div>
   <div class="map" id="disp1">
-    <a href="index.html#hero"><button class="btn btn-primary mybut">CoronaVirus Status in India</button></a>
-    <a href="index.html#anycheck"><button class="btn btn-primary mybut">CoronaVirus Status in the World</button></a>
+    <a href="india.html"><button class="btn btn-primary mybut">CoronaVirus Status in India</button></a>
+    <a href="all.html"><button class="btn btn-primary mybut">CoronaVirus Status in the World</button></a>
   </div>
   <div class='scrolltop'>
     <div class='scroll icon'><i class="fa fa-4x fa-angle-up"></i></div>
@@ -194,8 +195,10 @@
 
   <script>
     function myFunction1() {
-      var x = document.getElementById("demo")
-      x.innerHTML = Math.floor((Math.random() * 60) + 1);
+      document.getElementById('demo').innerHTML = getRndInteger(20,70)
+      function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
       document.getElementById("tobe10").style.display = "none";
       document.getElementById("disp").style.display = "block";
       document.getElementById("disp1").style.display = "block";
@@ -302,7 +305,7 @@
       if (prevScrollpos > currentScrollPos) {
         document.getElementById("header").style.top = "0";
       } else {
-        document.getElementById("header").style.top = "-359px";
+        document.getElementById("header").style.top = "-376px";
       }
       prevScrollpos = currentScrollPos;
     }
