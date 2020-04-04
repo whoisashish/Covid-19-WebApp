@@ -7,7 +7,7 @@ $(document).ready(function(){
 
  function apiCall(flag){
    $(".app-content").html("");
-   
+
    var html = "";
      $.ajax({
       url: 'https://newsapi.org/v2/top-headlines?' +
@@ -19,7 +19,7 @@ $(document).ready(function(){
       success: function(result){
         // channelName = result.display_name;
         // imgUrl = result.logo;
-        // twitchLink = result.url;  
+        // twitchLink = result.url;
         for (var i = 0; i<parseInt(result.articles.length); i++) {
           art_source_name = result.articles[i].source.name;
           art_title = result.articles[i].title;
@@ -37,14 +37,14 @@ $(document).ready(function(){
                       +'<div class="col-md-9 col-sm-12">'
                           +'<h4><strong>'+art_title+'</strong></h4>'
                           +'<p>'+art_description+'</p>'
-                          +'<p style="padding:0 0;margin:0 0">'+art_publish_date+" | "+art_source_name+'</p>'
+                          +'<span style="padding:0 0;margin:0 0">'+art_publish_date+" | "+art_source_name+'</span>'
                       +'</div>'
                    +'</div>'
                   +'</a>'
                   +'<div style="border-top:solid; border-width:1px; border-color: #eeeeee; height: 10px"></div>'
                   +'</div>';
           $(".app-content").append(html);
-        }   
+        }
       },
       error: function(xhr, a,b){
         alert(xhr.status);
@@ -52,9 +52,9 @@ $(document).ready(function(){
     });
  }
 
-    
-  
-  
+
+
+
   /*$.ajax({
       url: 'https://wind-bow.glitch.me/twitch-api/streams/'+channel+'?callback=?',
       dataType: 'json',
