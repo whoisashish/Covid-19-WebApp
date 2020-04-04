@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>COVID19 Tracker</title>
+  <meta name="description" content="India's very own Covid-19 Tracking Dashboard with availability to track covid spread in other countries too.">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript,CoronaVirus,corona,CORONAVIRUS,coronavirus,CoVid,covid19,CoVid-19,noval">
+  <meta name="author" content="Ashish Yadav">
+  <meta name="url" content="https://stayhomestaysafe.ml">
+  <script src="myscript.js" charset="utf-8"></script>
+  <script src="d3.min.js" charset="utf-8"></script>
+  <script src="crossfilter.min.js" charset="utf-8"></script>
+  <script src="dc.min.js" charset="utf-8"></script>
+  <script src="jquery.min.js" charset="utf-8"></script>
+  <script src="bootstrap.min.js" charset="utf-8"></script>
+  <script src="india.js" charset="utf-8"></script>
+  <script src="viz.js" charset="utf-8"></script>
+  <script src="https://kit.fontawesome.com/5b941bf5b1.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <style media="screen">
+    g.deselected,
+    rect.deselected {
+      opacity: 0.3;
+    }
+
+    g.state.selected path {
+      fill: #A1DA9B;
+    }
+  </style>
+</head>
+
+<body>
+  <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <span class="navbar-brand">COVID-19 Dashboard <span class="by">by <a href="https://www.instagram.com/who.is.ashish">ASHISH</a></span></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="india.html">Indian statistics</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="all.html">Global statistics</a>
+        </li>
+        <li class="nav-item">
+          <a class="a3 nav-link" href="corona.html">All about Corona</a>
+        </li>
+        <li class="nav-item">
+          <a class="a3 nav-link" href="game.html">Play Games</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="news.html">News and Updates</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="checkup.html">Self-checkup</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#footer">Helpline</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<br />
+<div class="all s2">
+  <h4 class="descheading">Play Games in Quarantine</h4>
+  <hr />
+  <div class="card-deck">
+    <div class="card game1">
+    <img src="https://i.ibb.co/Wn5Zv1d/bounceball300200.jpg" class="card-img-top">
+    <div class="card-body">
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Play</button>
+    </div>
+    </div>
+    <div class="card game2">
+    <img src="https://i.ibb.co/RYv9MZb/trickball300200.jpg" class="card-img-top">
+    <div class="card-body">
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">Play</button>
+    </div>
+    </div>
+    <div class="card game3">
+    <img src="https://i.ibb.co/Tv3hQ8Z/carparking-300.jpg" class="card-img-top">
+    <div class="card-body">
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal3">Play</button>
+    </div>
+    </div>
+    <div class="card game4">
+    <img src="https://i.ibb.co/5s40WLs/battleships300.jpg" class="card-img-top">
+    <div class="card-body">
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal4">Play</button>
+    </div>
+    </div>
+  </div><br class="space" />
+  <div class="card-deck">
+    <div class="card game5">
+    <img src="https://i.ibb.co/DbJWKpX/connect4300.jpg" class="card-img-top">
+    <div class="card-body">
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal5">Play</button>
+    </div>
+    </div>
+    <div class="card game6">
+    <img src="https://i.ibb.co/rbmnff2/dailykillersudoku300.jpg" class="card-img-top">
+    <div class="card-body">
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal6">Play</button>
+    </div>
+    </div>
+    <div class="card game7">
+    <img src="https://i.ibb.co/QHQBS6Z/farmstacker300200.jpg" class="card-img-top">
+    <div class="card-body">
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal7">Play</button>
+    </div>
+    </div>
+    <div class="card game8">
+    <img src="https://i.ibb.co/M172Mjn/alieninvaders2300.jpg" class="card-img-top">
+    <div class="card-body">
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal8">Play</button>
+    </div>
+    </div>
+  </div>
+  <br class="space" />
+  <div class="card-deck">
+    <div class="card game9">
+    <img src="https://i.ibb.co/8jtdMQS/tapman300.jpg" class="card-img-top">
+    <div class="card-body">
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal9">Play</button>
+    </div>
+    </div>
+    <div class="card game10">
+    <img src="https://i.ibb.co/27ck3NN/Snowman300200.jpg" class="card-img-top">
+    <div class="card-body">
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal10">Play</button>
+    </div>
+    </div>
+    <div class="card game11">
+    <img src="https://i.ibb.co/WKCKnGz/robotcrossroad300.jpg" class="card-img-top">
+    <div class="card-body">
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal11">Play</button>
+    </div>
+    </div>
+    <div class="card game12">
+    <img src="https://i.ibb.co/fDxT9YH/reversi300.jpg" class="card-img-top">
+    <div class="card-body">
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal12">Play</button>
+    </div>
+    </div>
+  </div>
+  <hr /><br />
+</div>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-body" id="game1">
+          <div>
+<script src="https://cdn.htmlgames.com/embed.js?game=BounceBall&amp;&amp;bgcolor=white"></script>
+</div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary btn-lg" onclick="openFullscreen();">Full Screen</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Exit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="myModal2" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body" id="game2">
+            <div>
+  <script src="https://cdn.htmlgames.com/embed.js?game=TrickBall&amp;&amp;bgcolor=white"></script>
+  </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary btn-lg" onclick="openFullscreen2();">Full Screen</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Exit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="myModal3" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-body" id="game3">
+              <div>
+  <script src="https://cdn.htmlgames.com/embed.js?game=CarParking&amp;&amp;bgcolor=white"></script>
+  </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary btn-lg" onclick="openFullscreen3();">Full Screen</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Exit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="myModal4" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-body" id="game4">
+                <div>
+  <script src="https://cdn.htmlgames.com/embed.js?game=Battleships&amp;&amp;bgcolor=white"></script>
+  </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-primary btn-lg" onclick="openFullscreen4();">Full Screen</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Exit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="myModal5" role="dialog">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-body" id="game5">
+                  <div>
+  <script src="https://cdn.htmlgames.com/embed.js?game=ConnectFour&amp;&amp;bgcolor=white"></script>
+  </div>
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-primary btn-lg" onclick="openFullscreen5();">Full Screen</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Exit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="myModal6" role="dialog">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-body" id="game6">
+                    <div>
+  <script src="https://cdn.htmlgames.com/embed.js?game=DailyKillerSudoku&amp;&amp;bgcolor=white"></script>
+  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-primary btn-lg" onclick="openFullscreen6();">Full Screen</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Exit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal fade" id="myModal7" role="dialog">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-body" id="game7">
+                      <div>
+  <script src="https://cdn.htmlgames.com/embed.js?game=FarmStacker&amp;&amp;bgcolor=white"></script>
+  </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button class="btn btn-primary btn-lg" onclick="openFullscreen7();">Full Screen</button>
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Exit</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal fade" id="myModal8" role="dialog">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-body" id="game8">
+                        <div>
+  <script src="https://cdn.htmlgames.com/embed.js?game=AlienInvaders2&amp;&amp;bgcolor=white"></script>
+  </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-primary btn-lg" onclick="openFullscreen8();">Full Screen</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Exit</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal fade" id="myModal9" role="dialog">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-body" id="game9">
+                          <div>
+    <script src="https://cdn.htmlgames.com/embed.js?game=Tapman&amp;&amp;bgcolor=white"></script>
+    </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button class="btn btn-primary btn-lg" onclick="openFullscreen9();">Full Screen</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Exit</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal fade" id="myModal10" role="dialog">
+                      <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                          <div class="modal-body" id="game10">
+                            <div>
+  <script src="https://cdn.htmlgames.com/embed.js?game=SnowMan&amp;&amp;bgcolor=white"></script>
+  </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button class="btn btn-primary btn-lg" onclick="openFullscreen10();">Full Screen</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Exit</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal fade" id="myModal11" role="dialog">
+                        <div class="modal-dialog modal-lg">
+                          <div class="modal-content">
+                            <div class="modal-body" id="game11">
+                              <div>
+    <script src="https://cdn.htmlgames.com/embed.js?game=RobotCrossRoad&amp;&amp;bgcolor=white"></script>
+    </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button class="btn btn-primary btn-lg" onclick="openFullscreen11();">Full Screen</button>
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Exit</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal fade" id="myModal12" role="dialog">
+                          <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                              <div class="modal-body" id="game12">
+                                <div>
+  <script src="https://cdn.htmlgames.com/embed.js?game=Reversi&amp;&amp;bgcolor=white"></script>
+  </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button class="btn btn-primary btn-lg" onclick="openFullscreen12();">Full Screen</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Exit</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+<div id="gamewindow4">
+  <script>
+  var elem = document.getElementById("game1");
+  var elem2 = document.getElementById("game2");
+  var elem3 = document.getElementById("game3");
+  var elem4 = document.getElementById("game4");
+  var elem5 = document.getElementById("game5");
+  var elem6 = document.getElementById("game6");
+  var elem7 = document.getElementById("game7");
+  var elem8 = document.getElementById("game8");
+  var elem9 = document.getElementById("game9");
+  var elem10 = document.getElementById("game10");
+  var elem11 = document.getElementById("game11");
+  var elem12 = document.getElementById("game12");
+  function openFullscreen() {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+      elem.msRequestFullscreen();
+    }
+  }
+  function openFullscreen2() {
+    if (elem2.requestFullscreen) {
+      elem2.requestFullscreen();
+    } else if (elem2.mozRequestFullScreen) { /* Firefox */
+      elem2.mozRequestFullScreen();
+    } else if (elem2.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+      elem2.webkitRequestFullscreen();
+    } else if (elem2.msRequestFullscreen) { /* IE/Edge */
+      elem2.msRequestFullscreen();
+    }
+  }
+  function openFullscreen3() {
+    if (elem3.requestFullscreen) {
+      elem3.requestFullscreen();
+    } else if (elem3.mozRequestFullScreen) { /* Firefox */
+      elem3.mozRequestFullScreen();
+    } else if (elem3.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+      elem3.webkitRequestFullscreen();
+    } else if (elem3.msRequestFullscreen) { /* IE/Edge */
+      elem3.msRequestFullscreen();
+    }
+  }
+  function openFullscreen4() {
+    if (elem4.requestFullscreen) {
+      elem4.requestFullscreen();
+    } else if (elem4.mozRequestFullScreen) { /* Firefox */
+      elem4.mozRequestFullScreen();
+    } else if (elem4.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+      elem4.webkitRequestFullscreen();
+    } else if (elem4.msRequestFullscreen) { /* IE/Edge */
+      elem4.msRequestFullscreen();
+    }
+  }
+  function openFullscreen5() {
+    if (elem5.requestFullscreen) {
+      elem5.requestFullscreen();
+    } else if (elem5.mozRequestFullScreen) { /* Firefox */
+      elem5.mozRequestFullScreen();
+    } else if (elem5.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+      elem5.webkitRequestFullscreen();
+    } else if (elem5.msRequestFullscreen) { /* IE/Edge */
+      elem5.msRequestFullscreen();
+    }
+  }
+  function openFullscreen6() {
+    if (elem6.requestFullscreen) {
+      elem6.requestFullscreen();
+    } else if (elem6.mozRequestFullScreen) { /* Firefox */
+      elem6.mozRequestFullScreen();
+    } else if (elem6.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+      elem6.webkitRequestFullscreen();
+    } else if (elem6.msRequestFullscreen) { /* IE/Edge */
+      elem6.msRequestFullscreen();
+    }
+  }
+  function openFullscreen7() {
+    if (elem7.requestFullscreen) {
+      elem7.requestFullscreen();
+    } else if (elem7.mozRequestFullScreen) { /* Firefox */
+      elem7.mozRequestFullScreen();
+    } else if (elem7.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+      elem7.webkitRequestFullscreen();
+    } else if (elem7.msRequestFullscreen) { /* IE/Edge */
+      elem7.msRequestFullscreen();
+    }
+  }
+  function openFullscreen8() {
+    if (elem8.requestFullscreen) {
+      elem8.requestFullscreen();
+    } else if (elem8.mozRequestFullScreen) { /* Firefox */
+      elem8.mozRequestFullScreen();
+    } else if (elem8.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+      elem8.webkitRequestFullscreen();
+    } else if (elem8.msRequestFullscreen) { /* IE/Edge */
+      elem8.msRequestFullscreen();
+    }
+  }
+  function openFullscreen9() {
+    if (elem9.requestFullscreen) {
+      elem9.requestFullscreen();
+    } else if (elem9.mozRequestFullScreen) { /* Firefox */
+      elem9.mozRequestFullScreen();
+    } else if (elem9.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+      elem9.webkitRequestFullscreen();
+    } else if (elem9.msRequestFullscreen) { /* IE/Edge */
+      elem9.msRequestFullscreen();
+    }
+  }
+  function openFullscreen10() {
+    if (elem10.requestFullscreen) {
+      elem10.requestFullscreen();
+    } else if (elem10.mozRequestFullScreen) { /* Firefox */
+      elem10.mozRequestFullScreen();
+    } else if (elem10.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+      elem10.webkitRequestFullscreen();
+    } else if (elem10.msRequestFullscreen) { /* IE/Edge */
+      elem10.msRequestFullscreen();
+    }
+  }
+  function openFullscreen11() {
+    if (elem11.requestFullscreen) {
+      elem11.requestFullscreen();
+    } else if (elem11.mozRequestFullScreen) { /* Firefox */
+      elem11.mozRequestFullScreen();
+    } else if (elem11.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+      elem11.webkitRequestFullscreen();
+    } else if (elem11.msRequestFullscreen) { /* IE/Edge */
+      elem111.msRequestFullscreen();
+    }
+  }
+  function openFullscreen12() {
+    if (elem12.requestFullscreen) {
+      elem12.requestFullscreen();
+    } else if (elem12.mozRequestFullScreen) { /* Firefox */
+      elem12.mozRequestFullScreen();
+    } else if (elem12.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+      elem12.webkitRequestFullscreen();
+    } else if (elem12.msRequestFullscreen) { /* IE/Edge */
+      elem12.msRequestFullscreen();
+    }
+  }
+  </script>
+</div>
+<div class='scrolltop'>
+  <div class='scroll icon'><i class="fa fa-4x fa-angle-up"></i></div>
+</div>
+<div class='languagetop'>
+  <a href="gamehindi.html"><div class='language icon'>हिन्दी</div></a>
+</div>
+<div id="footer">
+<div class="copy">
+  © AjmerSuman 2020
+</div><br>
+<div class="mygov">
+  <ul>
+    <li class="a1 descheading" id="help"><br /><strong>GOVERNMENT HELPLINE</strong></li><br><br>
+    <li class="a1"><a href="https://wa.me/+919013151515"><i class="fab fa-whatsapp"></i></a></li>
+    <li class="a1" id="myInput"><a href="tel:+911123978046 "><i class="fas fa-phone"></i></a></li>
+    <li class="a1"><a href="mailto:ncov2019@gov.in"><i class="far fa-envelope"></i></a></li>
+  </ul>
+</div>
+<div class="me">
+  <ul>
+    <br /><strong class="descheading">&nbsp;&nbsp;FOLLOW ME</strong><br><br>
+    <li class="a1"><a href="https://www.instagram.com/who.is.ashish"><i class="fab fa-instagram"></i></a></li>
+    <li class="a1"><a href="https://www.linkedin.com/in/ashish-yadav-5558a4179"><i class="fab fa-linkedin-in"></i></a></li>
+    <li class="a1"><a href="mailto:nowwhoisashish@gmail.com"><i class="far fa-envelope"></i></a></li>
+  </ul>
+</div>
+<div class="sources">Data sources
+  <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports">WHO</a>,
+  <a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html">CDC</a>,
+  <a href="https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases">ECDC</a>,
+  <a href="http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml">NHC</a> and
+  <a href="https://3g.dxy.cn/newh5/view/pneumonia?scene=2&amp;clicktime=1579582238&amp;enterid=1579582238&amp;from=singlemessage&amp;isappinstalled=0">DXY</a>
+  provided by <a href="https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6">Johns Hopkins CSSE</a>.<br />Indian <a
+    href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSc_2y5N0I67wDU38DjDh35IZSIS30rQf7_NYZhtYYGU1jJYT6_kDx4YpF-qw0LSlGsBYP8pqM_a1Pd/pubhtml">DataBase</a> on Covid-19 spread.
+</div>
+<div class="copy">
+  <!-- Start of WebFreeCounter Code -->
+<img src="https://www.webfreecounter.com/hit.php?id=gvkopno&nd=6&style=17" border="0" alt="visitor counter">
+<!-- End of WebFreeCounter Code -->
+</div>
+</div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js'></script>
+<script src='https://www.vantajs.com/dist/vanta.cells.min.js'></script>
+<script src="./script.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-43322397-2"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+
+function gtag() {
+  dataLayer.push(arguments);
+}
+gtag('js', new Date());
+
+gtag('config', 'UA-43322397-2');
+</script>
+<script>
+jQuery($ => {
+  // The speed of the scroll in milliseconds
+  const speed = 1000;
+
+  $('a[href*="#"]')
+    .filter((i, a) => a.getAttribute('href').startsWith('#') || a.href.startsWith(`${location.href}#`))
+    .unbind('click.smoothScroll')
+    .bind('click.smoothScroll', event => {
+      const targetId = event.currentTarget.getAttribute('href').split('#')[1];
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        event.preventDefault();
+        $('html, body').animate({ scrollTop: $(targetElement).offset().top }, speed);
+      }
+    });
+});
+</script>
+<script type="text/javascript">
+/*for scrolling to top*/
+$(window).scroll(function() {
+  if ($(this).scrollTop() > 50) {
+    $('.scrolltop:hidden').stop(true, true).fadeIn();
+  } else {
+    $('.scrolltop').stop(true, true).fadeOut();
+  }
+});
+$(function() {
+  $(".scroll").click(function() {
+    $("html,body").animate({
+      scrollTop: $(".all").offset().top
+    }, "1000");
+    return false
+  })
+})
+</script>
+<script>
+/*for header hiding*/
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+  var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("header").style.top = "0";
+  } else {
+    document.getElementById("header").style.top = "-359px";
+  }
+  prevScrollpos = currentScrollPos;
+}
+</script>
+
+</body>
+
+</html>
